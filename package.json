@@ -1,0 +1,19 @@
+{
+  "name": "intel-global-nav",
+  "version": "2.0.1",
+  "description": "The new version of the intel global navigation that puts an emphasis on usability and microinteractions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Intel-Agency-Inside/global-navigation.git"
+  },
+  "author": "Adam Trimble",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Intel-Agency-Inside/global-navigation/issues"
+  },
+  "homepage": "https://github.com/Intel-Agency-Inside/global-navigation#readme"
+}
