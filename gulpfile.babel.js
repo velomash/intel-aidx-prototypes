@@ -36,7 +36,7 @@ gulp.task('build', callback => {
 gulp.task('build:prod', callback => {
     sequence('clean:dist', ['sprites:dev', 'less:prod', 'copy:assets', 'markup:dev', 'scripts:prod', 'replace:prod'], callback);
 });
-gulp.task('watch', ['sprites:watch', 'less:watch', 'copy:assets', 'markup:watch', 'scripts:watch']);
+gulp.task('watch', ['sprites:watch', 'less:watch', 'copy:watch', 'markup:watch', 'scripts:watch']);
 gulp.task('serve', callback => {
     sequence('build', 'server:start', 'watch', callback);
 });

@@ -1,14 +1,73 @@
+@import 'font-families.less';
+
 nav.top-level {
+    color: white;
+    font-family: 'intel-clear';
+    -webkit-font-smoothing: antialiased;
     .top-bar {
         height: 60px;
         background-color: #0070c5;
-        text-align: center;
+        .flyout-trigger {
+            cursor: pointer;
+        }
+        .left-menu {
+            float: left;
+            .hamburger-menu {
+                display: inline-block;
+                vertical-align: top;
+                width: 88px;
+                height: 60px;
+                .bar {
+                    position: absolute;
+                    left: 29px;
+                    height: 2px;
+                    width: 30px;
+                    border-radius: 1px;
+                    background-color: white;
+                }
+                .bar-1 {
+                    top: 18px;
+                }
+                .bar-2 {
+                    top: 28px;
+                }
+                .bar-3 {
+                    top: 38px;
+                }
+            }
+            .site-name {
+                display: inline-block;
+                vertical-align: top;
+                font-size: 18px;
+                line-height: 58px;
+            }
+        }
         .logo {
-            display: inline-block;
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 50%;
             width: 82px;
             height: 60px;
             padding: 8px;
+            margin-left: -41px;
         }
+        .right-menu {
+            float: right;
+            font-size: 16px;
+            button {
+                display: inline-block;
+                line-height: 60px;
+                padding: 0 15px;
+            }
+        }
+    }
+    button {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        outline: 0;
     }
     svg {
         max-width: 100%;

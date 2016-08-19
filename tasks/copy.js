@@ -1,6 +1,6 @@
 module.exports = (gulp, options) => {
-    const srcPath = options.getPath('src', 'assets/VR-ASSETS/', '**/*');
-    const distPath = options.getPath('dist', 'assets/VR-ASSETS/');
+    const srcPath = options.getPath('src', 'assets', '**/*');
+    const distPath = options.getPath('dist', 'assets');
 
     gulp.task('copy:assets', () => gulp.src(srcPath).pipe(gulp.dest(distPath)));
 
