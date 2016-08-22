@@ -7,7 +7,7 @@ const webpackDevConfig = {
     debug: true,
     devtool: 'source-map',
     entry: {
-        "global-nav": ['./scripts/global-nav.js'],
+        'global-nav': ['./scripts/global-nav.js'],
     },
     output: {
         path: path.join(__dirname, 'dist'),
@@ -18,13 +18,10 @@ const webpackDevConfig = {
     },
     plugins: [
         new webpack.ProvidePlugin({
-            THREE: 'exports?THREE!three',
+            $: 'jquery',
+            jQuery: 'jquery',
         })
     ],
-    externals: {
-        "$": "jquery",
-        "jQuery": "jquery",
-    },
     module: {
         loaders: [{
             test: /\.js$/,
@@ -59,8 +56,8 @@ const webpackProdConfig = {
         })
     ],
     externals: {
-        "$": "jquery",
-        "jQuery": "jquery",
+        $: 'jquery',
+        jQuery: 'jquery',
     },
     module: {
         loaders: [{
@@ -69,7 +66,7 @@ const webpackProdConfig = {
             loader: 'babel-loader',
             query: {
                 presets: ['es2015'],
-                plugins: ["transform-object-assign"],
+                plugins: ['transform-object-assign'],
             }
         }],
         resolve: {
