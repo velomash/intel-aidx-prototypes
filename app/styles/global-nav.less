@@ -156,13 +156,41 @@
             padding-top: 82px;
             transform: translate3d(100%, 0, 0);
             transition: transform 300ms cubic-bezier(0.860, 0.000, 0.070, 1.000);
+            header {
+                position: relative;
+                text-align: center;
+                margin-bottom: 11px;
+                .back {
+                    position: absolute;
+                    top: 0;
+                    left: -22px;
+                    font-size: 14px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    color: @light-gray;
+                    line-height: 44px;
+                    padding: 0 22px;
+                }
+                h4 {
+                    display: inline-block;
+                    vertical-align: middle;
+                    font-weight: bold;
+                    line-height: 44px;
+                    margin: 0;
+                    padding: 0;
+                }
+            }
             a {
                 display: block;
                 line-height: 44px;
+                text-decoration: none;
                 color: white;
                 &:hover {
                     color: @pale-blue;
                 }
+            }
+            hr {
+                border-color: @dark-gray;
             }
             &.active {
                 transform: translate3d(0, 0, 0);

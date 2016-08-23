@@ -13,7 +13,8 @@ class IntelGlobalNavigation {
         this.nav = navDomElement;
         this.attachEventHandlers({
             '[data-flyout]': this.onFlyoutTrigger,
-            '.submenu': this.openPlank,
+            '.open-plank': this.openPlank,
+            '.plank .back': this.popPlank,
             '.shader': this.closeFlyout,
         });
     }
@@ -43,6 +44,11 @@ class IntelGlobalNavigation {
     }
     closeFlyout() {
         this.nav.classList.remove('flyout-active', `${this.activeFlyout.id}-active`);
+        for (var i=1; i<this.activePlanks.length; i++) {
+            this.activePlanks[i].classList.remove('pushed', 'active');
+        }
+        this.activePlanks[0].classList.remove('pushed');
+        this.activePlanks = undefined;
         this.activeFlyout = undefined;
     }
     openPlank(event) {
@@ -56,7 +62,12 @@ class IntelGlobalNavigation {
             this.activePlanks[this.activePlanks.length - 1].classList.add('pushed');
             this.activePlanks.push(targetPlank);
         }
-        console.log(targetPlank);
+    }
+    popPlank() {
+        event.preventDefault();
+        this.activePlanks[this.activePlanks.length - 1].classList.remove('active');
+        this.activePlanks.pop();
+        this.activePlanks[this.activePlanks.length - 1].classList.remove('pushed');
     }
 }
 
