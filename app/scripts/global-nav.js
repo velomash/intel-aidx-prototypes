@@ -11,10 +11,17 @@ import delegate from 'delegate';
 class IntelGlobalNavigation {
     constructor(navDomElement) {
         this.nav = navDomElement;
-        delegate(this.nav, '[data-flyout]', 'click', this.onFlyoutTrigger.bind(this));
-        delegate(this.nav, '[data-flyout]', 'touchend', this.onFlyoutTrigger.bind(this));
-        delegate(this.nav, '.shader', 'click', this.closeFlyout.bind(this));
-        delegate(this.nav, '.shader', 'touchend', this.closeFlyout.bind(this));
+        this.attachEventHandlers({
+            '[data-flyout]': this.onFlyoutTrigger,
+            '.submenu': this.openPlank,
+            '.shader': this.closeFlyout,
+        });
+    }
+    attachEventHandlers(events) {
+        Object.keys(events).forEach(selector => {
+            delegate(this.nav, selector, 'click', events[selector].bind(this));
+            delegate(this.nav, selector, 'touchend', events[selector].bind(this));
+        });
     }
     onFlyoutTrigger(event) {
         const targetFlyout = document.getElementById(event
@@ -31,11 +38,25 @@ class IntelGlobalNavigation {
             this.nav.classList.remove(`${this.activeFlyout.id}-active`);
         }
         this.activeFlyout = targetFlyout;
+        this.activePlanks = [this.activeFlyout.querySelector('.plank.active')];
         this.nav.classList.add('flyout-active', `${this.activeFlyout.id}-active`);
     }
     closeFlyout() {
         this.nav.classList.remove('flyout-active', `${this.activeFlyout.id}-active`);
         this.activeFlyout = undefined;
+    }
+    openPlank(event) {
+        event.preventDefault();
+        const targetPlank = document.getElementById(event
+            .delegateTarget
+            .getAttribute('href')
+            .slice(1));
+        if (targetPlank) {
+            targetPlank.classList.add('active');
+            this.activePlanks[this.activePlanks.length - 1].classList.add('pushed');
+            this.activePlanks.push(targetPlank);
+        }
+        console.log(targetPlank);
     }
 }
 
