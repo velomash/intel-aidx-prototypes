@@ -30,11 +30,24 @@
             background-color: transparent;
             outline: 0;
             z-index: 500;
+            overflow: hidden;
             &:hover {
                 color: @pale-blue;
             }
             &:last-child {
                 padding-right: 22px;
+            }
+            &:after {
+                position: absolute;
+                display: block;
+                content: ' ';
+                left: 11px;
+                right: 11px;
+                bottom: 0;
+                height: 3px;
+                background-color: @pale-blue;
+                transform: translate3d(0, 5px, 0);
+                transition: transform 300ms 100ms;
             }
         }
         .main-menu {
@@ -80,6 +93,9 @@
                 .bar {
                     background-color: @pale-blue;
                 }
+            }
+            &:after {
+                left: 80px;
             }
         }
         .logo {
@@ -139,15 +155,20 @@
         }
     }
     &.microsite-flyout-active {
-        .main-menu .hamburger-menu {
-            .bar-1 {
-                transform: rotate3d(0, 0, 1, 45deg) translate3d(0, 0, 0) scale3d(1.4, 1, 1);
+        .main-menu {
+            &:after {
+                transform: translate3d(0, 0, 0);
             }
-            .bar-2 {
-                opacity: 0;
-            }
-            .bar-3 {
-                transform: rotate3d(0, 0, 1, -45deg) translate3d(0, 0, 0) scale3d(1.4, 1, 1);
+            .hamburger-menu {
+                .bar-1 {
+                    transform: rotate3d(0, 0, 1, 45deg) translate3d(0, 0, 0) scale3d(1.4, 1, 1);
+                }
+                .bar-2 {
+                    opacity: 0;
+                }
+                .bar-3 {
+                    transform: rotate3d(0, 0, 1, -45deg) translate3d(0, 0, 0) scale3d(1.4, 1, 1);
+                }
             }
         }
         #microsite-flyout {
@@ -155,16 +176,25 @@
         }
     }
     &.region-flyout-active {
+        .region-select:after {
+            transform: translate3d(0, 0, 0);
+        }
         #region-flyout {
             transform: translate3d(0, 0, 0);
         }
     }
     &.signin-flyout-active {
+        .sign-in:after {
+            transform: translate3d(0, 0, 0);
+        }
         #signin-flyout {
             transform: translate3d(0, 0, 0);
         }
     }
     &.search-flyout-active {
+        .search:after {
+            transform: translate3d(0, 0, 0);
+        }
         #search-flyout {
             transform: translate3d(0, 0, 0);
         }
