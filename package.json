@@ -11,6 +11,7 @@
   "homepage": "https://github.com/Intel-Agency-Inside/global-navigation#readme",
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "delegate": "^3.0.1",
     "engine-handlebars": "^0.8.0",
     "jquery": "^3.1.0",
     "json-loader": "^0.5.4",

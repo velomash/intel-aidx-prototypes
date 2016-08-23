@@ -19,6 +19,7 @@
         text-align: right;
         a,
         button {
+            position: relative;
             display: inline-block;
             vertical-align: top;
             height: 100%;
@@ -28,6 +29,7 @@
             padding: 0 11px;
             background-color: transparent;
             outline: 0;
+            z-index: 500;
             &:hover {
                 color: @pale-blue;
             }
@@ -36,10 +38,8 @@
             }
         }
         .main-menu {
-            position: relative;
             float: left;
             padding-left: 22px;
-            z-index: 500;
             .hamburger-menu {
                 position: relative;
                 display: inline-block;
@@ -99,11 +99,12 @@
         left: 0;
         width: 0;
         height: 0;
+        cursor: pointer;
         background-color: rgba(0, 0, 0, 0);
         z-index: 50;
         transition: background-color 200ms;
     }
-    .flyout-panel {
+    .flyout {
         position: absolute;
         top: 0;
         left: 0;
@@ -123,6 +124,11 @@
             content: ' ';
             background-color: #333;
         }
+        &.from-right {
+            left: auto;
+            right: 0;
+            transform: translate3d(100%, 0, 0);
+        }
     }
     &.flyout-active {
         height: 100%;
@@ -131,9 +137,8 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
         }
-        .flyout-panel {
-            transform: translate3d(0, 0, 0);
-        }
+    }
+    &.microsite-flyout-active {
         .main-menu .hamburger-menu {
             .bar-1 {
                 transform: rotate3d(0, 0, 1, 45deg) translate3d(0, 0, 0) scale3d(1.4, 1, 1);
@@ -144,6 +149,24 @@
             .bar-3 {
                 transform: rotate3d(0, 0, 1, -45deg) translate3d(0, 0, 0) scale3d(1.4, 1, 1);
             }
+        }
+        #microsite-flyout {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    &.region-flyout-active {
+        #region-flyout {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    &.signin-flyout-active {
+        #signin-flyout {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    &.search-flyout-active {
+        #search-flyout {
+            transform: translate3d(0, 0, 0);
         }
     }
 }
