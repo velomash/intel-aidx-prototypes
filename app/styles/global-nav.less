@@ -266,10 +266,6 @@
     }
     &.flyout-active {
         height: 100%;
-        .flyout.from-right .flyout-close {
-            opacity: 1;
-            transition: opacity 200ms 300ms;
-        }
         .shader {
             width: 100%;
             height: 100%;
@@ -296,6 +292,10 @@
             }
         }
         #microsite-flyout {
+            .flyout-close {
+                opacity: 1;
+                transition: opacity 200ms 300ms;
+            }
             transform: translate3d(0, 0, 0);
         }
     }
@@ -305,6 +305,10 @@
             transition: transform 300ms 100ms;
         }
         #region-flyout {
+            .flyout-close {
+                opacity: 1;
+                transition: opacity 200ms 300ms;
+            }
             transform: translate3d(0, 0, 0);
         }
     }
@@ -314,6 +318,10 @@
             transition: transform 300ms 100ms;
         }
         #signin-flyout {
+            .flyout-close {
+                opacity: 1;
+                transition: opacity 200ms 300ms;
+            }
             transform: translate3d(0, 0, 0);
         }
     }
@@ -323,7 +331,32 @@
             transition: transform 300ms 100ms;
         }
         #search-flyout {
+            .flyout-close {
+                opacity: 1;
+                transition: opacity 200ms 300ms;
+            }
             transform: translate3d(0, 0, 0);
+        }
+    }
+
+    #search-flyout {
+        form.search {
+            position: relative;
+            height: 60px;
+            margin: -22px -22px 22px -22px;
+        }
+        #mobile-search {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            border: 0;
+            padding-left: 66px;
+            background-color: transparent;
+            font-weight: 200;
+            font-size: 22px;
+            outline: 0;
         }
     }
 
