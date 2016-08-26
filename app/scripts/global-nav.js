@@ -15,6 +15,7 @@ class IntelGlobalNavigation {
             '[data-flyout]': this.onFlyoutTrigger,
             '.open-plank': this.openPlank,
             '.plank .back': this.popPlank,
+            '.flyout-close': this.closeFlyout,
             '.shader': this.closeFlyout,
         });
     }
@@ -44,10 +45,10 @@ class IntelGlobalNavigation {
     }
     closeFlyout() {
         this.nav.classList.remove('flyout-active', `${this.activeFlyout.id}-active`);
-        for (var i=1; i<this.activePlanks.length; i++) {
+        for (var i=0; i<this.activePlanks.length; i++) {
             this.activePlanks[i].classList.remove('pushed', 'active');
         }
-        this.activePlanks[0].classList.remove('pushed');
+        this.activePlanks[0].classList.add('active');
         this.activePlanks = undefined;
         this.activeFlyout = undefined;
     }
