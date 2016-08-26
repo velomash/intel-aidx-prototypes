@@ -358,6 +358,22 @@
             font-size: 22px;
             outline: 0;
         }
+        ul {
+            padding-left: 0;
+            li {
+                list-style: none;
+                a {
+                    display: block;
+                    line-height: 32px;
+                    text-decoration: none;
+                    color: white;
+                    outline: 0;
+                    &:hover {
+                        color: @pale-blue;
+                    }
+                }
+            }
+        }
     }
 
     // the shader dims page content
