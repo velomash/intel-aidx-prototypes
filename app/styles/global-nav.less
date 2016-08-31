@@ -34,8 +34,9 @@
             vertical-align: top;
             padding: 0 11px;
             overflow: hidden;
-            &:hover {
-                color: @pale-blue;
+            transition: color 75ms;
+            svg {
+                transition: fill 75ms;
             }
             &:before {
                 position: absolute;
@@ -48,6 +49,12 @@
                 background-color: @pale-blue;
                 transform: translate3d(0, 5px, 0);
                 transition: transform 300ms;
+            }
+            &:hover {
+                color: @pale-blue;
+                svg {
+                    fill: @pale-blue;
+                }
             }
         }
 
@@ -130,46 +137,18 @@
                     display: inline-block;
                     vertical-align: middle;
                 }
-                &:after {
-                    content: ' ';
+                figure {
                     width: 20px;
                     height: 20px;
                     display: inline-block;
                     margin: 2px 0 0 2px;
                     vertical-align: middle;
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    background-size: 20px 20px;
-                }
-            }
-            .region-select:after {
-                background-image: url('assets/imgs/globe-white.png');
-                @media
-                (-webkit-min-device-pixel-ratio: 2),
-                (min-resolution: 192dpi) {
-                    background-image: url('assets/imgs/globe-white.png');
-                }
-            }
-            .sign-in:after {
-                background-image: url('assets/imgs/signin-white.png');
-                @media
-                (-webkit-min-device-pixel-ratio: 2),
-                (min-resolution: 192dpi) {
-                    background-image: url('assets/imgs/signin-white.png');
                 }
             }
             .search {
                 padding-right: 22px;
                 &:before {
                     right: 22px;
-                }
-                &:after {
-                    background-image: url('assets/imgs/search-white.png');
-                    @media
-                    (-webkit-min-device-pixel-ratio: 2),
-                    (min-resolution: 192dpi) {
-                        background-image: url('assets/imgs/search-white.png');
-                    }
                 }
             }
         }
@@ -232,6 +211,13 @@
                     background-color: @pale-blue;
                 }
             }
+        }
+        &#search-flyout .search-icon {
+            position: absolute;
+            top: 20px;
+            left: 24px;
+            width: 20px;
+            height: 20px;
         }
 
         // planks represent levels of navigation
@@ -365,9 +351,17 @@
             z-index: 500;
             transition: z-index 300ms step-start;
         }
-        .region-select:before {
-            transform: translate3d(0, 0, 0);
-            transition: transform 300ms 100ms;
+        .region-select {
+            &:hover {
+                color: white;
+                svg {
+                    fill: white;
+                }
+            }
+            &:before {
+                transform: translate3d(0, 0, 0);
+                transition: transform 300ms 100ms;
+            }
         }
         #region-flyout {
             .flyout-close {
@@ -382,9 +376,17 @@
             z-index: 500;
             transition: z-index 300ms step-start;
         }
-        .sign-in:before {
-            transform: translate3d(0, 0, 0);
-            transition: transform 300ms 100ms;
+        .sign-in {
+            &:hover {
+                color: white;
+                svg {
+                    fill: white;
+                }
+            }
+            &:before {
+                transform: translate3d(0, 0, 0);
+                transition: transform 300ms 100ms;
+            }
         }
         #signin-flyout {
             .flyout-close {
@@ -399,9 +401,17 @@
             z-index: 500;
             transition: z-index 300ms step-start;
         }
-        .search:before {
-            transform: translate3d(0, 0, 0);
-            transition: transform 300ms 100ms;
+        .search {
+            &:hover {
+                color: white;
+                svg {
+                    fill: white;
+                }
+            }
+            &:before {
+                transform: translate3d(0, 0, 0);
+                transition: transform 300ms 100ms;
+            }
         }
         #search-flyout {
             .flyout-close {
