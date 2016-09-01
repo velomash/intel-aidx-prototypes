@@ -1,3 +1,4 @@
+@import 'bootstrap.less';
 @import 'font-families.less';
 @import 'intel-colors.less';
 
@@ -96,6 +97,7 @@
                     transition: transform 200ms;
                 }
             }
+            .macrosite-menu,
             .microsite-menu {
                 .site-name {
                     display: inline-block;
@@ -112,6 +114,15 @@
                 &:before {
                     left: 22px;
                 }
+            }
+            .macrosite-menu {
+                max-width: 0;
+                transition: all 300ms;
+                overflow: hidden;
+                padding: 0;
+            }
+            button {
+                white-space: nowrap;
             }
             .products {
                 padding-left: 22px;
@@ -141,8 +152,14 @@
             transition: z-index 300ms step-end;
             button {
                 .text {
+                    position: relative;
                     display: inline-block;
                     vertical-align: middle;
+                    padding: 10px 0;
+                    white-space: nowrap;
+                    line-height: 100%;
+                    max-width: 100px;
+                    overflow: hidden;
                 }
                 figure {
                     width: 20px;
@@ -162,7 +179,7 @@
     }
 
     // flyouts are the dark navigation
-    // panels which have links, etc
+    // plates which have links, etc
     .flyout {
         position: absolute;
         top: 0;
@@ -558,5 +575,54 @@
         background-color: rgba(0, 0, 0, 0);
         z-index: 50;
         transition: background-color 200ms, width 0ms 200ms, height 0ms 200ms;
+    }
+
+    @media (max-width: @screen-md) {
+        .top-bar {
+            .primary-buttons {
+                .macrosite-menu {
+                    max-width: 75px;
+                    padding-left: 11px;
+                }
+                .products,
+                .learn,
+                .support {
+                    max-width: 0;
+                    padding: 0;
+                }
+                .products:before {
+                    left: 11px;
+                }
+            }
+            .secondary-buttons button .text {
+                max-width: 0;
+                transition: max-width 75ms;
+            }
+        }
+        .flyout {
+            width: 100%;
+            .flyout-close {
+                display: none;
+            }
+        }
+        &.flyout-active {
+            .top-bar {
+                .primary-buttons {
+                    .products,
+                    .learn,
+                    .support {
+                        max-width: 150px;
+                        padding: 0 11px;
+                    }
+                    .support {
+                        padding-right: 22px;
+                    }
+                }
+                .secondary-buttons button .text {
+                    max-width: 100px;
+                    transition: max-width 175ms 200ms;
+                }
+            }
+        }
     }
 }
