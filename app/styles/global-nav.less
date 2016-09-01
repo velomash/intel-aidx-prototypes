@@ -610,6 +610,16 @@
         }
         &.flyout-active {
             .top-bar {
+                .secondary-buttons button .text {
+                    max-width: 100px;
+                    transition: max-width 175ms 200ms;
+                }
+            }
+        }
+        &.products-flyout-active,
+        &.learn-flyout-active,
+        &.support-flyout-active {
+            .top-bar {
                 .primary-buttons {
                     .products,
                     .learn,
@@ -619,11 +629,10 @@
                     }
                     .support {
                         padding-right: 22px;
+                        &:before {
+                            right: 22px;
+                        }
                     }
-                }
-                .secondary-buttons button .text {
-                    max-width: 100px;
-                    transition: max-width 175ms 200ms;
                 }
             }
         }

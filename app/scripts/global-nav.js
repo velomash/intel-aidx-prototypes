@@ -15,6 +15,7 @@ class IntelGlobalNavigation {
             '[data-flyout]': this.onFlyoutTrigger,
             '.open-plank': this.openPlank,
             '.plank .back': this.popPlank,
+            '.macrosite-menu': this.toggleLayout,
             '.flyout-close': this.closeFlyout,
             '.shader': this.closeFlyout,
         });
@@ -33,6 +34,14 @@ class IntelGlobalNavigation {
             this.closeFlyout();
         } else {
             this.openFlyout(targetFlyout);
+        }
+    }
+    toggleLayout() {
+        if (this.activeFlyout) {
+            this.closeFlyout();
+        } else {
+            const flyout = document.getElementById('products-flyout');
+            this.openFlyout(flyout);
         }
     }
     openFlyout(targetFlyout) {
