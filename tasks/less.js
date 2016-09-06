@@ -9,8 +9,8 @@ const autoprefixPlugin = new autoprefix({
 });
 
 module.exports = (gulp, options, plugins) => {
-    gulp.task('less:dev', ['less:bootstrap'], () => {
-        return gulp.src(options.getPath('src', 'styles', 'global-nav.less'))
+    gulp.task('less:dev', () => {
+        return gulp.src(options.getPath('src', 'styles', 'main.less'))
             .pipe(plugins.sourcemaps.init())
             .pipe(plugins.less({
                 plugins: [lessGlobbing, autoprefixPlugin]
@@ -18,24 +18,8 @@ module.exports = (gulp, options, plugins) => {
             .pipe(plugins.sourcemaps.write('.'))
             .pipe(gulp.dest(options.getPath('dist')));
     });
-    gulp.task('less:bootstrap', () => {
-        return gulp.src(options.getPath('src', 'styles', 'bootstrap.less'))
-            .pipe(plugins.sourcemaps.init())
-            .pipe(plugins.less({
-                plugins: [lessGlobbing, autoprefixPlugin]
-            }))
-            .pipe(plugins.sourcemaps.write('.'))
-            .pipe(gulp.dest(options.getPath('dist')));
-    });
-    gulp.task('less:prod', ['less:bootstrap-prod'], () => {
-        return gulp.src(options.getPath('src', 'styles', 'global-nav.less'))
-            .pipe(plugins.less({
-                plugins: [lessGlobbing, autoprefixPlugin]
-            }))
-            .pipe(gulp.dest(options.getPath('dist')));
-    });
-    gulp.task('less:bootstrap-prod', () => {
-        return gulp.src(options.getPath('src', 'styles', 'bootstrap.less'))
+    gulp.task('less:prod', () => {
+        return gulp.src(options.getPath('src', 'styles', 'main.less'))
             .pipe(plugins.less({
                 plugins: [lessGlobbing, autoprefixPlugin]
             }))
