@@ -5,12 +5,23 @@
         display: inline-block;
         color: white;
         font-weight: lighter;
+        text-decoration: none;
+        padding: 15px 0;
+        width: 220px;
         svg {
-            max-width: 37px;
-            max-height: 37px;
+            fill: white;
+            max-width: 28px;
+            max-height: 28px;
         }
         p {
             margin: 0;
+        }
+        &:hover {
+            color: @pale-blue;
+            cursor: pointer;
+            svg {
+                fill: @pale-blue;
+            }
         }
     }
 }
