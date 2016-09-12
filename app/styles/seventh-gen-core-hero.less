@@ -16,6 +16,7 @@
         height: 100%;
     }
     .laptop {
+        position: relative;
         width: 500px;
         height: 500px;
         margin: 0 auto;
@@ -23,6 +24,7 @@
         background-size: 100% 100%;
     }
     .text {
+        position: relative;
         margin-top: -125px;
         width: 100%;
         padding: 15px;
@@ -56,5 +58,12 @@
             max-width: 500px;
             margin: 0 auto 32px auto;
         }
+    }
+    .particle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -25px 0 0 -25px;
+        transform: scale3d(0.1, 0.1, 0.1);
     }
 }
