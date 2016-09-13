@@ -6,6 +6,8 @@ class chipParticleSystem {
     constructor(containerDiv) {
         this.container = containerDiv;
         this.camera = new THREE.PerspectiveCamera(80, window.innerWidth / window.innerHeight, 1, 4000);
+        this.camera.maxDimention = Math.max(this.container.clientWidth, this.container.clientHeight);
+        this.camera.aspect = this.container.clientWidth / this.container.clientHeight;
         this.camera.position.z = 500;
         this.scene = new THREE.Scene();
         this.scene.add(this.camera);
@@ -15,6 +17,15 @@ class chipParticleSystem {
         this.renderer.setPixelRatio(window.devicePixelRatio);
         this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
         this.container.appendChild(this.renderer.domElement);
+        this.camera.updateProjectionMatrix();
+        window.addEventListener('resize', event => {
+            this.renderer.setPixelRatio(window.devicePixelRatio);
+            this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+            this.camera.maxDimention = Math.max(this.container.clientWidth, this.container.clientHeight);
+            this.camera.aspect = this.container.clientWidth / this.container.clientHeight;
+            this.camera.updateProjectionMatrix();
+            console.log('yo');
+        });
         this.particles = this.makeParticles();
         this.particles.forEach(particle => this.initParticleTween(particle));
         this.animate();
@@ -32,42 +43,56 @@ class chipParticleSystem {
         gradient.addColorStop(1, 'rgba(0, 0, 64, 0)');
         context.fillStyle = gradient;
         context.fillRect(0, 0, canvas.width, canvas.height);
-        const material = new THREE.SpriteMaterial({
-            map: new THREE.CanvasTexture(canvas),
-            blending: THREE.AdditiveBlending,
-            opacity: 0,
-        });
         const particles = [];
         for (var i = 0; i < 1000; i++) {
+            const material = new THREE.SpriteMaterial({
+                map: new THREE.CanvasTexture(canvas),
+                blending: THREE.AdditiveBlending,
+                opacity: 0,
+            });
             const particle = new THREE.Sprite(material);
             const vector = new THREE.Vector3();
-            vector.setX(randomNumberInRange(-2000, 2000));
-            vector.setY(randomNumberInRange(-1000, 1000));
-            vector.setZ(randomNumberInRange(-2000, 2000));
-            particle.start = vector.clone().setLength(randomNumberInRange(500, 1000));
-            particle.end = vector.clone().setLength(randomNumberInRange(1500, 2000));
+            vector.setX(this.getRandomNumberInRange(-2000, 2000));
+            vector.setY(this.getRandomNumberInRange(-1000, 1000));
+            vector.setZ(this.getRandomNumberInRange(-2000, 2000));
+            particle.start = vector.clone().setLength(this.getRandomNumberInRange(500, 1000));
+            particle.end = vector.clone().setLength(this.getRandomNumberInRange(1500, 2000));
             particle.position.fromArray(particle.start.toArray());
-            particle.scale.x = particle.scale.y = Math.random() * 12 + 5;
+            particle.scale.x = particle.scale.y = this.getRandomNumberInRange(7, 21);
             this.scene.add(particle);
             particles.push(particle);
-        }
-
-        function randomNumberInRange(startRange, endRange) {
-            return Math.random() * (endRange - startRange - 1) + startRange;
         }
         return particles;
     }
 
+    getRandomNumberInRange(startRange, endRange) {
+        return Math.random() * (endRange - startRange - 1) + startRange;
+    }
 
     initParticleTween(particle) {
+        const delay = this.getRandomNumberInRange(0, 10000);
         const tween = new TWEEN.Tween(particle.position)
+            .delay(delay)
             .to(particle.end, 10000)
             .start();
+        // new TWEEN.Tween(particle.scale)
+        // .delay(delay + 5000)
+        // .to({
+        // x: += 0.1,
+        // y: += 0.1,
+        // }, 5000)
+        // .start();
         new TWEEN.Tween(particle.material)
+            .delay(delay)
             .to({
                 opacity: 1,
             }, 500)
             .start();
+        tween.onComplete(() => {
+            particle.position.fromArray(particle.start.toArray());
+            particle.material.opacity = 0;
+            this.initParticleTween(particle);
+        });
     }
 
     // the animate funciton runs 60fps and renders
