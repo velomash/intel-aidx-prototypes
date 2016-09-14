@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////
 
 import delegate from 'delegate';
+import throttle from 'lodash.throttle';
 
 class IntelGlobalNavigation {
     constructor(navDomElement) {
@@ -19,12 +20,22 @@ class IntelGlobalNavigation {
             '.flyout-close': this.closeFlyout,
             '.shader': this.closeFlyout,
         });
+        window.addEventListener('scroll', throttle(this.onScroll, 50).bind(this));
     }
     attachEventHandlers(events) {
         Object.keys(events).forEach(selector => {
             delegate(this.nav, selector, 'click', events[selector].bind(this));
             delegate(this.nav, selector, 'touchend', events[selector].bind(this));
         });
+    }
+    onScroll(event) {
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        console.log(scrollY);
+        if (scrollY > 10) {
+            this.nav.classList.add('scrolled');
+        } else {
+            this.nav.classList.remove('scrolled');
+        }
     }
     onFlyoutTrigger(event) {
         const targetFlyout = document.getElementById(event

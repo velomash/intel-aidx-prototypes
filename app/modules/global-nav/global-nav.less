@@ -638,4 +638,13 @@
             }
         }
     }
+    &.transparent {
+        .top-bar {
+            transition: background-color 300ms;
+            background-color: transparent;
+        }
+        &.scrolled .top-bar {
+            background-color: #0070c5;
+        }
+    }
 }
