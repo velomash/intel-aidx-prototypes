@@ -5,6 +5,10 @@ import TWEEN from 'tween.js';
 class chipParticleSystem {
     constructor(containerDiv) {
         this.container = containerDiv;
+        this.container.addEventListener('click', event => {
+            const link = document.getElementById('main-cta');
+            window.location.href = link.href;
+        });
         this.camera = new THREE.PerspectiveCamera(80, window.innerWidth / window.innerHeight, 1, 4000);
         this.camera.maxDimention = Math.max(this.container.clientWidth, this.container.clientHeight);
         this.camera.aspect = this.container.clientWidth / this.container.clientHeight;
