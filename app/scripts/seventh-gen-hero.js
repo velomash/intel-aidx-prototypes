@@ -28,10 +28,7 @@ class chipParticleSystem {
         this.particles = this.makeParticles();
         this.particles.forEach(particle => {
             this.scene.add(particle);
-            const delay = this.getRandomNumberInRange(0, 10000);
-            window.setTimeout(() => {
-                this.initParticleTween(particle)
-            }, delay);
+            this.initParticleTween(particle)
         });
         this.animate();
     }
@@ -74,10 +71,13 @@ class chipParticleSystem {
     }
 
     initParticleTween(particle) {
+        const delay = this.getRandomNumberInRange(0, 10000);
         const tween = new TWEEN.Tween(particle.position)
+            .delay(delay)
             .to(particle.end, 10000)
             .start();
         new TWEEN.Tween(particle.material)
+            .delay(delay)
             .to({
                 opacity: 1,
             }, 500)
@@ -85,10 +85,7 @@ class chipParticleSystem {
         tween.onComplete(() => {
             particle.material.opacity = 0;
             particle.position.fromArray(particle.start.toArray());
-            const delay = this.getRandomNumberInRange(0, 10000);
-            window.setTimeout(() => {
-                this.initParticleTween(particle)
-            }, delay);
+            this.initParticleTween(particle);
         });
     }
 
