@@ -14,11 +14,11 @@ tasks(gulp, {
         scripts: 'scripts/',
         fonts: 'assets/font/',
         svgs: 'assets/svg/',
-        helpers: 'markup/helpers/',
-        layouts: 'markup/layouts/',
-        partials: 'markup/partials/',
-        data: 'markup/data/',
-        pages: 'markup/pages/',
+        helpers: 'templates/helpers/',
+        layouts: 'templates/layouts/',
+        partials: 'modules/',
+        data: 'modules/',
+        pages: 'pages/',
     },
     getPath: function (...pathStrings) {
         const pathsArray = pathStrings.map(name => this.paths[name] || name);
@@ -34,7 +34,7 @@ gulp.task('build', callback => {
     sequence('clean:dist', ['sprites:dev', 'less:dev', 'copy:assets', 'markup:dev', 'scripts:dev'], callback);
 });
 gulp.task('build:prod', callback => {
-    sequence('clean:dist', ['sprites:dev', 'less:prod', 'copy:assets', 'markup:dev', 'scripts:prod', 'replace:prod'], callback);
+    sequence('clean:dist', ['sprites:dev', 'less:prod', 'copy:assets', 'markup:dev', 'scripts:prod'], callback);
 });
 gulp.task('watch', ['sprites:watch', 'less:watch', 'copy:watch', 'markup:watch', 'scripts:watch']);
 gulp.task('serve', callback => {

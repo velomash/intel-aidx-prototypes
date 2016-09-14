@@ -7,7 +7,7 @@ const webpackDevConfig = {
     debug: true,
     devtool: 'source-map',
     entry: {
-        'global-nav': ['./scripts/global-nav.js', './scripts/seventh-gen-hero.js'],
+        'modules': ['./modules/all.js'],
     },
     output: {
         path: path.join(__dirname, 'dist'),
