@@ -28,6 +28,7 @@ module.exports = (gulp, options, plugins) => {
     gulp.task('less:watch', () => {
         gulp.watch([
             options.getPath('src', 'styles', '**/*.less'),
+            options.getPath('src', 'partials', '**/*.less'),
         ], ['less:dev']);
     });
 };
