@@ -1,13 +1,15 @@
 .blade.seventh-gen-core-hero {
     position: relative;
-    background: @charcoal;
-    width: 100%;
-    min-height: 674px;
-    text-align: center;
     color: white;
+    background: @intel-blue;
+    text-align: center;
     background-image: url('assets/imgs/hero/background2.jpg');
     background-position: center center;
     background-size: cover;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
     #particle-system {
         position: absolute;
@@ -18,15 +20,14 @@
     }
     .laptop {
         position: relative;
-        width: 500px;
-        height: 500px;
+        width: 250px;
+        height: 250px;
         margin: 0 auto;
         background-image: url('assets/imgs/hero/product.png');
         background-size: 100% 100%;
     }
     .text {
         position: relative;
-        margin-top: -125px;
         width: 100%;
         padding: 15px;
         h2 {
@@ -66,5 +67,37 @@
         left: 50%;
         margin: -25px 0 0 -25px;
         transform: scale3d(0.1, 0.1, 0.1);
+    }
+
+    @media screen and (max-width: 900px) {
+        .laptop {
+            width: 200px;
+            height: 200px;
+        }
+        .text {
+            h2 {
+                font-size: 45px;
+                height: 80px;
+                .th {
+                    font-size: 20px;
+                    top: -18px;
+                }
+                .copy {
+                    font-size: 36px;
+                    top: -6px;
+                }
+                .trade {
+                    font-size: 36px;
+                    top: -7px;
+                }
+            }
+            p {
+                font-size: 14px;
+                margin-bottom: 28px;
+            }
+            .btn-outline {
+                font-size: 14px;
+            }
+        }
     }
 }

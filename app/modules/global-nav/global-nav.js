@@ -30,7 +30,6 @@ class IntelGlobalNavigation {
     }
     onScroll(event) {
         const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-        console.log(scrollY);
         if (scrollY > 10) {
             this.nav.classList.add('scrolled');
         } else {
