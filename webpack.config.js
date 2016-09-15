@@ -41,8 +41,7 @@ const webpackDevConfig = {
 const webpackProdConfig = {
     context: path.join(__dirname, 'app'),
     entry: {
-        intel: ['./scripts/app.js'],
-        vr: ['./modules/vr/vr.js'],
+        'modules': ['./modules/all.js'],
     },
     output: {
         path: path.join(__dirname, 'dist'),
@@ -53,21 +52,20 @@ const webpackProdConfig = {
     },
     plugins: [
         new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
             THREE: 'exports?THREE!three',
-        })
+        }),
+        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.DedupePlugin(),
     ],
-    externals: {
-        $: 'jquery',
-        jQuery: 'jquery',
-    },
     module: {
         loaders: [{
             test: /\.js$/,
             exclude: /node_modules/,
-            loader: 'babel-loader',
+            loader: 'babel',
             query: {
                 presets: ['es2015'],
-                plugins: ['transform-object-assign'],
             }
         }],
         resolve: {
@@ -75,6 +73,7 @@ const webpackProdConfig = {
         }
     }
 };
+
 
 export {
     webpackDevConfig,
