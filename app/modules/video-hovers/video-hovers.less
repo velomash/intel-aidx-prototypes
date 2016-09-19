@@ -5,22 +5,49 @@
         float: left;
         display: block;
         width: 50%;
-        height: 300px;
         text-align: center;
+        text-decoration: none;
+        overflow: hidden;
+        &:before {
+            content: ' ';
+            padding-top: 100%;
+            width: 100%;
+            display: inline-block;
+        }
+        figure {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+        }
         .text {
             position: absolute;
             width: 100%;
+            bottom: 50px;
             left: 0;
-            bottom: 20px;
-        }
-        h3 {
-            font-family: 'intel-clear-headline';
-            text-transform: uppercase;
-            margin: 0;
-        }
+            z-index: 300;
+            h3 {
+                font-family: 'intel-clear-headline';
+                text-transform: uppercase;
+                margin: 0;
+                color: white;
+            }
             .btn-outline {
+                margin-top: 11px;
                 font-size: 14px;
                 background-color: transparent;
             }
+        }
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 640px;
+            height: 360px;
+            transition: opacity 150ms;
+        }
     }
 }

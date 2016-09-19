@@ -8,8 +8,18 @@
         color: black;
         text-decoration: none;
         font-weight: lighter;
-        img {
-            max-width: 100%;
+        figure {
+            overflow: hidden;
+            box-shadow: inset 0 0 0 black;
+            img {
+                transition: all 200ms;
+                max-width: 100%;
+            }
+        }
+        &:hover figure {
+            img {
+                transform: scale(1.1);
+            }
         }
     }
     .clearfix();
