@@ -1,0 +1,48 @@
+.device-choices {
+    text-align: center;
+    h2 {
+        font-family: 'intel-clear-headline';
+    }
+    p {
+        font-size: 14px;
+        font-weight: lighter;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    nav a {
+        display: inline-block;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 14px;
+        color: @dark-gray;
+        padding: 0 32px;
+        figure {
+            margin-bottom: 11px;
+            svg {
+                max-width: 100%;
+                fill: @dark-gray;
+            }
+        }
+        .monitors {
+            width: 139px;
+        }
+        .laptops {
+            width: 112px;
+        }
+        .desktops {
+            width: 88px;
+        }
+        .two-in-ones {
+            width: 94px;
+        }
+        .tablets {
+            width: 59px;
+        }
+        &:hover {
+            color: @digital-blue;
+            figure svg {
+                fill: @digital-blue;
+            }
+        }
+    }
+}
