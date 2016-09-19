@@ -17,6 +17,7 @@ class videoHover {
         const newVideoWidth = height * ratio * 1.5;
         const newVideoHeight = newVideoWidth / ratio;
         const offset = videoWidth - width / 2;
+        this.video.volume = 0;
         this.video.style.width = `${newVideoWidth}px`;
         this.video.style.height = `${newVideoHeight}px`;
         this.video.style.left = `-${offset}px`;
