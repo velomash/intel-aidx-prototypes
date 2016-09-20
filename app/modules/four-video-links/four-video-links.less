@@ -12,11 +12,24 @@
             color: white;
             top: 50%;
             width: 100%;
-            font-size: 32px;
+            font-size: 42px;
             z-index: 20;
             margin: 0;
+            transition: color 150ms;
             transform: translate3d(0, -50%, 0);
             font-family: 'intel-clear-headline';
+        }
+        &:after {
+            content: ' ';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0;
+            transition: opacity 150ms;
         }
         figure {
             position: absolute;
@@ -48,7 +61,10 @@
         }
         &:hover {
             h3 {
-                color: @digital-blue;
+                color: @pale-blue;
+            }
+            &:after {
+                opacity: 0.5;
             }
             figure {
                 transform: scale(1.1);
