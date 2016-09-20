@@ -2,6 +2,7 @@
     .container {
         position: relative;
         padding: 150px 15px;
+        max-width: 750px;
     }
     .text {
         h2 {
@@ -31,5 +32,20 @@
         height: 299px;
         background-image: url('assets/imgs/idf/bk-cutout.png');
         background-size: cover;
+    }
+    @media screen and (max-width: @screen-md) {
+        .container {
+            padding-top: 30px;
+        }
+    }
+    @media screen and (max-width: @screen-sm) {
+        .container {
+            padding: 15px;
+        }
+        .bk-photo {
+            position: relative;
+            background-position: right bottom;
+            top: 15px;
+        }
     }
 }

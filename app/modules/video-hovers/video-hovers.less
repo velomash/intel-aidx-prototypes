@@ -21,7 +21,7 @@
             right: 0;
             bottom: 0;
             background-size: cover;
-            background-position: center;
+            background-position: center bottom;
         }
         .text {
             position: absolute;
@@ -51,6 +51,20 @@
             width: 640px;
             height: 360px;
             transition: opacity 150ms;
+        }
+    }
+    @media screen and (max-width: @screen-md) {
+        a {
+            float: none;
+            width: 100%;
+            &:before {
+                padding-top: 50%;
+            }
+        }
+    }
+    @media screen and (max-width: 500px) {
+        a:before {
+            padding-top: 80%;
         }
     }
 }
