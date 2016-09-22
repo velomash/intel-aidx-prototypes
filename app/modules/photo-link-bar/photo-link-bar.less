@@ -1,25 +1,84 @@
 .photo-link-bar {
-    a {
-        display: block;
-        float: left;
-        width: percentage(1/5);
-        text-align: center;
+    position: relative;
+    padding: 0;
+    transition: padding 150ms;
+    button {
+        position: absolute;
+        top: 0;
+        background-color: white;
+        border: 0;
         outline: 0;
-        color: black;
-        text-decoration: none;
-        font-weight: lighter;
+        padding: 0;
+        margin: 0;
+        width: 0;
+        height: 100%;
+        transition: all 100ms;
+        background-color: @lightest-gray;
+        font-size: 48px;
+        color: @dark-blue;
+        overflow: hidden;
         figure {
-            overflow: hidden;
-            img {
-                transition: all 200ms;
-                max-width: 100%;
+            position: relative;
+            left: 0;
+            transition: all 100ms;
+        }
+        &:hover {
+            background-color: @light-gray;
+        }
+        &.disabled {
+            color: @light-gray;
+        }
+        &#photo-link-bar-previous {
+            left: 0;
+            &:hover figure {
+                left: -7px;
             }
         }
-        &:hover figure {
-            img {
-                transform: scale(1.1);
+        &#photo-link-bar-next {
+            right: 0;
+            &:hover figure {
+                left: 7px;
+            }
+        }
+        &.disabled:hover {
+            color: @light-gray;
+            background-color: @lightest-gray;
+            cursor: default;
+            figure {
+                left: 0 !important;
             }
         }
     }
-    .clearfix();
+    .links {
+        display: flex;
+        overflow: auto;
+        a {
+            display: block;
+            text-align: center;
+            outline: 0;
+            color: black;
+            text-decoration: none;
+            font-weight: lighter;
+            flex: 1;
+            min-width: 250px;
+            figure {
+                overflow: hidden;
+                img {
+                    transition: all 200ms;
+                    max-width: 100%;
+                }
+            }
+            &:hover figure {
+                img {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+    &.scrolling {
+        padding: 0 44px;
+        button {
+            width: 44px;
+        }
+    }
 }

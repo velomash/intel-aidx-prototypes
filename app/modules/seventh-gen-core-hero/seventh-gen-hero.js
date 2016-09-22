@@ -9,19 +9,7 @@ class chipParticleSystem {
             const link = document.getElementById('main-cta');
             window.location.href = link.href;
         });
-        this.camera = new THREE.PerspectiveCamera(80, window.innerWidth / window.innerHeight, 1, 4000);
-        this.camera.maxDimention = Math.max(this.container.clientWidth, this.container.clientHeight);
-        this.camera.aspect = this.container.clientWidth / this.container.clientHeight;
-        this.camera.position.z = 500;
-        this.scene = new THREE.Scene();
-        this.scene.add(this.camera);
-        this.renderer = new THREE.CanvasRenderer({
-            alpha: true
-        });
-        this.renderer.setPixelRatio(window.devicePixelRatio);
-        this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
-        this.container.appendChild(this.renderer.domElement);
-        this.camera.updateProjectionMatrix();
+        this.init3dEnvironment();
         window.addEventListener('resize', event => {
             this.renderer.setPixelRatio(window.devicePixelRatio);
             this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
@@ -35,6 +23,31 @@ class chipParticleSystem {
             this.initParticleTween(particle)
         });
         this.animate();
+    }
+
+    init3dEnvironment() {
+        const canvas = document.createElement('canvas');
+        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        const clientHasWebGL = gl && gl instanceof WebGLRenderingContext;
+        if (clientHasWebGL) {
+            this.renderer = new THREE.WebGLRenderer({
+                alpha: true
+            });
+        } else {
+            this.renderer = new THREE.CanvasRenderer({
+                alpha: true
+            });
+        }
+        this.camera = new THREE.PerspectiveCamera(80, window.innerWidth / window.innerHeight, 1, 4000);
+        this.camera.maxDimention = Math.max(this.container.clientWidth, this.container.clientHeight);
+        this.camera.aspect = this.container.clientWidth / this.container.clientHeight;
+        this.camera.position.z = 500;
+        this.scene = new THREE.Scene();
+        this.scene.add(this.camera);
+        this.renderer.setPixelRatio(window.devicePixelRatio);
+        this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+        this.container.appendChild(this.renderer.domElement);
+        this.camera.updateProjectionMatrix();
     }
 
     makeParticles() {
@@ -102,4 +115,8 @@ class chipParticleSystem {
     }
 }
 
-export default new chipParticleSystem(document.getElementById('particle-system'))
+window.addEventListener('load', event => {
+    const ps = new chipParticleSystem(document.getElementById('particle-system'));
+});
+
+export default chipParticleSystem;
