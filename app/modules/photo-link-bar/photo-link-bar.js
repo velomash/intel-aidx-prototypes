@@ -4,17 +4,22 @@ class PhotoLinkBar {
     constructor(element) {
         this.container = element;
         this.nav = element.getElementsByTagName('nav')[0];
-        this.nav.addEventListener('scroll', this.updateNavControls.bind(this));
         this.next = document.getElementById('photo-link-bar-next');
+        this.previous = document.getElementById('photo-link-bar-previous');
+        this.addEventListeners();
+    }
+    addEventListeners() {
+        this.nav.addEventListener('scroll', this.updateNavControls.bind(this));
         this.next.addEventListener('click', this.gotoNext.bind(this));
         this.next.addEventListener('touchend', this.gotoNext.bind(this));
-        this.previous = document.getElementById('photo-link-bar-previous');
         this.previous.addEventListener('click', this.gotoPrevious.bind(this));
         this.previous.addEventListener('touchend', this.gotoPrevious.bind(this));
-        window.addEventListener('load', this.update.bind(this));
-        window.addEventListener('resize', this.update.bind(this));
-        this.update();
-        this.updateNavControls();
+        function updatePhotoLinkBar() {
+            this.update();
+            this.updateNavControls();
+        }
+        window.addEventListener('load', updatePhotoLinkBar.bind(this));
+        window.addEventListener('resize', updatePhotoLinkBar.bind(this));
     }
     update() {
         if (this.isBarScrolling()) {
@@ -78,7 +83,7 @@ class PhotoLinkBar {
         const tween = new TWEEN.Tween(this.nav)
             .to({
                 scrollLeft: newScrollLeft,
-            }, 200)
+            }, 400)
             .start();
         tween.onComplete(() => {
             this.animating = false;

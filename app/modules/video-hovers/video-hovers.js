@@ -10,15 +10,11 @@ class videoHover {
         }
     }
     initVideo() {
-        const width = this.container.clientWidth;
-        const height = this.container.clientHeight;
-        const videoWidth = this.video.clientWidth;
-        const videoHeight = this.video.clientHeight;
-        const ratio = videoWidth / videoHeight;
-        const newVideoWidth = height * ratio * 1.5;
-        const newVideoHeight = newVideoWidth / ratio;
-        const offsetLeft = (newVideoWidth - width) / 2;
-        const offsetTop = (newVideoHeight - height) / 2;
+        const videoAspectRatio = this.video.clientWidth / this.video.clientHeight;
+        const newVideoWidth = this.container.clientWidth * videoAspectRatio * 1.5;
+        const newVideoHeight = newVideoWidth / videoAspectRatio;
+        const offsetLeft = (newVideoWidth - this.container.clientWidth) / 2;
+        const offsetTop = (newVideoHeight - this.container.clientHeight) / 2;
         this.video.volume = 0;
         this.video.style.width = `${newVideoWidth}px`;
         this.video.style.height = `${newVideoHeight}px`;
