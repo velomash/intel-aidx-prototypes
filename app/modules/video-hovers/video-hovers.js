@@ -3,10 +3,10 @@ class videoHover {
         this.container = element;
         this.video = element.getElementsByTagName('video')[0];
         if (this.video) {
-            this.initVideo();
             element.addEventListener('mouseenter', this.startVideo.bind(this));
             element.addEventListener('mouseleave', this.stopVideo.bind(this));
             window.addEventListener('resize', this.initVideo.bind(this));
+            this.initVideo();
         }
     }
     initVideo() {
@@ -17,8 +17,8 @@ class videoHover {
         const ratio = videoWidth / videoHeight;
         const newVideoWidth = height * ratio * 1.5;
         const newVideoHeight = newVideoWidth / ratio;
-        const offsetLeft = (videoWidth - width) / 2;
-        const offsetTop = (videoHeight - height) / 2;
+        const offsetLeft = (newVideoWidth - width) / 2;
+        const offsetTop = (newVideoHeight - height) / 2;
         this.video.volume = 0;
         this.video.style.width = `${newVideoWidth}px`;
         this.video.style.height = `${newVideoHeight}px`;
