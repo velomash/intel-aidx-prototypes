@@ -27,9 +27,6 @@ class PhotoLinkBar {
         } else {
             this.container.classList.remove('scrolling');
         }
-        const photoHeight = this.getPhotoHeight();
-        this.next.style.height = `${photoHeight}px`;
-        this.previous.style.height = `${photoHeight}px`;
         this.linkOffsets = [];
         const links = this.nav.getElementsByTagName('a');
         for (let i=0; i<links.length; i++) {
@@ -50,10 +47,6 @@ class PhotoLinkBar {
     }
     isBarScrolling() {
         return this.nav.scrollWidth > this.nav.clientWidth;
-    }
-    getPhotoHeight() {
-        const photoLink = this.nav.getElementsByTagName('img')[0];
-        return photoLink.clientHeight;
     }
     gotoNext() {
         const newScrollLeft = (() => {
