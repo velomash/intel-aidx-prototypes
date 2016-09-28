@@ -1,6 +1,5 @@
 import Projector from 'three/examples/js/renderers/Projector.js';
 import CanvasRenderer from 'three/examples/js/renderers/CanvasRenderer.js';
-import TWEEN from 'tween.js';
 
 class chipParticleSystem {
     constructor(containerDiv) {
@@ -19,25 +18,16 @@ class chipParticleSystem {
         });
         this.particles = this.makeParticles();
         this.particles.forEach(particle => {
+            this.initParticle(particle);
             this.scene.add(particle);
-            this.initParticleTween(particle)
         });
         this.animate();
     }
 
     init3dEnvironment() {
-        const canvas = document.createElement('canvas');
-        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-        const clientHasWebGL = gl && gl instanceof WebGLRenderingContext;
-        if (clientHasWebGL) {
-            this.renderer = new THREE.WebGLRenderer({
-                alpha: true
-            });
-        } else {
-            this.renderer = new THREE.CanvasRenderer({
-                alpha: true
-            });
-        }
+        this.renderer = new THREE.CanvasRenderer({
+            alpha: true
+        });
         this.camera = new THREE.PerspectiveCamera(80, window.innerWidth / window.innerHeight, 1, 4000);
         this.camera.maxDimention = Math.max(this.container.clientWidth, this.container.clientHeight);
         this.camera.aspect = this.container.clientWidth / this.container.clientHeight;
@@ -67,51 +57,63 @@ class chipParticleSystem {
             const material = new THREE.SpriteMaterial({
                 map: new THREE.CanvasTexture(canvas),
                 blending: THREE.AdditiveBlending,
-                opacity: 0,
             });
             const particle = new THREE.Sprite(material);
-            const vector = new THREE.Vector3();
-            vector.setX(this.getRandomNumberInRange(-2000, 2000));
-            vector.setY(this.getRandomNumberInRange(-1000, 1000));
-            vector.setZ(this.getRandomNumberInRange(-2000, 500));
-            particle.start = vector.clone().setLength(this.getRandomNumberInRange(500, 1000));
-            particle.end = vector.clone().setLength(this.getRandomNumberInRange(1500, 2000));
-            particle.position.fromArray(particle.start.toArray());
-            particle.scale.x = particle.scale.y = this.getRandomNumberInRange(7, 21);
             particles.push(particle);
         }
         return particles;
+    }
+
+    initParticle(particle) {
+        particle.vector = new THREE.Vector3(
+            this.getRandomNumberInRange(-2000, 2000),
+            this.getRandomNumberInRange(-1000, 1000),
+            this.getRandomNumberInRange(-2000, 500)
+        );
+        particle.start = this.getRandomNumberInRange(500, 1000);
+        particle.end = this.getRandomNumberInRange(1500, 2000);
+        particle.position.fromArray(particle.vector.toArray());
+        particle.scale.x = particle.scale.y = this.getRandomNumberInRange(7, 21);
+        particle.material.opacity = 0;
+        particle.delay = this.getRandomNumberInRange(0, 10000);
+        particle.progress = 0;
     }
 
     getRandomNumberInRange(startRange, endRange) {
         return Math.random() * (endRange - startRange - 1) + startRange;
     }
 
-    initParticleTween(particle) {
-        const delay = this.getRandomNumberInRange(0, 10000);
-        const tween = new TWEEN.Tween(particle.position)
-            .delay(delay)
-            .to(particle.end, 10000)
-            .start();
-        new TWEEN.Tween(particle.material)
-            .delay(delay)
-            .to({
-                opacity: 1,
-            }, 500)
-            .start();
-        tween.onComplete(() => {
-            particle.material.opacity = 0;
-            particle.position.fromArray(particle.start.toArray());
-            this.initParticleTween(particle);
-        });
-    }
-
     // the animate funciton runs 60fps and renders
     // the objects as they move & interact
-    animate(time) {
+    animate() {
         requestAnimationFrame(this.animate.bind(this));
-        TWEEN.update();
+        this.updateParticles();
         this.renderer.render(this.scene, this.camera);
+    }
+    updateParticles() {
+        for (var i = 0; i < this.particles.length; i++) {
+            const particle = this.particles[i];
+            if (particle.delay > 0) {
+                particle.delay -= 1000 / 60;
+                continue;
+            }
+            particle.progress += 1000 / 60 / 10000;
+            if (particle.progress > 1) {
+                this.initParticle(particle);
+                continue;
+            }
+            // fade in
+            if (particle.progress < 0.1) {
+                particle.material.opacity = particle.progress * 10;
+            }
+            // fade out
+            if (particle.progress > 0.9) {
+                particle.material.opacity = (1 - particle.progress) * 10;
+            }
+            const length = particle.start + (particle.end - particle.start) * particle.progress;
+            const newPosition = particle.vector.clone().setLength(length);
+            particle.position.fromArray(newPosition.toArray());
+        }
     }
 }
 
