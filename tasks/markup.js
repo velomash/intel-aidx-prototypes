@@ -58,7 +58,7 @@ module.exports = (gulp, options, plugins) => {
         const templateWatcher = gulp.watch([
             options.getPath('src', 'partials', '**/*.hbs'),
             options.getPath('src', 'data', '**/*.json'),
-            options.getPath('src', 'pages', '**/*.json'),
+            options.getPath('src', 'pages', '**/*.hbs'),
             options.getPath('src', 'helpers', '**/*.js'),
             options.getPath('src', 'layouts', '**/*.hbs'),
         ], ['markup:dev']);
