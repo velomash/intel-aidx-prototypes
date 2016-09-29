@@ -78,30 +78,20 @@
                 position: relative;
                 display: inline-block;
                 vertical-align: middle;
-                width: 30px;
-                height: 100%;
+                width: 25px;
+                height: 25px;
                 margin-left: 11px;
-                margin-right: 22px;
-                .bar {
-                    position: absolute;
-                    top: 50%;
-                    left: 0;
-                    height: 2px;
-                    width: 100%;
-                    border-radius: 1px;
-                    background-color: white;
-                }
-                .bar-1 {
-                    transform: rotate3d(0, 0, 1, 0) translate3d(0, -10px, 0) scale3d(1, 1, 1);
-                    transition: transform 200ms;
-                }
-                .bar-2 {
-                    transition: opacity 100ms;
+                margin-right: 11px;
+                rect {
                     opacity: 1;
+                    transition: all 200ms;
+                    transform-origin: center center;
                 }
-                .bar-3 {
-                    transform: rotate3d(0, 0, 1, 0) translate3d(0, 10px, 0) scale3d(1, 1, 1);
-                    transition: transform 200ms;
+                .top {
+                    transform: rotate3d(0, 0, 0, 0) translate3d(0, -10px, 0) scale3d(1, 1, 1);
+                }
+                .bottom {
+                    transform: rotate3d(0, 0, 0, 0) translate3d(0, 10px, 0) scale3d(1, 1, 1);
                 }
             }
             .macrosite-menu,
@@ -403,13 +393,13 @@
                 z-index: 500;
                 transition: z-index 300ms step-start;
                 .hamburger {
-                    .bar-1 {
+                    .top {
                         transform: rotate3d(0, 0, 1, 45deg) translate3d(0, 0, 0) scale3d(1, 1, 1);
                     }
-                    .bar-2 {
+                    .middle {
                         opacity: 0;
                     }
-                    .bar-3 {
+                    .bottom {
                         transform: rotate3d(0, 0, 1, -45deg) translate3d(0, 0, 0) scale3d(1, 1, 1);
                     }
                 }
@@ -547,6 +537,10 @@
     @media (max-width: @screen-sm) {
         .top-bar {
             height: 50px;
+            .primary-buttons .hamburger {
+                margin-left: 5px;
+                margin-right: 5px;
+            }
             .secondary-buttons button {
                 padding: 0 7px;
             }
@@ -567,6 +561,17 @@
                 }
                 .flyout-close {
                     height: 50px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: @screen-xs) {
+        .top-bar {
+            .secondary-buttons button {
+                padding: 0 3px;
+                &.search {
+                    padding-right: 7px;
                 }
             }
         }
