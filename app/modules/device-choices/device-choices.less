@@ -22,6 +22,8 @@
             font-size: 14px;
             color: @dark-gray;
             padding: 15px 54px;
+            transform: translate3d(0, 0, 0);
+            transition: transform 75ms ease-in;
             figure {
                 margin-bottom: 11px;
                 svg {
@@ -46,6 +48,7 @@
             }
             &:hover {
                 color: @digital-blue;
+                transform: translate3d(0, -20px, 0);
                 figure svg {
                     fill: @digital-blue;
                 }
