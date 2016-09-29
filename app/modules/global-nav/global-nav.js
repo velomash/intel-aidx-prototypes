@@ -7,20 +7,36 @@
 ///////////////////////////////////////////////////////////////
 
 import delegate from 'delegate';
-import throttle from 'lodash.throttle';
 
 class IntelGlobalNavigation {
     constructor(navDomElement) {
         this.nav = navDomElement;
+        this.getFlyoutObjects();
         this.attachEventHandlers({
-            '[data-flyout]': this.onFlyoutTrigger,
-            '.open-plank': this.openPlank,
+            '[data-flyout]': this.toggleFlyout,
+            '.open-plank': this.pushPlank,
             '.plank .back': this.popPlank,
             '.macrosite-menu': this.toggleLayout,
             '.flyout-close': this.closeFlyout,
             '.shader': this.closeFlyout,
         });
-        window.addEventListener('scroll', throttle(this.onScroll, 50).bind(this));
+    }
+    getFlyoutObjects() {
+        const flyouts = this.nav.getElementsByClassName('flyout');
+        this.flyouts = [];
+        for (var i = 0; i < flyouts.length; i++) {
+            this.flyouts[i] = flyouts[i];
+            const planks = this.flyouts[i].getElementsByClassName('plank');
+            this.flyouts[i].planks = [];
+            for (var j = 0; j < planks.length; j++) {
+                this.flyouts[i].planks.push(planks[j]);
+            }
+        }
+        const topNavButtons = this.nav.querySelectorAll('[data-flyout]');
+        this.navButtons = [];
+        for (var i = 0; i < topNavButtons.length; i++) {
+            this.navButtons.push(topNavButtons[i]);
+        }
     }
     attachEventHandlers(events) {
         Object.keys(events).forEach(selector => {
@@ -28,66 +44,89 @@ class IntelGlobalNavigation {
             delegate(this.nav, selector, 'touchend', events[selector].bind(this));
         });
     }
-    onScroll(event) {
-        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-        if (scrollY > 10) {
-            this.nav.classList.add('scrolled');
-        } else {
-            this.nav.classList.remove('scrolled');
-        }
-    }
-    onFlyoutTrigger(event) {
-        const targetFlyout = document.getElementById(event
-            .delegateTarget
-            .getAttribute('data-flyout'));
-        if (targetFlyout === this.activeFlyout) {
+    toggleFlyout(event) {
+        const clickedButton = event.delegateTarget;
+        const targetFlyout = document.getElementById(clickedButton.getAttribute('data-flyout'));
+        const targetPlank = document.getElementById(clickedButton.getAttribute('data-plank'));
+        if (this.activePlanks && targetPlank === this.activePlanks[0]) {
             this.closeFlyout();
         } else {
-            this.openFlyout(targetFlyout);
+            this.openFlyout(targetFlyout, targetPlank);
         }
     }
     toggleLayout() {
         if (this.activeFlyout) {
             this.closeFlyout();
         } else {
-            const flyout = document.getElementById('products-flyout');
-            this.openFlyout(flyout);
+            this.openFlyout(this.flyouts[0], this.flyouts[0].planks[0]);
         }
     }
-    openFlyout(targetFlyout) {
-        if (this.activeFlyout) {
-            this.nav.classList.remove(`${this.activeFlyout.id}-active`);
-        }
+    openFlyout(targetFlyout, targetPlank) {
         this.activeFlyout = targetFlyout;
-        this.activePlanks = [this.activeFlyout.querySelector('.plank.active')];
-        this.nav.classList.add('flyout-active', `${this.activeFlyout.id}-active`);
+        this.activePlanks = [targetPlank];
+        this.updateStateClasses();
     }
     closeFlyout() {
-        this.nav.classList.remove('flyout-active', `${this.activeFlyout.id}-active`);
-        for (var i=0; i<this.activePlanks.length; i++) {
-            this.activePlanks[i].classList.remove('pushed', 'active');
-        }
-        this.activePlanks[0].classList.add('active');
-        this.activePlanks = undefined;
+        this.nav.classList.remove(`${this.activeFlyout.id}-active`);
         this.activeFlyout = undefined;
+        this.activePlanks = undefined;
+        this.updateStateClasses();
     }
-    openPlank(event) {
+    pushPlank(event) {
         event.preventDefault();
         const targetPlank = document.getElementById(event
             .delegateTarget
             .getAttribute('href')
             .slice(1));
         if (targetPlank) {
-            targetPlank.classList.add('active');
-            this.activePlanks[this.activePlanks.length - 1].classList.add('pushed');
             this.activePlanks.push(targetPlank);
+            this.updateStateClasses();
         }
     }
     popPlank() {
         event.preventDefault();
-        this.activePlanks[this.activePlanks.length - 1].classList.remove('active');
         this.activePlanks.pop();
-        this.activePlanks[this.activePlanks.length - 1].classList.remove('pushed');
+        this.updateStateClasses();
+    }
+    updateStateClasses() {
+        if (this.activeFlyout) {
+            this.nav.classList.add('flyout-active');
+            if (this.activeFlyout.classList.contains('from-right') === false) {
+                this.nav.classList.add('from-left');
+            }
+        } else {
+            this.nav.classList.remove('flyout-active', 'from-left');
+        }
+        this.flyouts.forEach(flyout => {
+            if (flyout === this.activeFlyout) {
+                flyout.classList.add('active');
+                flyout.planks.forEach(plank => {
+                    const plankIndex = this.activePlanks.indexOf(plank);
+                    if (plankIndex >= 0) {
+                        if (plankIndex === this.activePlanks.length - 1) {
+                            plank.classList.add('active');
+                            plank.classList.remove('pushed');
+                        } else {
+                            plank.classList.add('active', 'pushed');
+                        }
+                    } else {
+                        plank.classList.remove('active', 'pushed');
+                    }
+                });
+            } else {
+                flyout.classList.remove('active');
+                flyout.planks.forEach(plank => {
+                    plank.classList.remove('active', 'pushed');
+                });
+            }
+        });
+        this.navButtons.forEach(button => {
+            if (this.activePlanks && button.getAttribute('data-plank') === this.activePlanks[0].id) {
+                button.classList.add('active');
+            } else {
+                button.classList.remove('active');
+            }
+        });
     }
 }
 

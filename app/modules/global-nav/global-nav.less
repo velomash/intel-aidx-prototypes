@@ -4,7 +4,7 @@
     color: white;
     font-family: 'intel-clear';
     -webkit-font-smoothing: antialiased;
-    z-index: 9999;
+    z-index: 5000;
     svg {
         max-width: 100%;
         max-height: 100%;
@@ -52,6 +52,17 @@
                 color: @pale-blue;
                 svg {
                     fill: @pale-blue;
+                }
+            }
+            &.active {
+                &:before {
+                    transform: translate3d(0, 0, 0);
+                }
+                &:hover {
+                    color: white;
+                    svg {
+                        fill: white;
+                    }
                 }
             }
         }
@@ -209,7 +220,7 @@
             height: 60px;
             margin: 0 11px;
             opacity: 0;
-            z-index: 102;
+            z-index: 500;
             transition: opacity 150ms;
             .bar {
                 position: absolute;
@@ -234,9 +245,19 @@
             left: auto;
             right: 0;
             transform: translate3d(100%, 0, 0);
-            .flyout-close {
-                right: auto;
-                left: 0;
+            .plank {
+                padding-top: 0;
+                z-index: 200;
+                header {
+                    height: 60px;
+                    margin-bottom: 15px;
+                    h4 {
+                        line-height: 60px;
+                    }
+                    .back {
+                        height: 60px;
+                    }
+                }
             }
         }
         &#search-flyout .search-icon {
@@ -245,6 +266,13 @@
             left: 24px;
             width: 20px;
             height: 20px;
+        }
+        &.active {
+            .flyout-close {
+                opacity: 1;
+                transition: opacity 150ms 250ms;
+            }
+            transform: translate3d(0, 0, 0);
         }
 
         // planks represent levels of navigation
@@ -258,7 +286,7 @@
             padding-top: 82px;
             overflow: auto;
             transform: translate3d(100%, 0, 0);
-            transition: transform 300ms cubic-bezier(0.860, 0.000, 0.070, 1.000);
+            transition: transform 300ms cubic-bezier(0.860, 0.000, 0.070, 1.000), opacity 300ms;
             header {
                 position: relative;
                 text-align: center;
@@ -327,8 +355,17 @@
             hr {
                 border-color: @dark-gray;
             }
-            &.active {
+            &.first {
+                opacity: 0;
+                pointer-events: none;
                 transform: translate3d(0, 0, 0);
+                transition: transform 0, opacity 300ms 300ms;
+            }
+            &.active {
+                opacity: 1;
+                pointer-events: auto;
+                transform: translate3d(0, 0, 0);
+                transition: transform 300ms cubic-bezier(0.860, 0.000, 0.070, 1.000), opacity 300ms 300ms;
             }
             &.pushed {
                 transform: translate3d(-100%, 0, 0);
@@ -344,169 +381,22 @@
             background-color: rgba(0, 0, 0, 0.5);
             transition: background-color 200ms;
         }
-    }
-
-    &.products-flyout-active,
-    &.learn-flyout-active,
-    &.support-flyout-active,
-    &.microsite-flyout-active {
-        .primary-buttons {
-            z-index: 500;
-            transition: z-index 300ms step-start;
-            .hamburger {
-                .bar-1 {
-                    transform: rotate3d(0, 0, 1, 45deg) translate3d(0, 0, 0) scale3d(1, 1, 1);
-                }
-                .bar-2 {
-                    opacity: 0;
-                }
-                .bar-3 {
-                    transform: rotate3d(0, 0, 1, -45deg) translate3d(0, 0, 0) scale3d(1, 1, 1);
+        &.from-left {
+            .primary-buttons {
+                z-index: 500;
+                transition: z-index 300ms step-start;
+                .hamburger {
+                    .bar-1 {
+                        transform: rotate3d(0, 0, 1, 45deg) translate3d(0, 0, 0) scale3d(1, 1, 1);
+                    }
+                    .bar-2 {
+                        opacity: 0;
+                    }
+                    .bar-3 {
+                        transform: rotate3d(0, 0, 1, -45deg) translate3d(0, 0, 0) scale3d(1, 1, 1);
+                    }
                 }
             }
-        }
-    }
-
-    &.microsite-flyout-active {
-        .microsite-menu:before {
-            transform: translate3d(0, 0, 0);
-            transition: transform 300ms 100ms;
-        }
-        #microsite-flyout {
-            transform: translate3d(0, 0, 0);
-        }
-    }
-
-    &.products-flyout-active {
-        button.products {
-            &:hover {
-                color: white;
-            }
-            &:before {
-                transform: translate3d(0, 0, 0);
-                transition: transform 300ms 100ms;
-            }
-        }
-        #products-flyout {
-            .flyout-close {
-                opacity: 1;
-                transition: opacity 150ms 250ms;
-            }
-            transform: translate3d(0, 0, 0);
-        }
-    }
-
-    &.learn-flyout-active {
-        button.learn {
-            &:hover {
-                color: white;
-            }
-            &:before {
-                transform: translate3d(0, 0, 0);
-                transition: transform 300ms 100ms;
-            }
-        }
-        #learn-flyout {
-            .flyout-close {
-                opacity: 1;
-                transition: opacity 150ms 250ms;
-            }
-            transform: translate3d(0, 0, 0);
-        }
-    }
-
-    &.support-flyout-active {
-        button.support {
-            &:hover {
-                color: white;
-            }
-            &:before {
-                transform: translate3d(0, 0, 0);
-                transition: transform 300ms 100ms;
-            }
-        }
-        #support-flyout {
-            .flyout-close {
-                opacity: 1;
-                transition: opacity 150ms 250ms;
-            }
-            transform: translate3d(0, 0, 0);
-        }
-    }
-
-    &.region-flyout-active {
-        .secondary-buttons {
-            z-index: 500;
-            transition: z-index 300ms step-start;
-        }
-        .region-select {
-            &:hover {
-                color: white;
-                svg {
-                    fill: white;
-                }
-            }
-            &:before {
-                transform: translate3d(0, 0, 0);
-                transition: transform 300ms 100ms;
-            }
-        }
-        #region-flyout {
-            .flyout-close {
-                opacity: 1;
-                transition: opacity 150ms 250ms;
-            }
-            transform: translate3d(0, 0, 0);
-        }
-    }
-    &.signin-flyout-active {
-        .secondary-buttons {
-            z-index: 500;
-            transition: z-index 300ms step-start;
-        }
-        .sign-in {
-            &:hover {
-                color: white;
-                svg {
-                    fill: white;
-                }
-            }
-            &:before {
-                transform: translate3d(0, 0, 0);
-                transition: transform 300ms 100ms;
-            }
-        }
-        #signin-flyout {
-            .flyout-close {
-                opacity: 1;
-                transition: opacity 150ms 250ms;
-            }
-            transform: translate3d(0, 0, 0);
-        }
-    }
-    &.search-flyout-active {
-        .secondary-buttons {
-            z-index: 500;
-            transition: z-index 300ms step-start;
-        }
-        .search {
-            &:hover {
-                color: white;
-                svg {
-                    fill: white;
-                }
-            }
-            &:before {
-                transform: translate3d(0, 0, 0);
-                transition: transform 300ms 100ms;
-            }
-        }
-        #search-flyout {
-            .flyout-close {
-                opacity: 1;
-                transition: opacity 150ms 250ms;
-            }
-            transform: translate3d(0, 0, 0);
         }
     }
 
@@ -531,7 +421,7 @@
         form.search {
             position: relative;
             height: 60px;
-            margin: -22px -22px 22px -22px;
+            margin: 0 26px 0 -22px;
         }
         #mobile-search {
             position: absolute;
@@ -546,11 +436,15 @@
             font-size: 22px;
             outline: 0;
         }
+        h3 {
+            font-weight: lighter;
+        }
         ul {
             padding-left: 0;
             li {
                 list-style: none;
                 a {
+                    font-size: 14px;
                     display: block;
                     line-height: 32px;
                     text-decoration: none;
@@ -560,6 +454,16 @@
                         color: @pale-blue;
                     }
                 }
+            }
+        }
+        .related {
+            margin-top: 4em;
+            h3 {
+                font-size: 14px;
+                font-weight: bolder;
+            }
+            a {
+                font-size: 12px;
             }
         }
     }
@@ -609,17 +513,7 @@
                 display: block;
             }
         }
-        &.flyout-active {
-            .top-bar {
-                .secondary-buttons button .text {
-                    max-width: 100px;
-                    transition: max-width 175ms 200ms;
-                }
-            }
-        }
-        &.products-flyout-active,
-        &.learn-flyout-active,
-        &.support-flyout-active {
+        &.flyout-active.from-left {
             .top-bar {
                 .primary-buttons {
                     .products,
@@ -628,23 +522,8 @@
                         max-width: 150px;
                         padding: 0 11px;
                     }
-                    .support {
-                        padding-right: 22px;
-                        &:before {
-                            right: 22px;
-                        }
-                    }
                 }
             }
-        }
-    }
-    &.transparent {
-        .top-bar {
-            transition: background-color 300ms;
-            background-color: transparent;
-        }
-        &.scrolled .top-bar {
-            background-color: #0070c5;
         }
     }
 }
