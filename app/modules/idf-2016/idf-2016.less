@@ -2,15 +2,20 @@
     .container {
         position: relative;
         padding: 150px 15px;
-        max-width: 750px;
+        max-width: 1050px;
     }
     .text {
+        transform: translate3d(-150%, 0, 0);
+        transition: transform 300ms ease-out;
         h2 {
             font-family: 'intel-clear-headline';
             font-size: 120px;
             color: @digital-blue;
             line-height: 90px;
             margin: 0;
+            br {
+                display: none;
+            }
         }
         p {
             font-weight: lighter;
@@ -30,6 +35,22 @@
         height: 299px;
         background-image: url('assets/imgs/idf/bk-cutout.png');
         background-size: cover;
+        transform: translate3d(0, 100%, 0);
+        transition: transform 300ms ease-out;
+    }
+    &.visible {
+        .bk-photo,
+        .text {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    @media screen and (max-width: @screen-lg) {
+        .container {
+            max-width: 750px;
+        }
+        .text h2 br {
+            display: block;
+        }
     }
     @media screen and (max-width: @screen-md) {
         .container {
