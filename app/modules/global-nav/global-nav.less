@@ -23,7 +23,7 @@
     .top-bar {
         position: relative;
         height: 60px;
-        background-color: #0070c5;
+        background-color: @intel-blue;
         a,
         button {
             position: relative;
@@ -176,6 +176,13 @@
                 }
             }
         }
+    }
+    &.transparent .top-bar {
+        background-color: transparent;
+        transition: background-color 150ms;
+    }
+    &.transparent.transparency-off .top-bar {
+        background-color: @intel-blue;
     }
 
     // flyouts are the dark navigation

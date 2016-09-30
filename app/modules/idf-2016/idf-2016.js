@@ -9,7 +9,6 @@ function checkIfScrolledIntoView() {
     if (bladeTop > 50 && bladeBottom < window.innerHeight - 50) {
         window.removeEventListener('load', onLoad, false);
         window.removeEventListener('scroll', onScroll, false);
-        console.log('triggered');
         idfBlade.classList.add('visible');
     }
 }

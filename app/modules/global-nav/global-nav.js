@@ -7,11 +7,15 @@
 ///////////////////////////////////////////////////////////////
 
 import delegate from 'delegate';
+import throttle from 'lodash.throttle';
 
 class IntelGlobalNavigation {
     constructor(navDomElement) {
         this.nav = navDomElement;
         this.getFlyoutObjects();
+        if (this.nav.classList.contains('transparent')) {
+            this.initNavTransparency();
+        }
         this.attachEventHandlers({
             '[data-flyout]': this.toggleFlyout,
             '.open-plank': this.pushPlank,
@@ -37,6 +41,22 @@ class IntelGlobalNavigation {
         for (var i = 0; i < topNavButtons.length; i++) {
             this.navButtons.push(topNavButtons[i]);
         }
+    }
+    initNavTransparency() {
+        function getPageYOffset() {
+            return window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
+        }
+        if (getPageYOffset() > 10 ) {
+            this.nav.classList.add('transparency-off');
+        }
+        const updateTransparencyOnScroll = throttle(event => {
+            if (getPageYOffset() > 10) {
+                this.nav.classList.add('transparency-off');
+            } else {
+                this.nav.classList.remove('transparency-off');
+            }
+        }, 175);
+        window.addEventListener('scroll', updateTransparencyOnScroll);
     }
     attachEventHandlers(events) {
         Object.keys(events).forEach(selector => {
