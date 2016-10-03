@@ -1,7 +1,9 @@
 const idfBlade = document.getElementById('idf-2016-blade');
-let isInView = false;
-const onLoad = window.addEventListener('load', checkIfScrolledIntoView);
-const onScroll = window.addEventListener('scroll', checkIfScrolledIntoView);
+if (idfBlade) {
+    let isInView = false;
+    const onLoad = window.addEventListener('load', checkIfScrolledIntoView);
+    const onScroll = window.addEventListener('scroll', checkIfScrolledIntoView);
+}
 
 function checkIfScrolledIntoView() {
     const bladeTop = idfBlade.getBoundingClientRect().top;
