@@ -288,7 +288,7 @@
             header {
                 position: relative;
                 text-align: center;
-                margin-bottom: 11px;
+                margin-bottom: 24px;
                 .back {
                     position: absolute;
                     top: 0;
@@ -343,26 +343,33 @@
                     }
                 }
             }
-            > a {
-                display: block;
-                line-height: 36px;
-                font-size: 14px;
-                text-decoration: none;
-                color: white;
-                &.open-plank:before {
-                    display: block;
-                    content: ' ';
-                    float: right;
-                    width: 4px;
-                    height: 36px;
-                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#FFFFFF' viewBox='0 0 3.1 6'%3E%3Cpath d='M1.7 3L0 0h1.3l1.8 3-1.8 3H0l1.7-3z'/%3E%3C/svg%3E");
-                    background-repeat: no-repeat;
-                    background-position: center center;
+            section {
+                margin-bottom: 2em;
+                h4 {
+                    font-size: 14px;
+                    font-weight: bolder;
                 }
-                &:hover {
-                    color: @pale-blue;
+                a {
+                    display: block;
+                    line-height: 36px;
+                    font-size: 14px;
+                    text-decoration: none;
+                    color: white;
                     &.open-plank:before {
-                        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#8CDAFA' viewBox='0 0 3.1 6'%3E%3Cpath d='M1.7 3L0 0h1.3l1.8 3-1.8 3H0l1.7-3z'/%3E%3C/svg%3E");
+                        display: block;
+                        content: ' ';
+                        float: right;
+                        width: 4px;
+                        height: 36px;
+                        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#FFFFFF' viewBox='0 0 3.1 6'%3E%3Cpath d='M1.7 3L0 0h1.3l1.8 3-1.8 3H0l1.7-3z'/%3E%3C/svg%3E");
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                    }
+                    &:hover {
+                        color: @pale-blue;
+                        &.open-plank:before {
+                            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#8CDAFA' viewBox='0 0 3.1 6'%3E%3Cpath d='M1.7 3L0 0h1.3l1.8 3-1.8 3H0l1.7-3z'/%3E%3C/svg%3E");
+                        }
                     }
                 }
             }

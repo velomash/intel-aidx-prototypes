@@ -1,4 +1,8 @@
 <nav class="global-navigation transparent">
+
+    <!-- begin top-bar -->
+    <!-- the top bar is the fixed blue bar -->
+    <!-- which has the logo and triggers the flyouts -->
     <div class="top-bar">
         <div class="primary-buttons">
             <button class="macrosite-menu">
@@ -37,6 +41,9 @@
             </button>
         </div>
     </div>
+    <!-- end top-bar -->
+
+    <!-- the shader engages when a flyout is active -->
     <div class="shader"></div>
 
     <div class="flyout" id="main-flyout">
@@ -44,87 +51,31 @@
             <div class="bar bar-1"></div>
             <div class="bar bar-2"></div>
         </button>
-        <nav class="plank first" id="products-plank">
-            <a class="open-plank" href="#analytics-reporting-plank">Analytics &amp; Reporting</a>
-            <a class="open-plank" href="#digital-academy-plank">Digital Academy</a>
-            <a class="open-plank" href="#design-guidelines-plank">Design Guidelines</a>
-            <a class="open-plank" href="#graphic-assets-plank">Graphic Assets</a>
-            <a class="open-plank" href="#mobile-apps-plank">Mobile Apps</a>
-            <a class="open-plank" href="#privacy-and-legal-policies-plank">Privacy and Legal Policies</a>
-            <a class="open-plank" href="#security-plank">Security</a>
-            <a class="open-plank" href="#social-media-plank">Social Media</a>
-            <a class="open-plank" href="#web-content-plank">Web Content</a>
-        </nav>
-        <nav class="plank" id="social-media-plank">
+        
+        {{#each main-flyout-planks}}
+        <nav class="plank{{#if first}} first{{/if}}" id="{{id}}">
+            {{#if name}}
             <header>
-                <button class="back">Back</button>
-                <h4>Social Media</h4>
+                {{#unless first}}
+                <button class="back">Back</button> {{/unless}}
+                <h4>{{name}}</h4>
             </header>
-            <a class="open-plank" href="#new-social-accounts-plank">New social media accounts</a>
-            <a class="open-plank" href="#existing-social-accounts-plank">Existing social media accounts</a>
-            <a class="open-plank" href="#social-guidelines-plank">Guidelines for social media users</a>
+            {{/if}} {{#each link-groups}}
+            <section>
+                {{#if header}}
+                <h4>{{#if header.href}}<a href="{{header.href}}">{{/if}}{{header.text}}{{#if header.href}}</a>{{/if}}</h4>
+                {{/if}}
+                {{#each links}}
+                <a {{#if plank-link}}class="open-plank" {{/if}}href="{{href}}">{{text}}</a> {{/each}}
+            </section>
+            {{/each}}
+            {{#if cta}}
             <hr>
-            <a href="http://www.intel.com/content/www/us/en/homepage.html">Intel.com</a>
+            <a class="btn btn-primary" href="{{cta.href}}">{{cta.text}}</a>
+            {{/if}}
         </nav>
-        <nav class="plank" id="existing-social-accounts-plank">
-            <header>
-                <button class="back">Back</button>
-                <h4>Existing social media accounts</h4>
-            </header>
-            <a href="#">Add a new user to existing account</a>
-            <a href="#">Analytics for social media (playbook)</a>
-            <a href="#">Best practices for managing a social account</a>
-            <a href="#">Moderate an existing account</a>
-            <a href="#">Paid social media (playbook)</a>
-            <a href="#">Review social media guidelines</a>
-            <a href="#">SMP alerts about Intel activities</a>
-            <a href="#">Tools for social channels</a>
-            <a href="#">Using Twitter for events</a>
-            <a href="#">View a list of social account owners</a>
-            <hr>
-            <a href="http://www.intel.com/content/www/us/en/homepage.html">Intel.com</a>
-        </nav>
+        {{/each}}
 
-        <nav class="plank first" id="learn-plank">
-            <a class="open-plank" href="#analytics-reporting-plank">Analytics &amp; Reporting</a>
-            <a class="open-plank" href="#digital-academy-plank">Digital Academy</a>
-            <a class="open-plank" href="#design-guidelines-plank">Design Guidelines</a>
-            <a class="open-plank" href="#graphic-assets-plank">Graphic Assets</a>
-            <a class="open-plank" href="#mobile-apps-plank">Mobile Apps</a>
-            <a class="open-plank" href="#privacy-and-legal-policies-plank">Privacy and Legal Policies</a>
-            <a class="open-plank" href="#security-plank">Security</a>
-            <a class="open-plank" href="#social-media-plank">Social Media</a>
-            <a class="open-plank" href="#web-content-plank">Web Content</a>
-        </nav>
-        <nav class="plank" id="social-media-plank">
-            <header>
-                <button class="back">Back</button>
-                <h4>Social Media</h4>
-            </header>
-            <a class="open-plank" href="#new-social-accounts-plank">New social media accounts</a>
-            <a class="open-plank" href="#existing-social-accounts-plank">Existing social media accounts</a>
-            <a class="open-plank" href="#social-guidelines-plank">Guidelines for social media users</a>
-            <hr>
-            <a href="http://www.intel.com/content/www/us/en/homepage.html">Intel.com</a>
-        </nav>
-        <nav class="plank" id="existing-social-accounts-plank">
-            <header>
-                <button class="back">Back</button>
-                <h4>Existing social media accounts</h4>
-            </header>
-            <a href="#">Add a new user to existing account</a>
-            <a href="#">Analytics for social media (playbook)</a>
-            <a href="#">Best practices for managing a social account</a>
-            <a href="#">Moderate an existing account</a>
-            <a href="#">Paid social media (playbook)</a>
-            <a href="#">Review social media guidelines</a>
-            <a href="#">SMP alerts about Intel activities</a>
-            <a href="#">Tools for social channels</a>
-            <a href="#">Using Twitter for events</a>
-            <a href="#">View a list of social account owners</a>
-            <hr>
-            <a href="http://www.intel.com/content/www/us/en/homepage.html">Intel.com</a>
-        </nav>
 
         <nav class="plank first" id="support-plank">
             <a class="open-plank" href="#analytics-reporting-plank">Analytics &amp; Reporting</a>
@@ -137,35 +88,6 @@
             <a class="open-plank" href="#social-media-plank">Social Media</a>
             <a class="open-plank" href="#web-content-plank">Web Content</a>
         </nav>
-        <nav class="plank" id="social-media-plank">
-            <header>
-                <button class="back">Back</button>
-                <h4>Social Media</h4>
-            </header>
-            <a class="open-plank" href="#new-social-accounts-plank">New social media accounts</a>
-            <a class="open-plank" href="#existing-social-accounts-plank">Existing social media accounts</a>
-            <a class="open-plank" href="#social-guidelines-plank">Guidelines for social media users</a>
-            <hr>
-            <a href="http://www.intel.com/content/www/us/en/homepage.html">Intel.com</a>
-        </nav>
-        <nav class="plank" id="existing-social-accounts-plank">
-            <header>
-                <button class="back">Back</button>
-                <h4>Existing social media accounts</h4>
-            </header>
-            <a href="#">Add a new user to existing account</a>
-            <a href="#">Analytics for social media (playbook)</a>
-            <a href="#">Best practices for managing a social account</a>
-            <a href="#">Moderate an existing account</a>
-            <a href="#">Paid social media (playbook)</a>
-            <a href="#">Review social media guidelines</a>
-            <a href="#">SMP alerts about Intel activities</a>
-            <a href="#">Tools for social channels</a>
-            <a href="#">Using Twitter for events</a>
-            <a href="#">View a list of social account owners</a>
-            <hr>
-            <a href="http://www.intel.com/content/www/us/en/homepage.html">Intel.com</a>
-        </nav>
     </div>
 
     <div class="flyout from-right" id="region-select-flyout">
@@ -177,9 +99,6 @@
             <header>
                 <h4>
                     <div class="text">Select Your Region</div>
-                    <figure>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.8 47.8"><path d="M23.9 0C10.6 0 0 10.6 0 23.9s10.6 23.9 23.9 23.9 23.9-10.6 23.9-23.9S37.1 0 23.9 0zm18.9 15.4h-5.2c-.9-3.9-2.4-7.4-4.1-10 3.8 2.2 7.3 5.7 9.3 10zm1.7 8.5c0 1.7-.2 3.5-.7 5.2H38c.2-1.7.4-3.5.4-5.2 0-1.7-.2-3.5-.4-5.2h5.9c.4 1.7.6 3.4.6 5.2zm-41.2 0c0-1.7.2-3.5.7-5.2h5.9c-.2 1.7-.4 3.5-.4 5.2 0 1.7.2 3.5.4 5.2h-6c-.4-1.7-.6-3.5-.6-5.2zm9.5 0c0-1.7.2-3.5.4-5.2h9.1v10.4h-9.1c-.4-1.7-.4-3.5-.4-5.2zM25.6 3.5c3.7 1.1 6.9 5.6 8.5 11.9h-8.5V3.5zm-3.5 0v11.9h-8.5c1.8-6.3 4.9-10.8 8.5-11.9zm0 28.8v11.9c-3.7-1.1-6.9-5.6-8.5-11.9h8.5zm3.5 12v-12h8.5c-1.8 6.3-4.8 10.9-8.5 12zm0-15.2V18.7h9.1c.2 1.7.4 3.5.4 5.2 0 1.7-.2 3.5-.4 5.2h-9.1zM14.5 5.4c-2 2.6-3.3 6.1-4.1 10H5.2c1.7-4.3 5.2-7.8 9.3-10zM5 32.3h5.2c.9 3.9 2.4 7.4 4.1 10-3.9-2.1-7.4-5.6-9.3-10zm28.2 10c2-2.6 3.3-6.1 4.1-10h5.2c-1.7 4.4-5.2 7.9-9.3 10z"/></svg>
-                    </figure>
                 </h4>
             </header>
             <a class="open-plank" href="#asia-plank">Asia Pacific</a>

@@ -1,0 +1,441 @@
+{
+    "main-flyout-planks": [{
+        "id": "products-plank",
+        "first": true,
+        "link-groups": [{
+            "links": [{
+                "text": "Devices & Systems",
+                "href": "#cat-0-0",
+                "plank-link": true
+            }, {
+                "text": "Processors",
+                "href": "#cat-0-1",
+                "plank-link": true
+            }, {
+                "text": "Boards & Kits",
+                "href": "#cat-0-2",
+                "plank-link": true
+            }, {
+                "text": "Chipsets",
+                "href": "#cat-0-3",
+                "plank-link": true
+            }, {
+                "text": "Solid State Drives",
+                "href": "#cat-0-4",
+                "plank-link": true
+            }, {
+                "text": "Server Products",
+                "href": "#cat-0-5",
+                "plank-link": true
+            }, {
+                "text": "Networking & Communications",
+                "href": "#cat-0-6",
+                "plank-link": true
+            }, {
+                "text": "Wireless",
+                "href": "#cat-0-7",
+                "plank-link": true
+            }, {
+                "text": "Software & Services",
+                "href": "#cat-0-8",
+                "plank-link": true
+            }, {
+                "text": "Intel Gateways",
+                "href": "#cat-0-9",
+                "plank-link": true
+            }, {
+                "text": "FPGAs",
+                "href": "#cat-0-10",
+                "plank-link": true
+            }, {
+                "text": "Technologies",
+                "href": "#cat-0-11",
+                "plank-link": true
+            }, {
+                "text": "How to Buy",
+                "href": "#cat-0-12",
+                "plank-link": true
+            }]
+        }]
+
+    }, {
+        "name": "Devices & Systems",
+        "id": "cat-0-0",
+        "link-groups": [{
+            "links": [{
+                "text": "Tablets",
+                "href": "javascript:void(0)"
+            }, {
+                "href": "javascript:void(0)",
+                "text": "2 in 1 & Ultrabook™"
+            }, {
+                "href": "javascript:void(0)",
+                "text": "All-in-One"
+            }, {
+                "href": "javascript:void(0)",
+                "text": "Desktops"
+            }, {
+                "href": "javascript:void(0)",
+                "text": "Intel® NUC"
+            }, {
+                "href": "javascript:void(0)",
+                "text": "Intel® Compute Stick"
+            }, {
+                "href": "javascript:void(0)",
+                "text": "Mini PCs"
+            }, {
+                "href": "javascript:void(0)",
+                "text": "Laptops"
+            }, {
+                "href": "javascript:void(0)",
+                "text": "Chromebooks*"
+            }, {
+                "href": "javascript:void(0)",
+                "text": "Smart Phones"
+            }, {
+                "href": "javascript:void(0)",
+                "text": "Wearables"
+            }, {
+                "href": "javascript:void(0)",
+                "text": "Cable Modems"
+            }, {
+                "href": "javascript:void(0)",
+                "text": "Servers"
+            }, {
+                "href": "javascript:void(0)",
+                "text": "Microservers"
+            }, {
+                "href": "javascript:void(0)",
+                "text": "Workstations"
+            }, {
+                "href": "javascript:void(0)",
+                "text": "Storage"
+            }]
+        }]
+
+    }, {
+        "name": "Boards & Kits",
+        "id": "cat-0-2",
+        "link-groups": [{
+            "links": [{
+                "href": "javascript:void(0)",
+                "text": "Server Motherboards"
+            }, {
+                "href": "javascript:void(0)",
+                "text": "Intel® Galileo Development Board"
+            }, {
+                "href": "javascript:void(0)",
+                "text": "Intel® Curie™ SoC"
+            }, {
+                "href": "javascript:void(0)",
+                "text": "Intel® Edison Development Board"
+            }, {
+                "href": "javascript:void(0)",
+                "text": "Intel® NUC Boards & Kits"
+            }]
+        }]
+
+    }, {
+        "name": "Chipsets",
+        "id": "cat-0-3",
+        "link-groups": [{
+            "header": {
+                "text": "PC Chipsets"
+            },
+            "links": [{
+                "text": "Performance",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Mainstream",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Business",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Value",
+                "href": "javascript:void(0)"
+            }]
+        }, {
+            "header": {
+                "text": "Other Chipsets"
+            },
+            "links": [{
+                "text": "Server",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Embedded",
+                "href": "javascript:void(0)"
+            }]
+        }],
+        "cta": {
+            "text": "Help Me Choose",
+            "href": "javascript:void(0)"
+        }
+
+    }, {
+        "name": "Solid State Drives",
+        "id": "cat-0-4",
+        "link-groups": [{
+            "links": [{
+                "text": "Solid State Drives Overview",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Consumer",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Data Center",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Professional",
+                "href": "javascript:void(0)"
+            }]
+        }]
+
+    }, {
+        "name": "Server Products",
+        "id": "cat-0-5",
+        "link-groups": [{
+            "links": [{
+                "text": "Server Systems",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Server Motherboards",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Server Chassis",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "RAID Products",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Data Center Blocks",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Server Management",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Server Software",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Intelligent Platform Management Interface (IPMI)",
+                "href": "javascript:void(0)"
+            }]
+        }]
+
+    }, {
+        "name": "Networking & Communications",
+        "id": "cat-0-6",
+        "link-groups": [{
+            "header": {
+                "text": "Communications"
+            },
+            "links": [{
+                "text": "Network Infrastructure Solutions",
+                "href": "javascript:void(0)"
+            }]
+        }, {
+            "header": {
+                "text": "Adapters, Optics & Cables"
+            },
+            "links": [{
+                "text": "Ethernet 10/40 Gigabit Server Adapters",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Ethernet Gigabit Server Adapters",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "I/O Expansion Modules",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Optics & Cables",
+                "href": "javascript:void(0)"
+            }]
+        }, {
+            "header": {
+                "text": "Controllers & Switches"
+            },
+            "links": [{
+                "text": "Ethernet Controllers",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Ethernet Switch Silicon",
+                "href": "javascript:void(0)"
+            }]
+        }, {
+            "header": {
+                "text": "Fabric Products"
+            },
+            "links": [{
+                "text": "HPC Fabrics",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Intel® True Scale Fabric",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Intel® Omni-Path Architecture",
+                "href": "javascript:void(0)"
+            }]
+        }]
+
+    }, {
+        "name": "Wireless",
+        "id": "cat-0-7",
+        "link-groups": [{
+            "links": [{
+                "text": "Mobile Communications",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Wireless Products",
+                "href": "javascript:void(0)"
+            }]
+        }]
+
+    }, {
+        "name": "Software & Services",
+        "id": "cat-0-8",
+        "link-groups": [{
+            "links": [{
+                "text": "Intel Security",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Intel® Cofluent System Modeling & Simulation",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Intel® Service Gateway",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Foundry Services",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Intel System Management Software (Server)",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Embedded Software",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Software Development Tools",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Intel® Lustre* Software",
+                "href": "javascript:void(0)"
+            }]
+        }]
+
+    }, {
+        "name": "Intel Gateways",
+        "id": "cat-0-9",
+        "link-groups": [{
+            "links": [{
+                "text": "Home Gateways",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Intel® IoT Gateway Products",
+                "href": "javascript:void(0)"
+            }]
+        }]
+
+    }, {
+        "name": "FPGAs",
+        "id": "cat-0-10",
+        "link-groups": [{
+            "links": [{
+                "text": "Solutions Overview",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Device Families",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "IP and Design Tools",
+                "href": "javascript:void(0)"
+            }]
+        }]
+
+    }, {
+        "name": "Technologies",
+        "id": "cat-0-11",
+        "link-groups": [{
+            "links": [{
+                "text": "5G Connectivity",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Intel® Authenticate Technology",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Intel® Graphics Technology",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Intel® Rack Scale Design",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Intel® Ready Mode Technology",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Intel® RealSense™ Technology",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Intel® Silicon Photonics",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Intel® Unite™",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Intel® vPro™ Technology",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Thunderbolt™ 3",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "True Key™ by Intel Security",
+                "href": "javascript:void(0)"
+            }]
+        }]
+
+    }, {
+        "name": "How to Buy",
+        "id": "cat-0-12",
+        "link-groups": [{
+            "links": [{
+                "text": "Intel Shop",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "IT Resellers",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Intel® Authorized Distributors of Embedded Products",
+                "href": "javascript:void(0)"
+            }]
+        }]
+
+    }, {
+        "id": "learn-plank",
+        "first": true,
+        "link-groups": [{
+            "links": [{
+                "text": "In the Home",
+                "href": "#cat-1-0",
+                "plank-link": true
+            }, {
+                "text": "Business & IT",
+                "href": "#cat-1-1",
+                "plank-link": true
+            }, {
+                "text": "Developers & Makers",
+                "href": "#cat-1-2",
+                "plank-link": true
+            }, {
+                "text": "Partners",
+                "href": "#cat-1-3",
+                "plank-link": true
+            }, {
+                "text": "Educators",
+                "href": "#cat-1-4",
+                "plank-link": true
+            }, {
+                "text": "News & Events",
+                "href": "#cat-1-5",
+                "plank-link": true
+            }]
+        }]
+
+    }]
+}
