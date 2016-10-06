@@ -25,9 +25,18 @@ class chipParticleSystem {
     }
 
     init3dEnvironment() {
-        this.renderer = new THREE.CanvasRenderer({
-            alpha: true
-        });
+        const canvas = document.createElement('canvas');
+        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        const clientHasWebGL = gl && gl instanceof WebGLRenderingContext;
+        if (clientHasWebGL) {
+            this.renderer = new THREE.WebGLRenderer({
+                alpha: true
+            });
+        } else {
+            this.renderer = new THREE.CanvasRenderer({
+                alpha: true
+            });
+        }
         this.camera = new THREE.PerspectiveCamera(80, window.innerWidth / window.innerHeight, 1, 4000);
         this.camera.maxDimention = Math.max(this.container.clientWidth, this.container.clientHeight);
         this.camera.aspect = this.container.clientWidth / this.container.clientHeight;

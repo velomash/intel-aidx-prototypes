@@ -61,7 +61,6 @@ class IntelGlobalNavigation {
     attachEventHandlers(events) {
         Object.keys(events).forEach(selector => {
             delegate(this.nav, selector, 'click', events[selector].bind(this));
-            delegate(this.nav, selector, 'touchend', events[selector].bind(this));
         });
     }
     toggleFlyout(event) {
