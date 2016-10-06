@@ -5,7 +5,6 @@ module.exports = (gulp, options, plugins) => {
         options.browserSync.init({
             server: options.getPath('dist'),
             notify: false,
-            // logFileChanges: false,
             middleware: [
                 webpackDevMiddleware(options.webpackDev, {
                     publicPath: '/',

@@ -1,11 +1,7 @@
-import cleancss from 'less-plugin-clean-css';
-const cleanCSSPlugin = new cleancss({
-    advanced: true
-});
 import lessGlobbing from 'less-plugin-glob';
 import autoprefix from 'less-plugin-autoprefix';
 const autoprefixPlugin = new autoprefix({
-    browsers: ["last 2 versions"]
+    browsers: ["> 1%"]
 });
 
 module.exports = (gulp, options, plugins) => {
