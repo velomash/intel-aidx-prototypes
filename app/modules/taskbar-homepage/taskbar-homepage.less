@@ -71,13 +71,21 @@
             }
         }
     }
-    @media screen and (max-width: 775px) {
+    @media screen and (max-width: @screen-sm) {
         .clearfix();
+        display: table;
+        width: 100%;
         a {
-            white-space: nowrap;
-            width: 30%;
-            padding: 15px 15px 12px 15px;
-            // text-align: left;
+            display: table-cell;
+            font-size: 12px;
+            width: auto;
+            svg {
+                display: block;
+                max-width: 20px;
+                max-height: 20px;
+                margin: 0 auto;
+            }
+            padding: 15px 5px 12px 5px;
         }
     }
 }

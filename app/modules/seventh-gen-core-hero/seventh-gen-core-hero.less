@@ -32,36 +32,16 @@
     .text {
         position: relative;
         width: 100%;
-        padding: 15px;
-        h2 {
-            font-size: 90px;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-family: "intel-clear-headline";
-            vertical-align: top;
-            margin: 0;
-            sup {
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-                line-height: 90px;
-            }
-            .th {
-                font-size: 44px;
-                top: -33px;
-            }
-            .copy {
-                font-size: 60px;
-                top: -20px;
-            }
-            .trade {
-                font-size: 68px;
-                top: -16px;
-            }
+        max-width: 750px;
+        padding: 15px 30px;
+        svg {
+            max-width: 100%;
+            max-height: 100%;
+            fill: white;
         }
         p {
             font-weight: lighter;
-            max-width: 500px;
-            margin: 0 auto 32px auto;
+            margin: 1em auto;
         }
         .btn-outline:hover {
             border-color: @pale-blue;
@@ -76,7 +56,6 @@
     }
 
     @media screen and (max-width: 900px) {
-        min-height: 300px;
         padding-top: 75px;
         padding-bottom: 15px;
         .laptop {
@@ -84,38 +63,30 @@
             height: 200px;
         }
         .text {
-            h2 {
-                font-size: 45px;
-                height: 80px;
-                .th {
-                    font-size: 20px;
-                    top: -18px;
-                }
-                .copy {
-                    font-size: 36px;
-                    top: -6px;
-                }
-                .trade {
-                    font-size: 36px;
-                    top: -7px;
-                }
-            }
             p {
                 font-size: 14px;
-                margin-bottom: 28px;
             }
             .btn-outline {
                 font-size: 14px;
             }
         }
     }
-    @media screen and (max-width: 420px) {
-        .text h2 {
-            max-width: 360px !important;
-            line-height: 0px !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
-            margin-bottom: 54px !important;
+    @media screen and (max-width: @screen-sm) {
+        .laptop {
+            width: 125px;
+            height: 125px;
+        }
+        .text {
+            max-width: 500px;
+            p {
+                margin-top: 0.5em;
+            }
+            .btn-outline {
+                font-size: 12px;
+                &:before {
+                    height: 14px;
+                }
+            }
         }
     }
 }
