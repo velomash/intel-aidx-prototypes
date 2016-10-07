@@ -1,7 +1,7 @@
 {
-  "name": "intel-global-nav",
-  "version": "2.0.1",
-  "description": "The new version of the intel global navigation that puts an emphasis on usability and microinteractions.",
+  "name": "aidxp",
+  "version": "3.0.2",
+  "description": "Agency Inside's area for digital prototypes. Internal only.",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
+    "babel-register": "^6.16.3",
     "browser-sync": "^2.13.0",
     "bs-fullscreen-message": "^1.1.0",
     "composer-runtimes": "^0.7.0",
