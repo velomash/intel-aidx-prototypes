@@ -127,7 +127,10 @@ class chipParticleSystem {
 }
 
 window.addEventListener('load', event => {
-    const ps = new chipParticleSystem(document.getElementById('particle-system'));
+    const ps = document.getElementById('particle-system');
+    if (ps) {
+        new chipParticleSystem(ps);
+    }
 });
 
 export default chipParticleSystem;
