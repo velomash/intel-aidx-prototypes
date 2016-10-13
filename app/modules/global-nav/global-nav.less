@@ -245,6 +245,7 @@
             .plank {
                 padding-top: 75px;
                 z-index: 200;
+                overflow: hidden;
                 header {
                     position: absolute;
                     top: 0;
@@ -252,6 +253,8 @@
                     width: 100%;
                     height: 60px;
                     margin-bottom: 15px;
+                    z-index: 20;
+                    background-color: #333;
                     h4 {
                         line-height: 60px;
                     }
@@ -259,6 +262,17 @@
                         height: 60px;
                         left: 0;
                     }
+                }
+                section {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    padding: 75px 22px 30px 22px;
+                    padding-top: 75px;
+                    max-height: 100%;
+                    overflow: auto;
+                    z-index: 10;
                 }
             }
         }
@@ -447,7 +461,7 @@
         form.search {
             position: relative;
             height: 100%;
-            margin: 0 26px 0 -22px;
+            margin: 0 26px 0 0;
         }
         #mobile-search {
             position: absolute;
@@ -480,16 +494,6 @@
                         color: @pale-blue;
                     }
                 }
-            }
-        }
-        .related {
-            margin-top: 4em;
-            h3 {
-                font-size: 14px;
-                font-weight: bolder;
-            }
-            a {
-                font-size: 12px;
             }
         }
     }
