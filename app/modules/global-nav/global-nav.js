@@ -150,4 +150,5 @@ class IntelGlobalNavigation {
 }
 
 const navElement = document.getElementsByClassName('global-navigation')[0];
-export default new IntelGlobalNavigation(navElement);
+const globalNav = navElement ? new IntelGlobalNavigation(navElement) : undefined;
+export default globalNav;

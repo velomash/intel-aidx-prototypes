@@ -74,6 +74,7 @@
             height: 100%;
             z-index: 10;
             transition: z-index 300ms step-end;
+            white-space: nowrap;
             .hamburger {
                 position: relative;
                 display: inline-block;
@@ -243,7 +244,7 @@
             right: 0;
             transform: translate3d(100%, 0, 0);
             .plank {
-                padding-top: 75px;
+                padding-top: 60px;
                 z-index: 200;
                 overflow: hidden;
                 header {
@@ -307,10 +308,10 @@
             header {
                 position: relative;
                 text-align: center;
-                margin-bottom: 24px;
+                margin-bottom: 22px;
                 .back {
                     position: absolute;
-                    top: 0;
+                    top: 1px;
                     left: -22px;
                     font-size: 14px;
                     display: inline-block;
@@ -392,6 +393,9 @@
                     }
                 }
             }
+            .btn {
+                margin: 0 auto;
+            }
             hr {
                 border-color: @dark-gray;
             }
@@ -449,7 +453,7 @@
             }
         }
         .intel-form {
-            margin-bottom: 0.5em;
+            padding: 30px 0 30px 0;
         }
         .remember-user {
             margin-top: 2px;
@@ -515,6 +519,10 @@
     @media (max-width: @screen-md) {
         .top-bar {
             .primary-buttons {
+                .hamburger {
+                    width: 20px;
+                    height: 20px;
+                }
                 .macrosite-menu {
                     max-width: 75px;
                     padding-left: 11px;
@@ -538,9 +546,18 @@
             width: 100%;
             .flyout-close {
                 display: none;
+                .bar {
+                    left: 8px;
+                    right: 8px;
+                }
             }
-            &.from-right .flyout-close {
-                display: block;
+            &.from-right {
+                .plank {
+                    padding-top: 50px;
+                }
+                .flyout-close {
+                    display: block;
+                }
             }
         }
         &.flyout-active.from-left {
@@ -550,10 +567,22 @@
                     .learn,
                     .support {
                         max-width: 150px;
-                        padding: 0 11px;
+                        padding: 0 7px;
+                        &:before {
+                            left: 7px;
+                            right: 7px;
+                        }
                     }
                 }
             }
+            .plank {
+                -webkit-overflow-y: scroll;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+        &.flyout.from-right .plank{
+            -webkit-overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
         }
     }
 
@@ -590,7 +619,7 @@
                     }
                     section {
                         max-height: 100%;
-                        padding: 15px 0;
+                        padding: 65px 22px 22px 22px;
                         overflow-y: auto;
                     }
                 }
@@ -604,7 +633,7 @@
     @media (max-width: @screen-xs) {
         .top-bar {
             .secondary-buttons button {
-                padding: 0 3px;
+                padding: 0 5px;
                 &.search {
                     padding-right: 7px;
                 }
