@@ -45,156 +45,151 @@
     <div class="shader"></div>
 
     <div class="flyout" id="microsite-flyout">
-        <nav class="plank first" id="microsite-menu-plank">
-            <section>
-                <a class="open-plank" href="#analytics-reporting-plank">Analytics &amp; Reporting</a>
-                <a class="open-plank" href="#digital-academy-plank">Digital Academy</a>
-                <a class="open-plank" href="#design-guidelines-plank">Design Guidelines</a>
-                <a class="open-plank" href="#graphic-assets-plank">Graphic Assets</a>
-                <a class="open-plank" href="#mobile-apps-plank">Mobile Apps</a>
-                <a class="open-plank" href="#privacy-and-legal-policies-plank">Privacy and Legal Policies</a>
-                <a class="open-plank" href="#security-plank">Security</a>
-                <a class="open-plank" href="#social-media-plank">Social Media</a>
-                <a class="open-plank" href="#web-content-plank">Web Content</a>
-            </section>
-        </nav>
-        <nav class="plank" id="social-media-plank">
+        {{#each main-flyout-planks}}
+        <nav class="plank{{#if first}} first{{/if}}" id="{{id}}">
+            {{#if name}}
             <header>
-                <button class="back">Back</button>
-                <h4>Social Media</h4>
+                {{#unless first}}
+                <button class="back">Back</button> {{/unless}}
+                <h4>{{name}}</h4>
             </header>
+            {{/if}} {{#each link-groups}}
             <section>
-                <a class="open-plank" href="#new-social-accounts-plank">New social media accounts</a>
-                <a class="open-plank" href="#existing-social-accounts-plank">Existing social media accounts</a>
-                <a class="open-plank" href="#social-guidelines-plank">Guidelines for social media users</a>
-                <hr>
-                <a href="http://www.intel.com/content/www/us/en/homepage.html">Intel.com</a>
+                {{#if header}}
+                <h4>{{#if header.href}}<a href="{{header.href}}">{{/if}}{{header.text}}{{#if header.href}}</a>{{/if}}</h4>
+                {{/if}}
+                {{#each links}}
+                <a {{#if plank-link}}class="open-plank" {{/if}}href="{{href}}">{{text}}</a> {{/each}}
             </section>
-        </nav>
-        <nav class="plank" id="existing-social-accounts-plank">
-            <header>
-                <button class="back">Back</button>
-                <h4>Existing social media accounts</h4>
-            </header>
-            <a href="#">Add a new user to existing account</a>
-            <a href="#">Analytics for social media (playbook)</a>
-            <a href="#">Best practices for managing a social account</a>
-            <a href="#">Moderate an existing account</a>
-            <a href="#">Paid social media (playbook)</a>
-            <a href="#">Review social media guidelines</a>
-            <a href="#">SMP alerts about Intel activities</a>
-            <a href="#">Tools for social channels</a>
-            <a href="#">Using Twitter for events</a>
-            <a href="#">View a list of social account owners</a>
+            {{/each}}
+            {{#if cta}}
             <hr>
-            <a href="http://www.intel.com/content/www/us/en/homepage.html">Intel.com</a>
+            <div class="subnav-buttons">
+                <a class="btn btn-primary" href="{{cta.href}}">{{cta.text}}</a>
+            </div>
+            {{/if}}
         </nav>
+        {{/each}}
     </div>
 
-    <div class="flyout from-right" id="region-flyout">
+    <div class="flyout from-right" id="region-select-flyout">
         <button class="flyout-close">
             <div class="bar bar-1"></div>
             <div class="bar bar-2"></div>
         </button>
-        <nav class="plank active">
+        <nav class="plank" id="region-select-plank">
             <header>
-                <h4>Select Your Region</h4>
+                <h4>
+                    <div class="text">Select Your Region</div>
+                </h4>
             </header>
-            <a class="open-plank" href="#asia-plank">Asia Pacific</a>
-            <a class="open-plank" href="#europe-plank">Europe</a>
-            <a class="open-plank" href="#latin-america-plank">Latin America</a>
-            <a class="open-plank" href="#middle-east-plank">Middle East / Africa</a>
-            <a class="open-plank" href="#north-america-plank">North America</a>
+            <section>
+                <a class="open-plank" href="#asia-plank">Asia Pacific</a>
+                <a class="open-plank" href="#europe-plank">Europe</a>
+                <a class="open-plank" href="#latin-america-plank">Latin America</a>
+                <a class="open-plank" href="#middle-east-plank">Middle East / Africa</a>
+                <a class="open-plank" href="#north-america-plank">North America</a>
+            </section>
         </nav>
         <nav class="plank" id="asia-plank">
             <header>
                 <button class="back">Back</button>
-                <h4>Select your region in Asia Pacific</h4>
+                <h4>Asia Pacific</h4>
             </header>
-            <a data-locale="en_xa" href="http://www.intel.com/content/www/xa/en/homepage.html">Asia Pacific (English)</a>
-            <a data-locale="en_au" href="http://www.intel.com.au/content/www/au/en/homepage.html">Australia (English)</a>
-            <a data-locale="zh_cn" href="http://www.intel.cn/content/www/cn/zh/homepage.html">China (简体中文)</a>
-            <a data-locale="en_hk" href="http://www.intel.hk/content/www/hk/en/homepage.html">Hong Kong (English)</a>
-            <a data-locale="en_in" href="http://www.intel.in/content/www/in/en/homepage.html?_ga=1.117712585.1707586993.1471737997">India (English)</a>
-            <a data-locale="id_id" href="http://www.intel.co.id/content/www/id/id/homepage.html">Indonesia (Bahasa Indonesia)</a>
-            <a data-locale="ja_jp" href="http://www.intel.co.jp/content/www/jp/ja/homepage.html">Japan (日本語)</a>
-            <a data-locale="ko_kr" href="http://www.intel.co.kr/content/www/kr/ko/homepage.html">Korea (한국어)</a>
-            <a data-locale="en_my" href="http://www.intel.my/content/www/my/en/homepage.html">Malaysia (English)</a>
-            <a data-locale="en_nz" href="http://www.intel.co.nz/content/www/nz/en/homepage.html">New Zealand (English)</a>
-            <a data-locale="en_pk" href="http://www.intel.pk/content/www/pk/en/homepage.html">Pakistan (English)</a>
-            <a data-locale="en_ph" href="http://www.intel.ph/content/www/ph/en/homepage.html">Philippines (English)</a>
-            <a data-locale="en_xa" href="http://www.intel.com/content/www/xa/en/homepage.html">Singapore (English)</a>
-            <a data-locale="zh_tw" href="http://www.intel.com.tw/content/www/tw/zh/homepage.html">Taiwan (繁體中文)</a>
-            <a data-locale="th_th" href="http://www.thailand.intel.com/content/www/th/th/homepage.html">Thailand (ไทย)</a>
-            <a data-locale="vi_vn" href="http://www.intel.vn/content/www/vn/vi/homepage.html">Vietnam (Tiếng Việt)</a>
+            <section>
+                <a data-locale="en_xa" href="http://www.intel.com/content/www/xa/en/homepage.html">Asia Pacific (English)</a>
+                <a data-locale="en_au" href="http://www.intel.com.au/content/www/au/en/homepage.html">Australia (English)</a>
+                <a data-locale="zh_cn" href="http://www.intel.cn/content/www/cn/zh/homepage.html">China (简体中文)</a>
+                <a data-locale="en_hk" href="http://www.intel.hk/content/www/hk/en/homepage.html">Hong Kong (English)</a>
+                <a data-locale="en_in" href="http://www.intel.in/content/www/in/en/homepage.html?_ga=1.117712585.1707586993.1471737997">India (English)</a>
+                <a data-locale="id_id" href="http://www.intel.co.id/content/www/id/id/homepage.html">Indonesia (Bahasa Indonesia)</a>
+                <a data-locale="ja_jp" href="http://www.intel.co.jp/content/www/jp/ja/homepage.html">Japan (日本語)</a>
+                <a data-locale="ko_kr" href="http://www.intel.co.kr/content/www/kr/ko/homepage.html">Korea (한국어)</a>
+                <a data-locale="en_my" href="http://www.intel.my/content/www/my/en/homepage.html">Malaysia (English)</a>
+                <a data-locale="en_nz" href="http://www.intel.co.nz/content/www/nz/en/homepage.html">New Zealand (English)</a>
+                <a data-locale="en_pk" href="http://www.intel.pk/content/www/pk/en/homepage.html">Pakistan (English)</a>
+                <a data-locale="en_ph" href="http://www.intel.ph/content/www/ph/en/homepage.html">Philippines (English)</a>
+                <a data-locale="en_xa" href="http://www.intel.com/content/www/xa/en/homepage.html">Singapore (English)</a>
+                <a data-locale="zh_tw" href="http://www.intel.com.tw/content/www/tw/zh/homepage.html">Taiwan (繁體中文)</a>
+                <a data-locale="th_th" href="http://www.thailand.intel.com/content/www/th/th/homepage.html">Thailand (ไทย)</a>
+                <a data-locale="vi_vn" href="http://www.intel.vn/content/www/vn/vi/homepage.html">Vietnam (Tiếng Việt)</a>
+            </section>
         </nav>
         <nav class="plank" id="europe-plank">
             <header>
                 <button class="back">Back</button>
-                <h4>Select your region in Europe</h4>
+                <h4>Europe</h4>
             </header>
-            <a data-locale="en_eu" href="http://www.intel.eu/content/www/eu/en/homepage.html">Europe (English)</a>
-            <a data-locale="fr_fr" href="http://www.intel.fr/content/www/fr/fr/homepage.html">France (Français)</a>
-            <a data-locale="de_de" href="http://www.intel.de/content/www/de/de/homepage.html">Germany (Deutsch)</a>
-            <a data-locale="en_ie" href="http://www.intel.ie/content/www/ie/en/homepage.html">Ireland (English)</a>
-            <a data-locale="it_it" href="http://www.intel.it/content/www/it/it/homepage.html">Italy (Italiano)</a>
-            <a data-locale="nl_nl" href="http://www.intel.nl/content/www/nl/nl/homepage.html">Netherlands (Nederlands)</a>
-            <a data-locale="pl_pl" href="http://www.intel.pl/content/www/pl/pl/homepage.html">Poland (Polski)</a>
-            <a data-locale="ru_ru" href="http://www.intel.ru/content/www/ru/ru/homepage.html?_ga=1.121139016.1707586993.1471737997">Russia (Русский)</a>
-            <a data-locale="es_es" href="http://www.intel.es/content/www/es/es/homepage.html">Spain (Español)</a>
-            <a data-locale="sv_se" href="http://www.intel.se/content/www/se/sv/homepage.html">Sweden (Svenska)</a>
-            <a data-locale="de_ch" href="http://www.intel.ch/content/www/ch/de/homepage.html">Switzerland (Deutsch)</a>
-            <a data-locale="tr_tr" href="http://www.intel.com.tr/content/www/tr/tr/homepage.html">Turkey (Türkçe)</a>
-            <a data-locale="uk_ua" href="http://www.intel.ua/content/www/ua/uk/homepage.html">Ukraine (Українська)</a>
-            <a data-locale="en_uk" href="http://www.intel.co.uk/content/www/uk/en/homepage.html">United Kingdom (English)</a>
+            <section>
+                <a data-locale="en_eu" href="http://www.intel.eu/content/www/eu/en/homepage.html">Europe (English)</a>
+                <a data-locale="fr_fr" href="http://www.intel.fr/content/www/fr/fr/homepage.html">France (Français)</a>
+                <a data-locale="de_de" href="http://www.intel.de/content/www/de/de/homepage.html">Germany (Deutsch)</a>
+                <a data-locale="en_ie" href="http://www.intel.ie/content/www/ie/en/homepage.html">Ireland (English)</a>
+                <a data-locale="it_it" href="http://www.intel.it/content/www/it/it/homepage.html">Italy (Italiano)</a>
+                <a data-locale="nl_nl" href="http://www.intel.nl/content/www/nl/nl/homepage.html">Netherlands (Nederlands)</a>
+                <a data-locale="pl_pl" href="http://www.intel.pl/content/www/pl/pl/homepage.html">Poland (Polski)</a>
+                <a data-locale="ru_ru" href="http://www.intel.ru/content/www/ru/ru/homepage.html?_ga=1.121139016.1707586993.1471737997">Russia (Русский)</a>
+                <a data-locale="es_es" href="http://www.intel.es/content/www/es/es/homepage.html">Spain (Español)</a>
+                <a data-locale="sv_se" href="http://www.intel.se/content/www/se/sv/homepage.html">Sweden (Svenska)</a>
+                <a data-locale="de_ch" href="http://www.intel.ch/content/www/ch/de/homepage.html">Switzerland (Deutsch)</a>
+                <a data-locale="tr_tr" href="http://www.intel.com.tr/content/www/tr/tr/homepage.html">Turkey (Türkçe)</a>
+                <a data-locale="uk_ua" href="http://www.intel.ua/content/www/ua/uk/homepage.html">Ukraine (Українська)</a>
+                <a data-locale="en_uk" href="http://www.intel.co.uk/content/www/uk/en/homepage.html">United Kingdom (English)</a>
+            </section>
         </nav>
         <nav class="plank" id="latin-america-plank">
             <header>
                 <button class="back">Back</button>
-                <h4>Select your region in Latin America</h4>
+                <h4>Latin America</h4>
             </header>
-            <a data-locale="es_xl" href="http://www.intel.la/content/www/xl/es/homepage.html">Argentina (Español)</a>
-            <a data-locale="es_xl" href="http://www.intel.la/content/www/xl/es/homepage.html">Bolivia (Español)</a>
-            <a data-locale="pt_br" href="http://www.intel.com.br/content/www/br/pt/homepage.html">Brazil (Português)</a>
-            <a data-locale="es_xl" href="http://www.intel.la/content/www/xl/es/homepage.html">Chile (Español)</a>
-            <a data-locale="es_xl" href="http://www.intel.la/content/www/xl/es/homepage.html?_ga=1.76669653.1707586993.1471737997">Colombia (Español)</a>
-            <a data-locale="es_xl" href="http://www.intel.la/content/www/xl/es/homepage.html">Costa Rica (Español)</a>
-            <a data-locale="es_xl" href="http://www.intel.la/content/www/xl/es/homepage.html">Latin America (Español)</a>
-            <a data-locale="es_xl" href="http://www.intel.la/content/www/xl/es/homepage.html">Mexico (Español)</a>
-            <a data-locale="es_xl" href="http://www.intel.la/content/www/xl/es/homepage.html">Peru (Español)</a>
-            <a data-locale="es_xl" href="http://www.intel.la/content/www/xl/es/homepage.html">Uruguay (Español)</a>
-            <a data-locale="es_xl" href="http://www.intel.la/content/www/xl/es/homepage.html">Venezuela (Español)</a>
+            <section>
+                <a data-locale="es_xl" href="http://www.intel.la/content/www/xl/es/homepage.html">Argentina (Español)</a>
+                <a data-locale="es_xl" href="http://www.intel.la/content/www/xl/es/homepage.html">Bolivia (Español)</a>
+                <a data-locale="pt_br" href="http://www.intel.com.br/content/www/br/pt/homepage.html">Brazil (Português)</a>
+                <a data-locale="es_xl" href="http://www.intel.la/content/www/xl/es/homepage.html">Chile (Español)</a>
+                <a data-locale="es_xl" href="http://www.intel.la/content/www/xl/es/homepage.html?_ga=1.76669653.1707586993.1471737997">Colombia (Español)</a>
+                <a data-locale="es_xl" href="http://www.intel.la/content/www/xl/es/homepage.html">Costa Rica (Español)</a>
+                <a data-locale="es_xl" href="http://www.intel.la/content/www/xl/es/homepage.html">Latin America (Español)</a>
+                <a data-locale="es_xl" href="http://www.intel.la/content/www/xl/es/homepage.html">Mexico (Español)</a>
+                <a data-locale="es_xl" href="http://www.intel.la/content/www/xl/es/homepage.html">Peru (Español)</a>
+                <a data-locale="es_xl" href="http://www.intel.la/content/www/xl/es/homepage.html">Uruguay (Español)</a>
+                <a data-locale="es_xl" href="http://www.intel.la/content/www/xl/es/homepage.html">Venezuela (Español)</a>
+            </section>
         </nav>
         <nav class="plank" id="middle-east-plank">
             <header>
                 <button class="back">Back</button>
-                <h4>Select your region in the Middle East</h4>
+                <h4>Middle East</h4>
             </header>
-            <a data-locale="ar_dz" href="http://www.intel.dz/content/www/dz/ar/homepage.html">Algeria (اللغة العربية)</a>
-            <a data-locale="fr_dz" href="http://www.intel.dz/content/www/dz/fr/homepage.html">Algeria (Français)</a>
-            <a data-locale="ar_eg" href="http://www.intel.eg/content/www/eg/ar/homepage.html">Egypt (اللغة العربية)</a>
-            <a data-locale="en_eg" href="http://www.intel.eg/content/www/eg/en/homepage.html?_ga=1.45247332.1707586993.1471737997">Egypt (English)</a>
-            <a data-locale="he_il" href="http://www.intel.co.il/content/www/il/he/homepage.html">Israel (עברית)</a>
-            <a data-locale="en_ke" href="http://www.kenya.intel.com/content/www/ke/en/homepage.html">Kenya (English)</a>
-            <a data-locale="ar_xr" href="http://www.intel.com/content/www/xr/ar/homepage.html">Middle East (اللغة العربية)</a>
-            <a data-locale="en_xr" href="http://www.intel.com/content/www/xr/en/homepage.html">Middle East (English)</a>
-            <a data-locale="ar_ma" href="http://www.intel.ma/content/www/ma/ar/homepage.html">Morocco (اللغة العربية)</a>
-            <a data-locale="fr_ma" href="http://www.intel.ma/content/www/ma/fr/homepage.html">Morocco (Français)</a>
-            <a data-locale="en_ng" href="http://www.intel.ng/content/www/ng/en/homepage.html">Nigeria (English)</a>
-            <a data-locale="ar_sa" href="http://www.intel.sa/content/www/sa/ar/homepage.html">Saudi Arabia (اللغة العربية)</a>
-            <a data-locale="en_sa" href="http://www.intel.sa/content/www/sa/en/homepage.html">Saudi Arabia (English)</a>
-            <a data-locale="en_za" href="http://www.intel.co.za/content/www/za/en/homepage.html">South Africa (English)</a>
-            <a data-locale="ar_ae" href="http://www.intel.co.ae/content/www/ae/ar/homepage.html">United Arab Emirates<br>(اللغة العربية)</a>
-            <a data-locale="en_ae" href="http://www.intel.co.ae/content/www/ae/en/homepage.html">United Arab Emirates (English)</a>
+            <section>
+                <a data-locale="ar_dz" href="http://www.intel.dz/content/www/dz/ar/homepage.html">Algeria (اللغة العربية)</a>
+                <a data-locale="fr_dz" href="http://www.intel.dz/content/www/dz/fr/homepage.html">Algeria (Français)</a>
+                <a data-locale="ar_eg" href="http://www.intel.eg/content/www/eg/ar/homepage.html">Egypt (اللغة العربية)</a>
+                <a data-locale="en_eg" href="http://www.intel.eg/content/www/eg/en/homepage.html?_ga=1.45247332.1707586993.1471737997">Egypt (English)</a>
+                <a data-locale="he_il" href="http://www.intel.co.il/content/www/il/he/homepage.html">Israel (עברית)</a>
+                <a data-locale="en_ke" href="http://www.kenya.intel.com/content/www/ke/en/homepage.html">Kenya (English)</a>
+                <a data-locale="ar_xr" href="http://www.intel.com/content/www/xr/ar/homepage.html">Middle East (اللغة العربية)</a>
+                <a data-locale="en_xr" href="http://www.intel.com/content/www/xr/en/homepage.html">Middle East (English)</a>
+                <a data-locale="ar_ma" href="http://www.intel.ma/content/www/ma/ar/homepage.html">Morocco (اللغة العربية)</a>
+                <a data-locale="fr_ma" href="http://www.intel.ma/content/www/ma/fr/homepage.html">Morocco (Français)</a>
+                <a data-locale="en_ng" href="http://www.intel.ng/content/www/ng/en/homepage.html">Nigeria (English)</a>
+                <a data-locale="ar_sa" href="http://www.intel.sa/content/www/sa/ar/homepage.html">Saudi Arabia (اللغة العربية)</a>
+                <a data-locale="en_sa" href="http://www.intel.sa/content/www/sa/en/homepage.html">Saudi Arabia (English)</a>
+                <a data-locale="en_za" href="http://www.intel.co.za/content/www/za/en/homepage.html">South Africa (English)</a>
+                <a data-locale="ar_ae" href="http://www.intel.co.ae/content/www/ae/ar/homepage.html">United Arab Emirates<br>(اللغة العربية)</a>
+                <a data-locale="en_ae" href="http://www.intel.co.ae/content/www/ae/en/homepage.html">United Arab Emirates (English)</a>
+            </section>
         </nav>
         <nav class="plank" id="north-america-plank">
             <header>
                 <button class="back">Back</button>
-                <h4>Select your region in North America</h4>
+                <h4>North America</h4>
             </header>
-            <a data-locale="en_us" href="http://www.intel.com/content/www/us/en/homepage.html">United States (English)</a>
-            <a data-locale="en_ca" href="http://www.intel.ca/content/www/ca/en/homepage.html?_ga=1.18033273.1707586993.1471737997">Canada (English)</a>
-            <a data-locale="fr_ca" href="http://www.intel.ca/content/www/ca/fr/homepage.html">Canada (Français)</a>
+            <section>
+                <a data-locale="en_us" href="http://www.intel.com/content/www/us/en/homepage.html">United States (English)</a>
+                <a data-locale="en_ca" href="http://www.intel.ca/content/www/ca/en/homepage.html?_ga=1.18033273.1707586993.1471737997">Canada (English)</a>
+                <a data-locale="fr_ca" href="http://www.intel.ca/content/www/ca/fr/homepage.html">Canada (Français)</a>
+            </section>
         </nav>
     </div>
 
@@ -203,9 +198,14 @@
             <div class="bar bar-1"></div>
             <div class="bar bar-2"></div>
         </button>
-        <nav class="plank active">
+        <nav class="plank" id="signin-plank">
             <header>
-                <h4>Sign In</h4>
+                <h4>
+                    <div class="text">Sign In</div>
+                    <figure>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.5 48.8"><path d="M18.5 25.3c-7 0-12.7-5.6-12.7-12.7S11.5 0 18.5 0s12.7 5.6 12.7 12.7-5.6 12.6-12.7 12.6zm0-21.8c-5.2 0-9.2 4-9.2 9.2s4 9.2 9.2 9.2 9.2-4 9.2-9.2-4-9.2-9.2-9.2zM37.1 48.8H0v-7.7c0-7.5 6.1-13.6 13.6-13.6h10.3c7.5 0 13.6 6.1 13.6 13.6v7.7h-.4zM3.5 45.3h30.3v-4.2c0-5.4-4.5-9.9-9.9-9.9H13.6c-5.4 0-9.9 4.5-9.9 9.9v4.2h-.2z"/></svg>
+                    </figure>
+                </h4>
             </header>
             <form id="igm-form-signin" action="https://www-ssl.intel.com/libs/apps/intel/login.json/securitytoken" method="POST" name="igm-form-signin" class="igm-form-signin intel-form" novalidate="">
                 <fieldset>
@@ -238,7 +238,6 @@
                 <a href="https://www-ssl.intel.com/content/www/us/en/my-intel/forgot-userid.html">username</a> or
                 <a href="https://www-ssl.intel.com/content/www/us/en/my-intel/forgot-password.html">password</a>?
             </p>
-
             <p class="mobile-intel-signin">Do you work for Intel? <a href="#" onclick="intel.signinsimplify.geturl('https://sifederation.intel.com/federation/bridge/sso_irp.asp?target=')">Sign in here</a>.</p>
         </nav>
     </div>
@@ -248,24 +247,21 @@
             <div class="bar bar-1"></div>
             <div class="bar bar-2"></div>
         </button>
-        <nav class="plank active">
-            <form class="search item active" data-igm-search-control="" role="search" name="hpsform-new" id="hpsform-new" action="/content/www/us/en/search.html" onsubmit="INTEL_TYPE_AHEAD.onSubmitHps('Search', '/content/www/us/en', 'en_US')">
-                <figure class="search-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 46.3"><path d="M45 41.6l-9.5-9.5c2.7-3.4 4.3-7.7 4.3-12.2C39.8 8.8 30.7 0 19.9 0 8.8 0 0 9 0 19.9 0 31 9 39.8 19.9 39.8c3.8 0 7.5-1.1 10.6-3.2l9.7 9.7 4.8-4.7zM3.2 19.7c0-9 7.5-16.5 16.5-16.5s16.5 7.5 16.5 16.5-7.5 16.5-16.5 16.5S3.2 28.7 3.2 19.7z"/></svg>
-                </figure>
-                <button type="submit" class="search-button icon"><span></span></button>
-
-
-
-                <label>
-                <input id="toplevelcategory" name="toplevelcategory" type="hidden" value="none">
-                <input tabindex="1" data-search-input="" id="mobile-search" name="keyword" type="text" data-igm-search-input="" title="Search" autocomplete="off" placeholder="Search Intel.com">
-            </label>
-
-
-                <button id="header-btn-clear" type="reset" class="search-clear" data-igm-search-clear="" style="display: none;"><span></span></button>
-                <button type="button" class="close icon active" data-igm-search-toggle=""><span></span></button>
-            </form>
+        <nav class="plank" id="search-plank">
+            <header>
+                <form class="search item active" data-igm-search-control="" role="search" name="hpsform-new" id="hpsform-new" action="/content/www/us/en/search.html" onsubmit="INTEL_TYPE_AHEAD.onSubmitHps('Search', '/content/www/us/en', 'en_US')">
+                    <figure class="search-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 46.3"><path d="M45 41.6l-9.5-9.5c2.7-3.4 4.3-7.7 4.3-12.2C39.8 8.8 30.7 0 19.9 0 8.8 0 0 9 0 19.9 0 31 9 39.8 19.9 39.8c3.8 0 7.5-1.1 10.6-3.2l9.7 9.7 4.8-4.7zM3.2 19.7c0-9 7.5-16.5 16.5-16.5s16.5 7.5 16.5 16.5-7.5 16.5-16.5 16.5S3.2 28.7 3.2 19.7z"/></svg>
+                    </figure>
+                    <button type="submit" class="search-button icon"><span></span></button>
+                    <label>
+                        <input id="toplevelcategory" name="toplevelcategory" type="hidden" value="none">
+                        <input tabindex="1" data-search-input="" id="mobile-search" name="keyword" type="text" data-igm-search-input="" title="Search" autocomplete="off" placeholder="Search Intel.com">
+                    </label>
+                    <button id="header-btn-clear" type="reset" class="search-clear" data-igm-search-clear="" style="display: none;"><span></span></button>
+                    <button type="button" class="close icon active" data-igm-search-toggle=""><span></span></button>
+                </form>
+            </header>
             <div class="predictive-search-dropdown-new">
                 <div class="results">
                     <h3>Suggested</h3>
@@ -284,6 +280,9 @@
                 <div class="results related">
                     <h3>Related Searches</h3>
                     <ul>
+                        <li><a class="result" tabindex="1" href="https://www-ssl.intel.com/content/www/us/en/search.html?keyword=idf" data-wap="{&quot;method&quot;:&quot;typeahead&quot;,&quot;keyword&quot;:&quot;idf&quot;}">idf<span class="icon-caret"></span></a></li>
+                        <li><a class="result" tabindex="1" href="https://www-ssl.intel.com/content/www/us/en/search.html?keyword=idf" data-wap="{&quot;method&quot;:&quot;typeahead&quot;,&quot;keyword&quot;:&quot;idf&quot;}">Search Result</a></li>
+                        <li><a class="result" tabindex="1" href="https://www-ssl.intel.com/content/www/us/en/search.html?keyword=idf" data-wap="{&quot;method&quot;:&quot;typeahead&quot;,&quot;keyword&quot;:&quot;idf&quot;}">Related Result<span class="icon-caret"></span></a></li>
                         <li><a class="result" tabindex="1" href="https://www-ssl.intel.com/content/www/us/en/search.html?keyword=idf" data-wap="{&quot;method&quot;:&quot;typeahead&quot;,&quot;keyword&quot;:&quot;idf&quot;}">idf<span class="icon-caret"></span></a></li>
                     </ul>
                 </div>
