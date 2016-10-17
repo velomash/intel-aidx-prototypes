@@ -1,11 +1,17 @@
-<nav class="global-navigation microsite">
+<nav class="global-navigation microsite {{#if transparent}}transparent{{/if}}">
+
+    <!-- begin top-bar -->
+    <!-- the top bar is the fixed blue bar -->
+    <!-- which has the logo and triggers the flyouts -->
     <div class="top-bar">
         <div class="primary-buttons">
             <button class="microsite-menu" data-flyout="microsite-flyout" data-plank="microsite-menu-plank">
                 <div class="hamburger">
-                    <div class="bar bar-1"></div>
-                    <div class="bar bar-2"></div>
-                    <div class="bar bar-3"></div>
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 25 25">
+                        <rect class="top" x="0" y="12" width="100%" height="2" rx="1" ry="1"/>
+                        <rect class="middle" x="0" y="12" width="100%" height="2" rx="1" ry="1"/>
+                        <rect class="bottom" x="0" y="12" width="100%" height="2" rx="1" ry="1"/>
+                    </svg>
                 </div>
                 <h2 class="site-name">Digital Resource Center</h2>
             </button>
@@ -14,49 +20,56 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 97.333336 65.333336"><path d="M45.604 57.127C26.631 58.877 6.86 56.12 4.088 41.293c-1.353-7.307 1.98-15.057 6.396-19.874v-2.574C2.53 25.825-1.781 34.653.703 45.085 3.874 58.46 20.839 66.04 46.745 63.523c10.25-.995 23.662-4.292 32.99-9.416v-7.272c-8.47 5.042-22.47 9.209-34.13 10.292zM95.58 18.673C91.079-3.295 48.42-4.69 20.927 12.05v1.848C48.39-.223 87.349-.139 90.896 20.102c1.192 6.691-2.579 13.666-9.317 17.68v5.257c8.104-2.975 16.416-12.59 14-24.366"/><path d="M78.197 15.476h-4.973v22.15c0 2.594 1.255 4.855 4.973 5.214V15.476M18.973 23.564H13.99l-.006 14.47c0 2.609 1.261 4.863 4.99 5.218V23.564M13.99 20.861h4.969v-4.713h-4.97zM48.76 43.023c-4.025 0-5.73-2.803-5.73-5.558V18.247h4.934v5.317h3.713v3.98h-3.713v9.62c0 1.119.53 1.75 1.703 1.75h2.01v4.109H48.76M57.833 34.835c0 2.521 1.579 4.375 4.37 4.375 2.188 0 3.266-.603 4.532-1.854l3.046 2.901c-1.953 1.933-4 3.104-7.614 3.104-4.72 0-9.24-2.573-9.24-10.084 0-6.416 3.953-10.046 9.13-10.046 5.266 0 8.292 4.25 8.292 9.822v1.782H57.833m4.01-7.526c-1.687 0-2.983.87-3.536 2.042-.317.708-.438 1.256-.474 2.12h7.599c-.093-2.12-1.057-4.162-3.588-4.162M32.364 27.544c1.448 0 2.048.713 2.048 1.875v13.63h4.932V29.392c0-2.77-1.475-5.823-5.808-5.823l-10.187-.005v19.485h4.937V27.544h4.078M83.552 19.435a1.97 1.97 0 0 1-1.973-1.98 1.97 1.97 0 0 1 1.973-1.979c1.088 0 1.984.885 1.984 1.979s-.896 1.98-1.984 1.98zm0-3.63a1.64 1.64 0 0 0-1.63 1.65c0 .906.723 1.64 1.63 1.64.901 0 1.65-.734 1.65-1.64 0-.906-.749-1.65-1.65-1.65zm.875 2.832h-.37a.085.085 0 0 1-.073-.046l-.5-.85a.125.125 0 0 0-.072-.041H83.183v.85c0 .04-.027.087-.085.087h-.333c-.046 0-.082-.046-.082-.088v-2.141c0-.125.041-.177.15-.192.12-.01.432-.026.61-.026.614 0 .978.182.978.754v.042c0 .354-.176.547-.448.63l.522.886c.01.015.015.047.015.062 0 .038-.02.073-.083.073zm-.48-1.693c0-.239-.144-.317-.463-.317h-.317v.682c.052 0 .276.01.317.01.319 0 .464-.109.464-.333v-.042"/></svg>
         </a>
         <div class="secondary-buttons">
-            <button class="region-select" data-flyout="region-flyout">
+            <button class="region-select" data-flyout="region-select-flyout" data-plank="region-select-plank">
                 <div class="text">USA (English)</div>
                 <figure>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.8 47.8"><path d="M23.9 0C10.6 0 0 10.6 0 23.9s10.6 23.9 23.9 23.9 23.9-10.6 23.9-23.9S37.1 0 23.9 0zm18.9 15.4h-5.2c-.9-3.9-2.4-7.4-4.1-10 3.8 2.2 7.3 5.7 9.3 10zm1.7 8.5c0 1.7-.2 3.5-.7 5.2H38c.2-1.7.4-3.5.4-5.2 0-1.7-.2-3.5-.4-5.2h5.9c.4 1.7.6 3.4.6 5.2zm-41.2 0c0-1.7.2-3.5.7-5.2h5.9c-.2 1.7-.4 3.5-.4 5.2 0 1.7.2 3.5.4 5.2h-6c-.4-1.7-.6-3.5-.6-5.2zm9.5 0c0-1.7.2-3.5.4-5.2h9.1v10.4h-9.1c-.4-1.7-.4-3.5-.4-5.2zM25.6 3.5c3.7 1.1 6.9 5.6 8.5 11.9h-8.5V3.5zm-3.5 0v11.9h-8.5c1.8-6.3 4.9-10.8 8.5-11.9zm0 28.8v11.9c-3.7-1.1-6.9-5.6-8.5-11.9h8.5zm3.5 12v-12h8.5c-1.8 6.3-4.8 10.9-8.5 12zm0-15.2V18.7h9.1c.2 1.7.4 3.5.4 5.2 0 1.7-.2 3.5-.4 5.2h-9.1zM14.5 5.4c-2 2.6-3.3 6.1-4.1 10H5.2c1.7-4.3 5.2-7.8 9.3-10zM5 32.3h5.2c.9 3.9 2.4 7.4 4.1 10-3.9-2.1-7.4-5.6-9.3-10zm28.2 10c2-2.6 3.3-6.1 4.1-10h5.2c-1.7 4.4-5.2 7.9-9.3 10z"/></svg>
                 </figure>
             </button>
-            <button class="sign-in" data-flyout="signin-flyout">
+            <button class="signin" data-flyout="signin-flyout" data-plank="signin-plank">
                 <div class="text">Sign In</div>
                 <figure>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.5 48.8"><path d="M18.5 25.3c-7 0-12.7-5.6-12.7-12.7S11.5 0 18.5 0s12.7 5.6 12.7 12.7-5.6 12.6-12.7 12.6zm0-21.8c-5.2 0-9.2 4-9.2 9.2s4 9.2 9.2 9.2 9.2-4 9.2-9.2-4-9.2-9.2-9.2zM37.1 48.8H0v-7.7c0-7.5 6.1-13.6 13.6-13.6h10.3c7.5 0 13.6 6.1 13.6 13.6v7.7h-.4zM3.5 45.3h30.3v-4.2c0-5.4-4.5-9.9-9.9-9.9H13.6c-5.4 0-9.9 4.5-9.9 9.9v4.2h-.2z"/></svg>
                 </figure>
             </button>
-            <button class="search" data-flyout="search-flyout">
+            <button class="search" data-flyout="search-flyout" data-plank="search-plank">
                 <figure>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 46.3"><path d="M45 41.6l-9.5-9.5c2.7-3.4 4.3-7.7 4.3-12.2C39.8 8.8 30.7 0 19.9 0 8.8 0 0 9 0 19.9 0 31 9 39.8 19.9 39.8c3.8 0 7.5-1.1 10.6-3.2l9.7 9.7 4.8-4.7zM3.2 19.7c0-9 7.5-16.5 16.5-16.5s16.5 7.5 16.5 16.5-7.5 16.5-16.5 16.5S3.2 28.7 3.2 19.7z"/></svg>
                 </figure>
             </button>
         </div>
     </div>
+    <!-- end top-bar -->
+
+    <!-- the shader engages when a flyout is active -->
     <div class="shader"></div>
 
     <div class="flyout" id="microsite-flyout">
-        <nav class="plank" id="microsite-menu-plank">
-            <a class="open-plank" href="#analytics-reporting-plank">Analytics &amp; Reporting</a>
-            <a class="open-plank" href="#digital-academy-plank">Digital Academy</a>
-            <a class="open-plank" href="#design-guidelines-plank">Design Guidelines</a>
-            <a class="open-plank" href="#graphic-assets-plank">Graphic Assets</a>
-            <a class="open-plank" href="#mobile-apps-plank">Mobile Apps</a>
-            <a class="open-plank" href="#privacy-and-legal-policies-plank">Privacy and Legal Policies</a>
-            <a class="open-plank" href="#security-plank">Security</a>
-            <a class="open-plank" href="#social-media-plank">Social Media</a>
-            <a class="open-plank" href="#web-content-plank">Web Content</a>
+        <nav class="plank first" id="microsite-menu-plank">
+            <section>
+                <a class="open-plank" href="#analytics-reporting-plank">Analytics &amp; Reporting</a>
+                <a class="open-plank" href="#digital-academy-plank">Digital Academy</a>
+                <a class="open-plank" href="#design-guidelines-plank">Design Guidelines</a>
+                <a class="open-plank" href="#graphic-assets-plank">Graphic Assets</a>
+                <a class="open-plank" href="#mobile-apps-plank">Mobile Apps</a>
+                <a class="open-plank" href="#privacy-and-legal-policies-plank">Privacy and Legal Policies</a>
+                <a class="open-plank" href="#security-plank">Security</a>
+                <a class="open-plank" href="#social-media-plank">Social Media</a>
+                <a class="open-plank" href="#web-content-plank">Web Content</a>
+            </section>
         </nav>
         <nav class="plank" id="social-media-plank">
             <header>
                 <button class="back">Back</button>
                 <h4>Social Media</h4>
             </header>
-            <a class="open-plank" href="#new-social-accounts-plank">New social media accounts</a>
-            <a class="open-plank" href="#existing-social-accounts-plank">Existing social media accounts</a>
-            <a class="open-plank" href="#social-guidelines-plank">Guidelines for social media users</a>
-            <hr>
-            <a href="http://www.intel.com/content/www/us/en/homepage.html">Intel.com</a>
+            <section>
+                <a class="open-plank" href="#new-social-accounts-plank">New social media accounts</a>
+                <a class="open-plank" href="#existing-social-accounts-plank">Existing social media accounts</a>
+                <a class="open-plank" href="#social-guidelines-plank">Guidelines for social media users</a>
+                <hr>
+                <a href="http://www.intel.com/content/www/us/en/homepage.html">Intel.com</a>
+            </section>
         </nav>
         <nav class="plank" id="existing-social-accounts-plank">
             <header>

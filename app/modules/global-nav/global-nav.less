@@ -115,7 +115,7 @@
                     }
                 }
                 &:before {
-                    left: 80px;
+                    left: 60px;
                 }
             }
             .macrosite-menu {
@@ -331,14 +331,14 @@
                         width: 4px;
                         height: 44px;
                         margin-right: 4px;
-                        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#FFFFFF' viewBox='0 0 3.1 6'%3E%3Cpath d='M1.4 3l1.7 3H1.8L0 3l1.8-3h1.3L1.4 3z'/%3E%3C/svg%3E");
+                        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#FFFFFF' viewBox='0 0 4.2 6.9'%3E%3Cpath d='M3.4 0l.8.7-2.8 2.7 2.8 2.8-.8.7L0 3.4z'/%3E%3C/svg%3E");
                         background-repeat: no-repeat;
                         background-position: center center;
                     }
                     &:hover {
                         color: @pale-blue;
                         &:before {
-                            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#8CDAFA' viewBox='0 0 3.1 6'%3E%3Cpath d='M1.4 3l1.7 3H1.8L0 3l1.8-3h1.3L1.4 3z'/%3E%3C/svg%3E");
+                            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#8CDAFA' viewBox='0 0 4.2 6.9'%3E%3Cpath d='M3.4 0l.8.7-2.8 2.7 2.8 2.8-.8.7L0 3.4z'/%3E%3C/svg%3E");
                         }
                     }
                 }
@@ -384,16 +384,16 @@
                         display: block;
                         content: ' ';
                         float: right;
-                        width: 4px;
+                        width: 6px;
                         height: 36px;
-                        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#FFFFFF' viewBox='0 0 3.1 6'%3E%3Cpath d='M1.7 3L0 0h1.3l1.8 3-1.8 3H0l1.7-3z'/%3E%3C/svg%3E");
+                        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#FFFFFF' viewBox='0 0 4.2 6.9'%3E%3Cpath d='M.7 6.9L0 6.2l2.7-2.8L0 .7.7 0l3.5 3.4z'/%3E%3C/svg%3E");
                         background-repeat: no-repeat;
                         background-position: center center;
                     }
                     &:hover {
                         color: @pale-blue;
                         &.open-plank:before {
-                            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#8CDAFA' viewBox='0 0 3.1 6'%3E%3Cpath d='M1.7 3L0 0h1.3l1.8 3-1.8 3H0l1.7-3z'/%3E%3C/svg%3E");
+                            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#8CDAFA' viewBox='0 0 4.2 6.9'%3E%3Cpath d='M.7 6.9L0 6.2l2.7-2.8L0 .7.7 0l3.5 3.4z'/%3E%3C/svg%3E");
                         }
                     }
                 }
@@ -594,9 +594,14 @@
     @media (max-width: @screen-sm) {
         .top-bar {
             height: 50px;
-            .primary-buttons .hamburger {
-                margin-left: 5px;
-                margin-right: 5px;
+            .primary-buttons {
+                .hamburger {
+                    margin-left: 5px;
+                    margin-right: 5px;
+                }
+                .microsite-menu:before {
+                    left: 47px;
+                }
             }
             .secondary-buttons button {
                 padding: 0 7px;
@@ -637,6 +642,9 @@
 
     @media (max-width: @screen-xs) {
         .top-bar {
+            .primary-buttons .microsite-menu .site-name {
+                display: none;
+            }
             .secondary-buttons button {
                 padding: 0 5px;
                 &.search {
