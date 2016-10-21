@@ -1,15 +1,19 @@
 {
     "sections": [{
         "title": "Retail",
-        "url": "#"
+        "href": "#",
+        "image-url": "assets/imgs/accordian/retail.jpg"
     }, {
         "title": "Healthcare",
-        "url": "#"
+        "href": "#",
+        "image-url": "assets/imgs/accordian/healthcare.jpg"
     }, {
         "title": "Automotive",
-        "url": "#"
+        "href": "#",
+        "image-url": "assets/imgs/accordian/automotive.jpg"
     }, {
         "title": "Manufacturing",
-        "url": "#"
+        "href": "#",
+        "image-url": "assets/imgs/accordian/manufacturing.jpg"
     }]
 }
