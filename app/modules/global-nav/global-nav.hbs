@@ -61,7 +61,7 @@
                 <h4>{{name}}</h4>
             </header>
             {{/if}} {{#each link-groups}}
-            <section>
+                <section {{#if id}}id="{{id}}"{{/if}}>
                 {{#if header}}
                 <h4>{{#if header.href}}<a href="{{header.href}}">{{/if}}{{header.text}}{{#if header.href}}</a>{{/if}}</h4>
                 {{/if}}

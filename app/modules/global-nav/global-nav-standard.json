@@ -114,6 +114,93 @@
         }]
 
     }, {
+        "name": "Processors",
+        "id": "cat-0-1",
+        "cta": {
+            "text": "Compare Processors",
+            "href": "javascript:void(0)"
+        },
+        "link-groups": [{
+            "id": "processors-intel-core",
+            "header": {
+                "text": "Intel® Core™"
+            },
+            "links": [{
+                "text": "Intel® Core™ M",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Intel® Core™ i7 Extreme Edition",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "7th Gen Intel® Core™ i7",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "7th Gen Intel® Core™ i5",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "7th Gen Intel® Core™ i3",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "6th Gen Intel® Core™ vPro™",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Previous Generation",
+                "href": "javascript:void(0)"
+            }]
+        }, {
+            "id": "processors-intel-xeon",
+            "header": {
+                "text": "Intel® Xeon®"
+            },
+            "links": [{
+                "text": "Intel® Xeon® E7 Family",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Intel® Xeon® E5 Family",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Intel® Xeon® E3 Family",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Intel® Xeon® Phi™",
+                "href": "javascript:void(0)"
+            }, {
+                "text": "Intel® Xeon® D",
+                "href": "javascript:void(0)"
+            }]
+        }, {
+            "id": "processors-intel-atom",
+            "header": {
+                "text": "Intel® Atom™",
+                "href": "javascript:void(0)"
+            }
+        }, {
+            "id": "processors-intel-pentium",
+            "header": {
+                "text": "Pentium®",
+                "href": "javascript:void(0)"
+            }
+        }, {
+            "id": "processors-intel-celeron",
+            "header": {
+                "text": "Celeron®",
+                "href": "javascript:void(0)"
+            }
+        }, {
+            "id": "processors-intel-itanium",
+            "header": {
+                "text": "Itanium®",
+                "href": "javascript:void(0)"
+            }
+        }, {
+            "id": "processors-intel-quark",
+            "header": {
+                "text": "Intel® Quark™",
+                "href": "javascript:void(0)"
+            }
+        }]
+
+    }, {
         "name": "Boards & Kits",
         "id": "cat-0-2",
         "link-groups": [{

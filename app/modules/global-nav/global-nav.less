@@ -419,6 +419,46 @@
                 transform: translate3d(-100%, 0, 0);
             }
         }
+
+        // specific styling for the processors plank
+        #cat-0-1 {
+            section {
+                position: relative;
+                padding-left: 95px;
+                min-height: 84px;
+                &:before {
+                    position: absolute;
+                    content: ' ';
+                    display: block;
+                    top: 0;
+                    left: 0;
+                    width: 84px;
+                    height: 84px;
+                    background-size: 84px 84px;
+                }
+            }
+            #processors-intel-core:before {
+                background-image: url('https://www-ssl.intel.com/content/dam/www/global/badges/badge-7th-gen-core-i5.png.rendition.intel.web.84.84.png');
+            }
+            #processors-intel-xeon:before {
+                background-image: url('https://www-ssl.intel.com/content/dam/www/global/badges/badge-xeon.png.rendition.intel.web.84.84.png');
+            }
+            #processors-intel-atom:before {
+                background-image: url('https://www-ssl.intel.com/content/dam/www/global/badges/badge-atom.png.rendition.intel.web.84.84.png');
+            }
+            #processors-intel-pentium:before {
+                background-image: url('https://www-ssl.intel.com/content/dam/www/global/badges/badge-pentium.png.rendition.intel.web.84.84.png');
+            }
+            #processors-intel-celeron:before {
+                background-image: url('https://www-ssl.intel.com/content/dam/www/global/badges/badge-celeron.png.rendition.intel.web.84.84.png');
+            }
+            #processors-intel-itanium:before {
+                background-image: url('https://www-ssl.intel.com/content/dam/www/global/badges/badge-itanium.png.rendition.intel.web.84.84.png');
+            }
+            #processors-intel-quark:before {
+                background-image: url('https://www-ssl.intel.com/content/dam/www/global/badges/badge-quark.png.rendition.intel.web.84.84.png');
+            }
+        }
     }
 
     &.flyout-active {
