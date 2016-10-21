@@ -24,6 +24,11 @@ class IntelGlobalNavigation {
             '.flyout-close': this.closeFlyout,
             '.shader': this.closeFlyout,
         });
+        document.addEventListener('keyup', event => {
+            if (event.keyCode === 27) {
+                this.closeFlyout();
+            }
+        });
     }
     getFlyoutObjects() {
         const flyouts = this.nav.getElementsByClassName('flyout');
@@ -46,7 +51,7 @@ class IntelGlobalNavigation {
         function getPageYOffset() {
             return window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
         }
-        if (getPageYOffset() > 10 ) {
+        if (getPageYOffset() > 10) {
             this.nav.classList.add('transparency-off');
         }
         const updateTransparencyOnScroll = throttle(event => {
@@ -86,10 +91,12 @@ class IntelGlobalNavigation {
         this.updateStateClasses();
     }
     closeFlyout() {
-        this.nav.classList.remove(`${this.activeFlyout.id}-active`);
-        this.activeFlyout = undefined;
-        this.activePlanks = undefined;
-        this.updateStateClasses();
+        if (this.activeFlyout) {
+            this.nav.classList.remove(`${this.activeFlyout.id}-active`);
+            this.activeFlyout = undefined;
+            this.activePlanks = undefined;
+            this.updateStateClasses();
+        }
     }
     pushPlank(event) {
         event.preventDefault();
