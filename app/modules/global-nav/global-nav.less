@@ -281,14 +281,6 @@
                 }
             }
         }
-        &#search-flyout .search-icon {
-            position: absolute;
-            top: 50%;
-            left: 20px;
-            width: 18px;
-            height: 18px;
-            transform: translate3d(0, -50%, 0);
-        }
         &.active {
             .flyout-close {
                 opacity: 1;
@@ -424,7 +416,7 @@
         #cat-0-1 {
             section {
                 position: relative;
-                padding-left: 95px;
+                padding-left: 106px;
                 min-height: 84px;
                 &:before {
                     position: absolute;
@@ -506,6 +498,17 @@
     }
 
     #search-flyout {
+        header {
+            background-color: #424242;
+        }
+        .search-icon {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            width: 18px;
+            height: 18px;
+            transform: translate3d(0, -50%, 0);
+        }
         form.search {
             position: relative;
             height: 100%;
