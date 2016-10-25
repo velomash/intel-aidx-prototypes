@@ -3,18 +3,14 @@
     top: 25%;
     left: 0;
     width: 100%;
-    display: table;
-    min-height: 400px;
-    a {
+    section {
         position: relative;
-        display: table-cell;
-        width: 1%;
         color: white;
         text-decoration: none;
         transition: width 175ms ease-out;
         background-size: cover;
         background-position: center;
-        vertical-align: middle;
+        outline: 0;
         &:before {
             content: ' ';
             position: absolute;
@@ -32,27 +28,63 @@
             text-align: center;
             margin: 0;
             z-index: 100;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         .revealing-info {
             position: relative;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 175ms ease-out;
+            transition: all 175ms ease-out;
             z-index: 100;
-            margin: 1em auto 0 auto;
+            margin: 0 auto;
             max-width: 300px;
             font-weight: lighter;
             font-size: 14px;
             padding: 0 1em;
         }
 
-        &:hover {
-            width: 10%;
-            &:before {
-                opacity: 0.2;
+    }
+
+    // desktop
+    @media screen and (min-width: @screen-sm-min) {
+        display: table;
+        min-height: 400px;
+        section {
+            display: table-cell;
+            width: 1%;
+            vertical-align: middle;
+            &:hover {
+                width: 10%;
+                &:before {
+                    opacity: 0.3;
+                }
+                .revealing-info {
+                    max-height: 300px;
+                    margin-top: 1em;
+                }
             }
-            .revealing-info {
-                max-height: 300px;
+        }
+    }
+
+    // mobile
+    @media screen and (max-width: @screen-sm) {
+        display: block;
+        section {
+            display: block;
+            width: 100%;
+            h3 {
+                text-align: left;
+                padding: 2em 1em;
+            }
+            &:focus {
+                &:before {
+                    opacity: 0.3;
+                }
+                .revealing-info {
+                    max-height: 300px;
+                    margin-top: 1em;
+                }
             }
         }
     }
