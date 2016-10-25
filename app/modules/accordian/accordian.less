@@ -37,23 +37,23 @@
             overflow: hidden;
             transition: all 175ms ease-out;
             z-index: 100;
-            margin: 0 auto;
-            max-width: 300px;
             font-weight: lighter;
             font-size: 14px;
-            padding: 0 1em;
         }
-
     }
 
     // desktop
     @media screen and (min-width: @screen-sm-min) {
         display: table;
-        min-height: 400px;
+        min-height: 500px;
         section {
             display: table-cell;
             width: 1%;
             vertical-align: middle;
+            .revealing-info {
+                max-width: 300px;
+                margin: 0 auto;
+            }
             &:hover {
                 width: 10%;
                 &:before {
@@ -61,7 +61,7 @@
                 }
                 .revealing-info {
                     max-height: 300px;
-                    margin-top: 1em;
+                    padding: 1em;
                 }
             }
         }
@@ -75,15 +75,35 @@
             width: 100%;
             h3 {
                 text-align: left;
-                padding: 2em 1em;
+                padding: 2em 30px;
+                cursor: pointer;
+                &:after {
+                    content: ' ';
+                    display: inline-block;
+                    float: right;
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#FFFFFF' viewBox='0 0 9.9 5.3'%3E%3Cpath d='M9.9.4L9.5 0 5 4.6.4 0 0 .4l5 4.9.3-.3z'/%3E%3C/svg%3E");
+                    width: 25px;
+                    height: 25px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    transform: rotate(180deg);
+                    transition: transform 175ms ease-out;
+                }
             }
-            &:focus {
+            .revealing-info {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+            &.active {
                 &:before {
-                    opacity: 0.3;
+                    opacity: 0.5;
+                }
+                h3:after {
+                    transform: rotate(0);
                 }
                 .revealing-info {
                     max-height: 300px;
-                    margin-top: 1em;
+                    padding-bottom: 30px;
                 }
             }
         }
