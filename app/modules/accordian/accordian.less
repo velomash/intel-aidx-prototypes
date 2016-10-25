@@ -42,24 +42,39 @@
     // desktop
     @media screen and (min-width: @screen-sm-min) {
         display: table;
-        min-height: 500px;
+        min-height: 600px;
         section {
             display: table-cell;
             width: 1%;
             vertical-align: middle;
+            h3 {
+                font-size: 32px;
+            }
             .revealing-info {
-                max-width: 300px;
+                max-width: 450px;
                 margin: 0 auto;
             }
             &:hover {
                 width: 10%;
                 &:before {
-                    opacity: 0.3;
+                    opacity: 0.5;
                 }
                 .revealing-info {
                     max-height: 300px;
                     padding: 1em;
                 }
+            }
+        }
+    }
+
+    // super large screens
+    @media screen and (min-width: 1400px) {
+        section {
+            h3 {
+                font-size: 48px;
+            }
+            .revealing-info {
+                max-width: 550px;
             }
         }
     }
@@ -70,6 +85,9 @@
         section {
             display: block;
             width: 100%;
+            &:before {
+                opacity: 0.2;
+            }
             h3 {
                 text-align: left;
                 padding: 2em 30px;
@@ -100,7 +118,7 @@
                 }
                 .revealing-info {
                     max-height: 300px;
-                    padding-bottom: 30px;
+                    padding-bottom: 48px;
                 }
             }
         }
