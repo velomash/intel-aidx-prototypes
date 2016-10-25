@@ -2,6 +2,12 @@
 title: Accordian Demo Page
 ---
 
-{{> global-nav global-nav-transparent }}
-
 {{> accordian iot-accordian }}
+
+<style>
+    .accordian-blade {
+        position: absolute;
+        top: 50%;
+        transform: translate3d(0, -75%, 0);
+    }
+</style>
