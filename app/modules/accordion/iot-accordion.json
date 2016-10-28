@@ -1,0 +1,15 @@
+{
+    "sections": [{
+        "title": "Retail",
+        "href": "#"
+    }, {
+        "title": "Healthcare",
+        "href": "#"
+    }, {
+        "title": "Automotive",
+        "href": "#"
+    }, {
+        "title": "Manufacturing",
+        "href": "#"
+    }]
+}
