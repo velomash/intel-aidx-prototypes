@@ -1,15 +1,15 @@
 {
     "sections": [{
         "title": "Retail",
-        "href": "#"
+        "text": "<p>For retailers, the IoT offers unlimited opportunities to increase supply chain efficiencies, develop new services, and reshape the customer experience.</p> <p>For example, our work with Levi Strauss & Co. created near real-time inventory visibility of every item in its flagship store in San Francisco. Using RFID tags and readers, the store team got instant updates on on-shelf availability, making inventory replenishment more precise.</p> <p><a href='https://www-ssl.intel.com/content/www/us/en/retail/retailsolutions.html'>Explore Retail Solutions ›</a></p>"
     }, {
         "title": "Healthcare",
-        "href": "#"
+        "text": "<p>From clinical wearables to first-responder tablets, the IoT is transforming the world of healthcare and making it easier to collect and analyze patient data.</p> <p>The greatest gift technology can offer is the power to improve people’s lives. That’s why Intel partnered with the Michael J. Fox Foundation, using wearable technologies and the cloud to rapidly share the severity and frequency of patient symptoms and detect patterns. IoT solutions like these could accelerate medical breakthroughs like drug development and new therapies.</p> <p><a href='#'>See how the IoT improves Healthcare ›</a></p>"
     }, {
         "title": "Automotive",
-        "href": "#"
+        "text": "<p>When tied to the IoT, a car can turn data into actionable insight, improving the way we interact with our vehicles on a daily basis.</p> <p>As part of Intel’s commitment to safer driving, we partnered with Jaguar Land Rover to create connected car designs that could improve everything from driver safety to vehicle security, paving the path for new automotive experiences.</p> <p><a href='#'>Discover automotive solutions ›</a></p>"
     }, {
         "title": "Manufacturing",
-        "href": "#"
+        "text": "<p>IoT technology enables today’s factories to unlock operational efficiency, optimize production, and increase worker safety.</p> <p>For example, Intel partnered with Daqri to create a smart wearable hardhat that would allow today’s workers to use AR capabilities to make repairs more easily, collect critical data, and even create a safer work environment.</p> <p><a href='#'>Find IoT solutions for Manufacturing ›</a></p>"
     }]
 }
