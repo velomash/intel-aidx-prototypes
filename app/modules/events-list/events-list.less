@@ -1,0 +1,61 @@
+.events-list {
+  padding-top: 60px;
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+  button {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  button.intel.blue {
+    min-height: 45px;
+    background-color: @digital-blue;
+    color: white;
+    min-width: 168px;
+    border-radius: 2px;
+    &:hover {
+      background-color: @intel-blue;
+    }
+  }
+
+  h2 {
+    color: @medium-blue;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 68px;
+    text-align: center;
+    font-family: 'intel-clear-headline';
+  }
+
+  nav.event-filter {
+    color: white;
+    background-color: @charcoal;
+    padding: 28px 15px;
+    .container {
+      display: table;
+      section {
+        display: table-cell;
+        label {
+          font-weight: 200;
+          font-size: 20px;
+          margin-right: 12px;
+        }
+        select {
+          background-color: @charcoal;
+          border: 1px solid @dark-gray;
+          color: @gray;
+          border-radius: 2px;
+          padding: 0 11px;
+          min-height: 45px;
+          box-shadow: none;
+          background: transparent;
+          background-image: none;
+          -webkit-appearance: none;
+        }
+      }
+    }
+  }
+}
