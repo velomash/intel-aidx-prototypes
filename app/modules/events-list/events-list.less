@@ -1,10 +1,6 @@
 .events-list {
-  padding-top: 60px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  @media (max-width: 768px) {
-    padding-top: 50px;
-  }
 
   button {
     border: 0;
@@ -65,7 +61,7 @@
           border: 1px solid @dark-gray;
           color: @gray;
           border-radius: 2px;
-          padding: 0 11px;
+          padding: 0 42px 0 11px;
           min-height: 45px;
           box-shadow: none;
           background: transparent;
@@ -103,69 +99,76 @@
   }
 
   .event-item {
-    display: table;
     color: @charcoal;
     background-color: #f2f5f8;
     padding: 16px;
     margin-top: 15px;
-    width: 100%;
+    header {
+      width: 100%;
+      display: table;
+      time {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 5px 15px;
+        width: 150px;
+        border-right: 1px solid @light-gray;
+      }
+      .title {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 5px 30px;
+        max-width: 425px;
+        h4 {
+          margin: 0;
+          font-weight: bolder;
+        }
+        .event-item-expander {
+          margin-top: 7px;
+          color: @digital-blue;
+          outline: none;
+          svg {
+            fill: @digital-blue;
+            display: inline-block;
+            vertical-align: middle;
+            width: 20px;
+            height: 20px;
+            margin-right: 3px;
+          }
+          span {
+            display: inline-block;
+            vertical-align: middle;
+          }
+          .less-info { display: none; }
+          &:hover {
+            color: @intel-blue;
+            svg { fill: @intel-blue; }
+          }
+        }
+      }
+      .action {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: right;
+      }
+    }
+    .more-info {
+      overflow: hidden;
+      color: @dark-gray;
+      max-height: 0;
+      max-width: 635px;
+      transition: max-height 200ms;
+      padding-left: 180px;
+      &:before {
+        display: block;
+        content: ' ';
+        padding-top: 1em;
+      }
+    }
     &:first-child {
       margin-top: 0;
     }
-    > div {
-      display: table-cell;
-      vertical-align: middle;
-    }
-    .time {
-      padding: 5px 45px 5px 15px;
-      border-right: 1px solid @light-gray;
-    }
-    .information {
-      padding: 5px 30px;
-      max-width: 425px;
-      h4 {
-        margin: 0;
-        font-weight: bolder;
-      }
-      .event-item-expander {
-        margin-top: 7px;
-        color: @digital-blue;
-        outline: none;
-        svg {
-          fill: @digital-blue;
-          display: inline-block;
-          vertical-align: middle;
-          width: 20px;
-          height: 20px;
-          margin-right: 3px;
-        }
-        span {
-          display: inline-block;
-          vertical-align: middle;
-        }
-        &:hover {
-          color: @intel-blue;
-          svg { fill: @intel-blue; }
-        }
-      }
-      .more-info {
-        overflow: hidden;
-        color: @dark-gray;
-        max-height: 0;
-        transition: max-height 200ms;
-        &:before {
-          display: block;
-          content: ' ';
-          padding-top: 1em;
-        }
-      }
-    }
-    .action {
-      text-align: right;
-    }
-    .less-info { display: none; }
     &.expanded {
-      .event-item-expander {
+      header .title .event-item-expander {
         .additional-info { display: none; }
         .less-info { display: block; }
       }
@@ -174,18 +177,33 @@
       }
     }
     @media (max-width: 768px) {
-      > div {
-        display: block;
+      position: relative;
+      padding-bottom: 62px;
+      header {
+        time {
+          display: block;
+          padding: 0;
+          border: 0;
+        }
+        .title {
+          display: block;
+          padding: 1.5em 0;
+        }
+        .action {
+          position: absolute;
+          display: block;
+          text-align: left;
+          left: 16px;
+          bottom: 16px;
+        }
       }
-      .time {
-        padding: 0;
-        border: 0;
-      }
-      .information {
-        padding: 1.5em 0;
-      }
-      .action {
-        text-align: left;
+      .more-info {
+        padding-left: 0;
+        margin-top: -1em;
+        margin-bottom: 1em;
+        &:before {
+          display: none;
+        }
       }
     }
   }
