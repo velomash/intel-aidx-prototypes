@@ -5,15 +5,15 @@ class FloatingNav {
 
   constructor() {
     this.nav = this.createParentNavElement();
-    this.elements = this.createNavElements(
-      document.querySelectorAll('[data-floating-nav-label]')
-    );
-    this.elements.forEach(element => {
-      element.addEventListener('click', this.onClickNavElement);
-      this.nav.appendChild(element);
+    this.links = this.createNavLinks();
+    this.scrollController = new ScrollMagic.Controller();
+    this.links.forEach(navLink => {
+      navLink.addEventListener('click', this.onClickNavElement);
+      this.addScrollHighlighting(navLink);
+      this.nav.appendChild(navLink);
     });
     // insert nav before first labeled element
-    const firstLabeledElement = this.elements[0].targetElement;
+    const firstLabeledElement = this.links[0].navSection;
     firstLabeledElement.parentElement.insertBefore(this.nav, firstLabeledElement);
   }
 
@@ -24,16 +24,20 @@ class FloatingNav {
     return nav;
   }
 
-  createNavElements(HTMLDomNodeList) {
+  createNavLinks() {
+    const labeledHTMLDomNodes = document.querySelectorAll('[data-floating-nav-label]');
     const elements = [];
-    for (let i = 0; i < HTMLDomNodeList.length; i++) {
+    for (let i = 0; i < labeledHTMLDomNodes.length; i++) {
       const navElement = document.createElement('a');
       navElement.classList.add('nav-item');
-      navElement.targetElement = HTMLDomNodeList[i];
-      navElement.textContent = HTMLDomNodeList[i].getAttribute('data-floating-nav-label');
-      const elementId = HTMLDomNodeList[i].id ? HTMLDomNodeList[i].id : navElement.textContent.replace(/\s/, '');
-      if (!HTMLDomNodeList[i].id) {
-        HTMLDomNodeList[i].id = elementId;
+      navElement.navSection = labeledHTMLDomNodes[i];
+      navElement.textContent = labeledHTMLDomNodes[i].getAttribute('data-floating-nav-label');
+      let elementId;
+      if (labeledHTMLDomNodes[i].id) {
+        elementId = `FloatingNav-${labeledHTMLDomNodes[i].id}`;
+      } else {
+        elementId = `FloatingNav-${navElement.textContent.replace(/\s/, '')}`;
+        labeledHTMLDomNodes[i].id = elementId;
       }
       navElement.setAttribute('href', `#${elementId}`);
       elements.push(navElement);
@@ -41,13 +45,24 @@ class FloatingNav {
     return elements;
   }
 
-  onClickNavElement(event) {
-    console.log(event);
+  addScrollHighlighting(navLink) {
+    navLink.scrollScene = new ScrollMagic.Scene({
+        triggerElement: navLink.navSection,
+        duration: navLink.navSection.offsetHeight,
+      })
+      .setClassToggle(navLink, 'active')
+      .addTo(this.scrollController);
   }
 
-  saveElementHeight(element) {
-    const boundingRect = element.getBoundingClientRect();
-    element.posFromTop = window.scrollY + boundingRect.top;
+  onClickNavElement(event) {
+    event.preventDefault();
+    TweenMax.to(window, 0.5, {
+      scrollTo: {
+        y: event.target.navSection,
+        autoKill: true,
+      },
+      ease: Cubic.easeInOut,
+    });
   }
 }
 
