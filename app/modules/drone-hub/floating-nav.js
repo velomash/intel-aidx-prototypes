@@ -5,11 +5,11 @@ import ScrollToPlugin from 'gsap/ScrollToPlugin';
 class FloatingNav {
 
   constructor() {
-    const nav = this.createParentNavElement();
+    const nav = this.createParentNavLink();
     const links = this.createNavLinks();
     const scrollController = new ScrollMagic.Controller();
     links.forEach(navLink => {
-      navLink.addEventListener('click', this.onClickNavElement);
+      navLink.addEventListener('click', this.onClickNavLink);
       this.addScrollHighlighting(navLink, scrollController);
       nav.appendChild(navLink);
     });
@@ -18,7 +18,7 @@ class FloatingNav {
     firstLabeledSection.parentElement.insertBefore(nav, firstLabeledSection);
   }
 
-  createParentNavElement() {
+  createParentNavLink() {
     const nav = document.createElement('nav');
     nav.classList.add('floating-nav');
     nav.setAttribute('role', 'navigation');
@@ -35,7 +35,7 @@ class FloatingNav {
       navElement.textContent = labeledHTMLDomNodes[i].getAttribute('data-floating-nav-label');
       let elementId;
       if (labeledHTMLDomNodes[i].id) {
-        elementId = `FloatingNav-${labeledHTMLDomNodes[i].id}`;
+        elementId = labeledHTMLDomNodes[i].id;
       } else {
         elementId = `FloatingNav-${navElement.textContent.replace(/\s/, '')}`;
         labeledHTMLDomNodes[i].id = elementId;
@@ -55,7 +55,7 @@ class FloatingNav {
       .addTo(controller);
   }
 
-  onClickNavElement(event) {
+  onClickNavLink(event) {
     event.preventDefault();
     TweenMax.to(window, 0.5, {
       scrollTo: {

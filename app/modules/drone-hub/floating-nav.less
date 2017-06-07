@@ -1,4 +1,7 @@
+@lightColor: white;
+@darkColor: black;
 @activeColor: #8cdafa;
+@transitionTiming: 175ms;
 
 nav.floating-nav {
   position: fixed;
@@ -14,35 +17,46 @@ nav.floating-nav {
     text-align: right;
     font-size: 14px;
     text-decoration: none;
+    color: @darkColor;
+    transition: color @transitionTiming;
     &:before,
     &:after {
       content: ' ';
       display: block;
       position: absolute;
       top: 50%;
-      right: 5px;
+      left: auto;
+      right: 7px;
       border-radius: 100%;
-      transform: translate3d(-50%, -50%, 0);
-      transition: all 250ms;
+      transition: all @transitionTiming;
+      box-sizing: border-box;
     }
     &:before {
-      width: 11px;
-      height: 11px;
-      background-color: blue;
+      width: 20px;
+      height: 20px;
+      border: 2px solid @darkColor;
+      transform: translate3d(0, -50%, 0) scale(0.1);
     }
     &:after {
-      width: 19px;
-      height: 19px;
-      border: 2px solid blue;
-      right: -3px;
+      width: 10px;
+      height: 10px;
+      background-color: @darkColor;
+      transform: translate3d(-50%, -50%, 0);
+    }
+
+    &:hover {
+      color: @activeColor;
+      &:after { background-color: @activeColor; }
     }
   }
   .nav-item.active {
     color: @activeColor;
-    &:before,
+    &:before {
+      border-color: @activeColor;
+      transform: translate3d(0, -50%, 0) scale(1);
+    }
     &:after {
       background-color: @activeColor;
-      border-color: @activeColor;
     }
   }
 }
