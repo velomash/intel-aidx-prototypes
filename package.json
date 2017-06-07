@@ -19,6 +19,7 @@
     "json-loader": "^0.5.4",
     "lodash.throttle": "^4.1.1",
     "script-loader": "^0.7.0",
+    "scrollmagic": "^2.0.5",
     "three": "^0.79.0",
     "tween.js": "^16.3.5"
   },

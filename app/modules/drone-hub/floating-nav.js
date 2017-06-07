@@ -1,20 +1,21 @@
-import { TweenMax } from 'gsap';
+import ScrollMagic from 'scrollmagic';
+import { TweenLite } from 'gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
 class FloatingNav {
 
   constructor() {
-    this.nav = this.createParentNavElement();
-    this.links = this.createNavLinks();
-    this.scrollController = new ScrollMagic.Controller();
-    this.links.forEach(navLink => {
+    const nav = this.createParentNavElement();
+    const links = this.createNavLinks();
+    const scrollController = new ScrollMagic.Controller();
+    links.forEach(navLink => {
       navLink.addEventListener('click', this.onClickNavElement);
-      this.addScrollHighlighting(navLink);
-      this.nav.appendChild(navLink);
+      this.addScrollHighlighting(navLink, scrollController);
+      nav.appendChild(navLink);
     });
     // insert nav before first labeled element
-    const firstLabeledElement = this.links[0].navSection;
-    firstLabeledElement.parentElement.insertBefore(this.nav, firstLabeledElement);
+    const firstLabeledSection = links[0].navSection;
+    firstLabeledSection.parentElement.insertBefore(nav, firstLabeledSection);
   }
 
   createParentNavElement() {
@@ -45,13 +46,13 @@ class FloatingNav {
     return elements;
   }
 
-  addScrollHighlighting(navLink) {
+  addScrollHighlighting(navLink, controller) {
     navLink.scrollScene = new ScrollMagic.Scene({
         triggerElement: navLink.navSection,
         duration: navLink.navSection.offsetHeight,
       })
       .setClassToggle(navLink, 'active')
-      .addTo(this.scrollController);
+      .addTo(controller);
   }
 
   onClickNavElement(event) {
