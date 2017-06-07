@@ -1,22 +1,44 @@
-class FloatingNav {
-  constructor() {
-    // create nav parent
-    this.nav = document.createElement('nav');
-    this.nav.classList.add('floating-nav');
+import { TweenMax } from 'gsap';
+import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
-    // get elements with a label and process them as nav items
-    const elements = document.querySelectorAll('[data-floating-nav-label]');
-    this.elements = [];
-    for (let i=0; i<elements.length; i++) {
-      const navElement = document.createElement('div');
+class FloatingNav {
+
+  constructor() {
+    this.nav = this.createParentNavElement();
+    this.elements = this.createNavElements(
+      document.querySelectorAll('[data-floating-nav-label]')
+    );
+    this.elements.forEach(element => {
+      element.addEventListener('click', this.onClickNavElement);
+      this.nav.appendChild(element);
+    });
+    // insert nav before first labeled element
+    const firstLabeledElement = this.elements[0].targetElement;
+    firstLabeledElement.parentElement.insertBefore(this.nav, firstLabeledElement);
+  }
+
+  createParentNavElement() {
+    const nav = document.createElement('nav');
+    nav.classList.add('floating-nav');
+    nav.setAttribute('role', 'navigation');
+    return nav;
+  }
+
+  createNavElements(HTMLDomNodeList) {
+    const elements = [];
+    for (let i = 0; i < HTMLDomNodeList.length; i++) {
+      const navElement = document.createElement('a');
       navElement.classList.add('nav-item');
-      navElement.targetElement = elements[i];
-      navElement.textContent = elements[i].getAttribute('data-floating-nav-label');
-      navElement.addEventListener('click', this.onClickNavElement);
-      this.elements.push(navElement);
-      this.nav.appendChild(navElement);
+      navElement.targetElement = HTMLDomNodeList[i];
+      navElement.textContent = HTMLDomNodeList[i].getAttribute('data-floating-nav-label');
+      const elementId = HTMLDomNodeList[i].id ? HTMLDomNodeList[i].id : navElement.textContent.replace(/\s/, '');
+      if (!HTMLDomNodeList[i].id) {
+        HTMLDomNodeList[i].id = elementId;
+      }
+      navElement.setAttribute('href', `#${elementId}`);
+      elements.push(navElement);
     }
-    document.body.appendChild(this.nav);
+    return elements;
   }
 
   onClickNavElement(event) {

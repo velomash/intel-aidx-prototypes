@@ -1,0 +1,48 @@
+@activeColor: #8cdafa;
+
+nav.floating-nav {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+
+  .nav-item {
+    position: relative;
+    display: block;
+    padding: 16px 32px 16px 7px;
+    cursor: pointer;
+    text-align: right;
+    font-size: 14px;
+    text-decoration: none;
+    &:before,
+    &:after {
+      content: ' ';
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 5px;
+      border-radius: 100%;
+      transform: translate3d(-50%, -50%, 0);
+      transition: all 250ms;
+    }
+    &:before {
+      width: 11px;
+      height: 11px;
+      background-color: blue;
+    }
+    &:after {
+      width: 19px;
+      height: 19px;
+      border: 2px solid blue;
+      right: -3px;
+    }
+  }
+  .nav-item.active {
+    color: @activeColor;
+    &:before,
+    &:after {
+      background-color: @activeColor;
+      border-color: @activeColor;
+    }
+  }
+}
