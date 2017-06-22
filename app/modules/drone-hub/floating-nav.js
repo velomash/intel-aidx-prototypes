@@ -5,17 +5,19 @@ import ScrollToPlugin from 'gsap/ScrollToPlugin';
 class FloatingNav {
 
   constructor() {
-    const nav = this.createParentNavLink();
     const links = this.createNavLinks();
-    const scrollController = new ScrollMagic.Controller();
-    links.forEach(navLink => {
-      navLink.addEventListener('click', this.onClickNavLink);
-      this.addScrollHighlighting(navLink, scrollController);
-      nav.appendChild(navLink);
-    });
-    // insert nav before first labeled element
-    const firstLabeledSection = links[0].navSection;
-    firstLabeledSection.parentElement.insertBefore(nav, firstLabeledSection);
+    if (links.length) {
+      const nav = this.createParentNavLink();
+      const scrollController = new ScrollMagic.Controller();
+      links.forEach(navLink => {
+        navLink.addEventListener('click', this.onClickNavLink);
+        this.addScrollHighlighting(navLink, scrollController);
+        nav.appendChild(navLink);
+      });
+      // insert nav before first labeled element
+      const firstLabeledSection = links[0].navSection;
+      firstLabeledSection.parentElement.insertBefore(nav, firstLabeledSection);
+    }
   }
 
   createParentNavLink() {

@@ -1,8 +1,60 @@
 .drone-page {
-  padding-top: 60px;
+  text-align: center;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "intel-clear-headline";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  button {
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    transition: all 75ms;
+  }
   header,
   section {
     width: 100%;
     padding: 60px 15px;
+  }
+
+  .hero {
+    color: white;
+    padding-top: 90px;
+    height: 100vh;
+    background-image: url('assets/imgs/drones-hub/hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    .configurator {
+      float: right;
+      font-size: 14px;
+      font-weight: lighter;
+      background-color: @digital-blue;
+      border-radius: 3px;
+      color: white;
+      padding: 11px 16px;
+      &:hover {
+        background-color: @intel-blue;
+      }
+    }
+    button.scroll {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      width: 50px;
+      height: 50px;
+      margin-left: -25px;
+      svg {
+        fill: white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: fill 75ms;
+      }
+      &:hover svg {
+        fill: @pale-blue;
+      }
+    }
   }
 }
