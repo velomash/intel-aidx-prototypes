@@ -1,111 +1,85 @@
 <div class="drone-page">
+  <button class="configurator">Configure Your Drone</button>
   <div data-floating-nav-label="Overview">
     <header class="hero">
-      <div class="container">
-        <button class="configurator pull-right">Configure Your Drone</button>
+      <div class="center-vertically">
         <h4>The future of</h4>
-        <h1>
-          <span class="line-1">Commercial</span>
-          <span class="line-2">Drones</span>
-        </h1>
+        <h1 class="commercial">Commercial</h1>
         <figure class="drone"><img src="assets/imgs/drones-hub/hero-drone.png" alt="Falcon 8 drone"></figure>
-        <a href="#overview-text"><button class="scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M29.4 42.6a1.88 1.88 0 0 0 0 2.6L50 65.8l20.6-20.6a1.94 1.94 0 0 0 0-2.6 1.88 1.88 0 0 0-2.6 0l-18 18-18-18a1.87 1.87 0 0 0-2.6 0z"/><path d="M96.3 50A46.3 46.3 0 1 1 50 3.7 46.39 46.39 0 0 1 96.3 50zM0 50A50 50 0 1 0 50 0 50 50 0 0 0 0 50z"/></svg></button></a>
+        <h1 class="drones">Drones</h1>
       </div>
+      <a href="#overview-text"><button class="scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M29.4 42.6a1.88 1.88 0 0 0 0 2.6L50 65.8l20.6-20.6a1.94 1.94 0 0 0 0-2.6 1.88 1.88 0 0 0-2.6 0l-18 18-18-18a1.87 1.87 0 0 0-2.6 0z"/><path d="M96.3 50A46.3 46.3 0 1 1 50 3.7 46.39 46.39 0 0 1 96.3 50zM0 50A50 50 0 1 0 50 0 50 50 0 0 0 0 50z"/></svg></button></a>
     </header>
 
     <section id="overview-text">
-      <figure class="drone"></figure>
-      <p>The commercial drone industry is growing, and the applications are becoming more robust. Intel is committed to leading the way for a new era commercial drone integration.</p>
-      <p>By expanding the potentials of drone technology, Intel can provide new capabilities in sectors from surveying and inspection to construction and energy. We’re also working with the software, integrated cloud, and network solutions that will enable industries to leverage their new drone-collected data and turn it into the actionable insights that power businesses.</p>
+      <div class="center-vertically">
+        <figure class="drone"><img src="assets/imgs/drones-hub/falcon-drone.png" alt="Falcon 8 drone"></figure>
+        <p class="big">The commercial drone industry is growing, and the applications are becoming more robust. Intel is committed to leading the way for a new era commercial drone integration.</p>
+        <p>By expanding the potentials of drone technology, Intel can provide new capabilities in sectors from surveying and inspection to construction and energy. We’re also working with the software, integrated cloud, and network solutions that will enable industries to leverage their new drone-collected data and turn it into the actionable insights that power businesses.</p>
+      </div>
     </section>
   </div>
 
-  <section data-floating-nav-label="The Drones">
-    <h4>The Right Drone for The Right Job</h4>
-    <div class="column">
-      <h2 class="line-1">Intel</h2>
-      <h2 class="line-2">Falcon8+</h2>
-      <figure class="drone falcon-8"></figure>
-      <p>SIRIUS PRO* Unmanned Aerial System Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta.</p>
-      <p><a href="#">Visit full product page ›</a></p>
-      <ul class="icon-grid">
-        <li>
-          <figure></figure>
-          <h5>Flight Time</h5>
-          <h6>up to 26 minutes
-            <h6>
-        </li>
-        <li>
-          <figure></figure>
-          <h5>Safety Features</h5>
-          <h6>Auto Pilot</h6>
-        </li>
-        <li>
-          <figure></figure>
-          <h5>Flight Time</h5>
-          <h6>up to 26 minutes</h6>
-        </li>
-        <li>
-          <figure></figure>
-          <h5>Connection Range</h5>
-          <h6>up to 1km+</h6>
-        </li>
-        <li>
-          <figure></figure>
-          <h5>Precise Data</h5>
-          <h6>up to 26 minutes</h6>
-        </li>
-        <li>
-          <figure></figure>
-          <h5>Robust Performance</h5>
-          <h6>12 m/s (GPS Mode)</h6>
-        </li>
-      </ul>
+  <section data-floating-nav-label="The Drones" class="drone-comparison">
+    <h5>The Right Drone for The Right Job</h5>
+    <div class="container">
+      <div class="col-xs-12 col-sm-6">
+        <h2>Intel</h2>
+        <h2>Falcon8+</h2>
+        <figure class="drone falcon-8"></figure>
+        <p>SIRIUS PRO* Unmanned Aerial System Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta.</p>
+        <a href="#">Visit full product page ›</a>
+        <ul class="icon-grid">
+          <li>
+            <figure></figure>
+            <p>Robust Performance</p>
+            <p>
+              12 m/s (GPS Mode)<br> 16 m/s (Manual)
+            </p>
+          </li>
+          <li>
+            <figure></figure>
+            <p>Precise Data</p>
+            <p>1mm GSD</p>
+          </li>
+          <li>
+            <figure></figure>
+            <p>Safety Features</p>
+            <p>
+              Triple Redundant<br> Flight Control
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <h2>Mavinci</h2>
+        <h2>Sirius Pro</h2>
+        <figure class="drone sirius-pro"></figure>
+        <p>The Intel® Falcon™ 8+ drone is an advanced, perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae que ipsa quae ab illo inventore.</p>
+        <a href="#">Visit full product page ›</a>
+        <ul class="icon-grid">
+          <li>
+            <figure></figure>
+            <p>Robust Performance</p>
+            <p>
+              12 m/s (GPS Mode)<br> 16 m/s (Manual)
+            </p>
+          </li>
+          <li>
+            <figure></figure>
+            <p>Precise Data</p>
+            <p>1mm GSD</p>
+          </li>
+          <li>
+            <figure></figure>
+            <p>Safety Features</p>
+            <p>
+              Triple Redundant<br> Flight Control
+            </p>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="column">
-      <h2 class="line-1">Mavinci</h2>
-      <h2 class="line-2">Sirius Pro</h2>
-      <figure class="drone sirius-pro"></figure>
-      <p>The Intel® Falcon™ 8+ drone is an advanced, perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae que ipsa quae ab illo inventore.</p>
-      <p><a href="#">Visit full product page ›</a></p>
-      <ul class="icon-grid">
-        <li>
-          <figure></figure>
-          <h5>Flight Time</h5>
-          <h6>up to 26 minutes
-            <h6>
-        </li>
-        <li>
-          <figure></figure>
-          <h5>Safety Features</h5>
-          <h6>Auto Pilot</h6>
-        </li>
-        <li>
-          <figure></figure>
-          <h5>Flight Time</h5>
-          <h6>up to 26 minutes</h6>
-        </li>
-        <li>
-          <figure></figure>
-          <h5>Connection Range</h5>
-          <h6>up to 1km+</h6>
-        </li>
-        <li>
-          <figure></figure>
-          <h5>Precise Data</h5>
-          <h6>up to 26 minutes</h6>
-        </li>
-        <li>
-          <figure></figure>
-          <h5>Robust Performance</h5>
-          <h6>12 m/s (GPS Mode)</h6>
-        </li>
-      </ul>
-    </div>
-    <button id="activate-drone-comparison">
-      <figure class="plus-icon"></figure>
-      <span>Click to Compare Drones</span>
-    </button>
   </section>
 
   <section data-floating-nav-label="Mission Control">

@@ -5,36 +5,87 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  h1 { font-size: 192px; }
+  h2 { font-size: 120px; }
+  h4 { font-size: 42px; }
+  h5 { font-size: 30px; }
+  h6 {
+    font-weight: lighter;
+    font-size: 16px;
+  }
+  p {
+    max-width: 675px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+    font-weight: lighter;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    &.big {
+      font-size: 24px;
+    }
+  }
+  img {
+    max-width: 100%;
+  }
   button {
     border: 0;
     outline: 0;
     background-color: transparent;
     transition: all 75ms;
   }
+  .configurator {
+    position: fixed;
+    top: 90px;
+    right: 30px;
+    font-size: 14px;
+    font-weight: lighter;
+    background-color: @digital-blue;
+    border-radius: 3px;
+    color: white;
+    padding: 11px 16px;
+    z-index: 999;
+    &:hover {
+      background-color: @intel-blue;
+    }
+  }
   header,
   section {
+    position: relative;
     width: 100%;
     padding: 60px 15px;
+    min-height: 100vh;
+    .center-vertically {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      transform: translate3d(0, -50%, 0);
+    }
   }
 
   .hero {
     color: white;
     padding-top: 90px;
-    height: 100vh;
     background-image: url('assets/imgs/drones-hub/hero-background.jpg');
     background-size: cover;
     background-position: center;
-    .configurator {
-      float: right;
-      font-size: 14px;
-      font-weight: lighter;
-      background-color: @digital-blue;
-      border-radius: 3px;
-      color: white;
-      padding: 11px 16px;
-      &:hover {
-        background-color: @intel-blue;
+    h4 {
+      margin-bottom: -11px;
+      letter-spacing: 2px;
+    }
+    h1 {
+      margin: 0;
+      &:last-child {
+        margin-top: 30px;
       }
+    }
+    .drone {
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
     }
     button.scroll {
       position: absolute;
@@ -54,6 +105,51 @@
       }
       &:hover svg {
         fill: @pale-blue;
+      }
+    }
+  }
+
+  #overview-text {
+    .drone {
+      max-width: 945px;
+      margin: 0 auto;
+    }
+    p.big {
+      margin: 55px auto 30px auto;
+    }
+  }
+
+  .drone-comparison {
+    font-weight: lighter;
+    a {
+      color: @digital-blue;
+    }
+    & > h5 {
+      color: @digital-blue;
+      font-family: 'intel-clear';
+    }
+    h2 {
+      margin: 0;
+      line-height: 0.83;
+      color: @digital-blue;
+      &:first-child {
+        color: @dark-blue;
+      }
+    }
+    .icon-grid {
+      display: flex;
+      padding: 0;
+      margin-top: 30px;
+      li {
+        flex: 1;
+        list-style-type: none;
+        border-left: 1px solid @light-gray;
+        padding: 1.25em;
+        &:first-child { border-left: 0; }
+        p {
+          font-size: 16px;
+          line-height: 1.25;
+        }
       }
     }
   }

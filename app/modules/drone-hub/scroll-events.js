@@ -10,7 +10,7 @@ class ScrollBehaviors {
   }
 
   setupScrollToLinking() {
-    this.controller.scrollTo(newPos => TweenLite.to(window, 0.5, {scrollTo: {y: newPos-60}}));
+    this.controller.scrollTo(newPos => TweenLite.to(window, 0.5, {scrollTo: {y: newPos}}));
     $(document).on('click', "a[href^='#']", event => {
       const id = $(event.currentTarget).attr('href');
       if ($(id).length > 0) {
