@@ -1,4 +1,6 @@
 .drone-page {
+
+  // page globals
   text-align: center;
   h1, h2, h3, h4, h5, h6 {
     font-family: "intel-clear-headline";
@@ -7,12 +9,10 @@
   }
   h1 { font-size: 192px; }
   h2 { font-size: 120px; }
-  h4 { font-size: 42px; }
-  h5 { font-size: 30px; }
-  h6 {
-    font-weight: lighter;
-    font-size: 16px;
-  }
+  h3 { font-size: 85px; }
+  h4 { font-size: 52px; }
+  h5 { font-size: 42px; }
+  h6 { font-size: 30px; }
   p {
     max-width: 675px;
     margin-left: auto;
@@ -22,9 +22,6 @@
     line-height: 1.75;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    &.big {
-      font-size: 24px;
-    }
   }
   img {
     max-width: 100%;
@@ -50,8 +47,7 @@
       background-color: @intel-blue;
     }
   }
-  header,
-  section {
+  .full-screen {
     position: relative;
     width: 100%;
     padding: 60px 15px;
@@ -65,6 +61,7 @@
     }
   }
 
+  // page sections
   .hero {
     color: white;
     padding-top: 90px;
@@ -115,6 +112,7 @@
       margin: 0 auto;
     }
     p.big {
+      font-size: 24px;
       margin: 55px auto 30px auto;
     }
   }
@@ -153,4 +151,36 @@
       }
     }
   }
-}
+
+  .industry-applications {
+    header {
+      h2 {
+        color: @dark-blue;
+        line-height: 0.83;
+      }
+      p {
+        line-height: 1.35;
+      }
+    }
+    .industry {
+      p {
+        line-height: 1.5;
+        margin-top: 15px;
+      }
+      font-size: 0;
+      text-align: left;
+      .row > div {
+        display: inline-block;
+        vertical-align: middle;
+        float: none;
+               *:first-child {
+                 margin-top: 0;
+               }
+               p {
+                 line-height: 1.5;
+                 font-size: 16px;
+               }
+             }
+           }
+         }
+       }
