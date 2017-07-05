@@ -65,9 +65,15 @@
   .hero {
     color: white;
     padding-top: 90px;
-    background-image: url('assets/imgs/drones-hub/hero-background.jpg');
-    background-size: cover;
-    background-position: center;
+    overflow: hidden;
+    background: rgba(6,40,93,1);
+    background: -moz-linear-gradient(top, rgba(6,40,93,1) 0%, rgba(6,40,93,1) 21%, rgba(31,149,198,1) 71%, rgba(132,201,230,1) 96%, rgba(132,201,230,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(6,40,93,1)), color-stop(21%, rgba(6,40,93,1)), color-stop(71%, rgba(31,149,198,1)), color-stop(96%, rgba(132,201,230,1)), color-stop(100%, rgba(132,201,230,1)));
+    background: -webkit-linear-gradient(top, rgba(6,40,93,1) 0%, rgba(6,40,93,1) 21%, rgba(31,149,198,1) 71%, rgba(132,201,230,1) 96%, rgba(132,201,230,1) 100%);
+    background: -o-linear-gradient(top, rgba(6,40,93,1) 0%, rgba(6,40,93,1) 21%, rgba(31,149,198,1) 71%, rgba(132,201,230,1) 96%, rgba(132,201,230,1) 100%);
+    background: -ms-linear-gradient(top, rgba(6,40,93,1) 0%, rgba(6,40,93,1) 21%, rgba(31,149,198,1) 71%, rgba(132,201,230,1) 96%, rgba(132,201,230,1) 100%);
+    background: linear-gradient(to bottom, rgba(6,40,93,1) 0%, rgba(6,40,93,1) 21%, rgba(31,149,198,1) 71%, rgba(132,201,230,1) 96%, rgba(132,201,230,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#06285d', endColorstr='#84c9e6', GradientType=0 );
     h4 {
       margin-bottom: -11px;
       letter-spacing: 2px;
@@ -78,12 +84,78 @@
         margin-top: 30px;
       }
     }
+
+    // building the backgroud objects
+    .mountains {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-image: url('assets/imgs/drones-hub/mountain.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      padding-bottom: 33.33%;
+    }
+    .turbine {
+      position: absolute;
+      bottom: 0;
+      background-image: url('assets/imgs/drones-hub/hero-turbine.png');
+      background-size: cover;
+      background-position: center bottom;
+      background-repeat: no-repeat;
+      &:before {
+        content: ' ';
+        display: block;
+        width: 100%;
+        padding-bottom: 132%;
+      }
+      &.turbine-left {
+        width: 375px;
+        left: 15px;
+      }
+      &.turbine-right {
+        width: 550px;
+        right: -50px;
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+      }
+    }
+    .cloud {
+      position: absolute;
+      background-image: url('assets/imgs/drones-hub/clouds.png');
+      background-size: cover;
+      background-position: center bottom;
+      background-repeat: no-repeat;
+      &:before {
+        content: ' ';
+        display: block;
+        width: 100%;
+        padding-bottom: 49.189%;
+      }
+      &.cloud-1 {
+        width: 375px;
+        left: 15px;
+        top: 70px;
+      }
+      &.cloud-2 {
+        width: 550px;
+        right: -100px;
+        top: 120px;
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+      }
+    }
     .drone {
       position: absolute;
       top: 55%;
       left: 50%;
+      width: 450px;
+      height: 98px;
       transform: translate3d(-50%, -50%, 0);
+      background-image: url('assets/imgs/drones-hub/hero-drone-@3x.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
     }
+
     button.scroll {
       position: absolute;
       bottom: 30px;
