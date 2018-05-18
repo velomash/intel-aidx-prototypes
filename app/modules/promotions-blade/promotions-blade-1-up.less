@@ -1,0 +1,123 @@
+.promotions-blade {
+  padding: 36px;
+}
+
+.promotions-blade .card {
+  background-color: white;
+  display: flex;
+}
+.promotions-blade .card .column {
+  position: relative;
+  width: 50%;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.promotions-blade .card figure:after {
+  display: block;
+  content: ' ';
+  width: 100%;
+  padding-bottom: 56.25%;
+}
+
+.promotions-blade .card .background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.promotions-blade .card .text {
+  padding: 16px 32px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.promotions-blade .card .text h3 {
+  font-weight: lighter;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+.promotions-blade .card .text p {
+  margin-bottom: 16px;
+}
+
+.promotions-blade .card .text > *:first-child {
+  margin-top: 0;
+}
+.promotions-blade .card .text > *:last-child {
+  margin-bottom: 0;
+}
+
+.promotions-blade .vertical-center {
+  display: flex;
+  align-items: center;
+}
+
+// replace with the standard intel button
+.promotions-blade .card .text button {
+  position: relative;
+  min-width: 96px;
+  border-radius: 2px;
+  padding: .3em 2em;
+  font-size: 14px;
+  border-width: 0;
+  white-space: normal;
+  color: #fff;
+  background-color: #0071c5;
+  border-color: #0062ac;
+  font-weight: lighter;
+}
+
+@media (max-width: 768px) {
+  .promotions-blade .card {
+    display: block;
+  }
+  .promotions-blade .card .column {
+    width: 100%;
+  }
+}
+
+.dark-blue-theme {
+  background-color: #003C71;
+}
+.medium-blue-theme {
+  background-color: #005A9D;
+}
+.intel-blue-theme {
+  background-color: #0071C5;
+}
+.charcoal-theme {
+  background-color: #252525;
+}
+.intel-blue-text-theme {
+  background-color: #f3f3f3;
+  .card {
+    color: white;
+    background-color: #00AEEF;
+  }
+}
+.medium-blue-text-theme {
+  background-color: #f3f3f3;
+  .card {
+    color: white;
+    background-color: #005A9D;
+  }
+}
+.dark-blue-text-theme {
+  background-color: #f3f3f3;
+  .card {
+    color: white;
+    background-color: #003C71;
+  }
+}
+.charcoal-text-theme {
+  background-color: #f3f3f3;
+  .card {
+    color: white;
+    background-color: #252525;
+  }
+}
