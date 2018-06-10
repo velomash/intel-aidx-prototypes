@@ -1,3 +1,0 @@
-Curtaining for sections
-Float configure button with page nav
-
